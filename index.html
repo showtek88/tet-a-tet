@@ -1,0 +1,1636 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ для бизнеса: исследования, консалтинг, обучение и внедрение | Тет-а-тет AI</title>
+<meta name="description" content="Тет-а-тет AI — исследовательский центр прикладного ИИ. Помогаем решить, какую работу в компании отдать ИИ, а какую оставить людям: консультации, AI-аудит, обучение и внедрение AI для бизнеса в Новосибирске и по всей России.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+/* Контент — из «Главная Тет-а-тет AI v5.dc.html». Оформление — по мотивам zebrains.ru.
+   ponytail: Manrope/Inter вместо платных RF Dewi/Suisse; без React-шаблона, JS только для вкладок и примеров. */
+:root{--ink:#0d0c0c;--dark:#1a1a1a;--dark2:#181818;--red:#f72221;--red-d:#b01a19;--grey:#6d6d6d;--line:#dcdcdc;--soft:#f4f3f3;--violet:#42179c;--pad:60px}
+*{box-sizing:border-box;margin:0}
+html{font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff;font-size:16px;line-height:1.4;scroll-behavior:smooth;scroll-padding-top:90px}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.wrap{max-width:1920px;margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3,.h{font-family:Manrope,Arial,sans-serif;font-weight:800;letter-spacing:-.03em;text-wrap:balance}
+section{margin-bottom:160px}
+.eyebrow{display:block;margin-bottom:14px;color:var(--grey);font-size:15px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:50px}
+.sec-head h2,.big{font-size:42px;line-height:46px;max-width:1000px}
+.sec-head .lk,.lk{color:var(--grey);border-bottom:1px solid var(--line);white-space:nowrap;transition:.2s}
+.lk:hover{color:var(--red);border-color:var(--red)}
+.ph{color:#9a9a9a}
+.dk .ph{color:#777}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 40px;border-radius:28px;font-size:16px;font-weight:500;cursor:pointer;border:0;transition:.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-w{background:#fff;color:#000}.btn-w:hover{background:var(--soft)}
+.btn-k{background:var(--dark);color:#fff}.btn-k:hover{background:#000}
+.btn-r{background:var(--red);color:#fff}.btn-r:hover{background:var(--red-d)}
+.btn-o{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #4a4a4a}.btn-o:hover{box-shadow:inset 0 0 0 1px #fff}
+.btn-s{height:44px;padding:0 24px;border-radius:22px;font-size:15px}
+
+/* шапка и меню */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px)}
+.hd{display:flex;align-items:center;gap:32px;height:80px}
+.logo{display:flex;align-items:center;flex:none;color:var(--logo);--logo:#250412}
+.logo-svg{display:block;height:44px;width:auto;overflow:visible}
+.logo-svg .ld{font:500 8.2px Inter,Arial,sans-serif;letter-spacing:.14em}
+nav{display:flex;gap:6px;font-weight:500;flex:1}
+.m{position:relative}
+.m>a{display:block;padding:28px 12px;white-space:nowrap}
+.m:hover>a{color:var(--red)}
+.dd{display:none;position:absolute;left:0;top:78px;min-width:300px;padding:14px;background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.16)}
+.m:hover .dd,.m:focus-within .dd{display:block}
+.dd a{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-radius:14px;font-size:15px}
+.dd a:hover{background:var(--soft)}
+.dd small{color:var(--red);font-size:12px;align-self:center}
+.dd.mega{display:none;grid-template-columns:repeat(3,230px);gap:8px;left:-200px}
+.m:hover .dd.mega,.m:focus-within .dd.mega{display:grid}
+.dd h4{padding:6px 14px 8px;font-family:Manrope;font-size:15px;color:var(--grey)}
+.hd-r{display:flex;align-items:center;gap:20px;margin-left:auto}
+.hd-r>a:not(.btn){color:var(--grey)}.hd-r>a:not(.btn):hover{color:var(--red)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;background:var(--soft);border:0;place-items:center;cursor:pointer}
+
+/* первый экран */
+.hero{margin:0 calc(var(--pad)*-1);padding:0 var(--pad);margin-bottom:24px}
+.hero-in{position:relative;overflow:hidden;padding:50px;color:#fff;background:var(--dark);border-radius:40px;display:grid;grid-template-columns:1.12fr .88fr;gap:48px}
+.hero-in::before{content:"";position:absolute;right:-10%;top:-50%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(247,34,33,.26),transparent);pointer-events:none}
+.hero-in>*{position:relative}
+.hero-l{display:flex;flex-direction:column;gap:28px;justify-content:space-between}
+.sup{font-size:22px;line-height:30px;color:#cfcfcf;letter-spacing:-.02em}
+.hero h1{font-size:68px;line-height:70px;margin-top:20px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.lead{margin-top:24px;max-width:640px;font-size:20px;line-height:30px;color:#cfcfcf}
+.start{margin-top:36px;display:flex;align-items:flex-end;gap:6px;flex-wrap:wrap}
+.hint{display:flex;align-items:flex-start;gap:6px;color:#cfcfcf;font-size:17px;line-height:22px;white-space:nowrap;padding-bottom:34px}
+.hint svg{flex:none;margin-top:14px;color:var(--red)}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fact{display:block;padding:22px 24px;border:1px solid #333;border-radius:24px;background:rgba(255,255,255,.03);font-size:15px;line-height:21px;color:#bdbdbd;transition:.2s}
+.fact:hover{border-color:#777}
+.fact b{display:block;font-family:Manrope;font-size:26px;line-height:30px;letter-spacing:-.03em;color:#fff;margin-bottom:6px}
+.schema{padding:32px;border-radius:30px;background:#242424;display:flex;flex-direction:column;gap:22px;align-self:stretch}
+.schema .top{display:flex;justify-content:space-between;align-items:center;color:#a8a8a8;font-size:15px}
+.dots{display:flex;gap:6px}
+.dots button{height:6px;width:6px;padding:0;border:0;border-radius:3px;background:#555;cursor:pointer;transition:.3s}
+.dots button.on{width:18px;background:#fff}
+.stair{display:grid;gap:12px;transition:opacity .35s}
+.stair.fade{opacity:0}
+.zc{padding:18px 22px;border-radius:22px;min-height:92px;width:86%}
+.zc small{display:block;margin-bottom:6px;font-size:13px;opacity:.75}
+.zc span{font-weight:500;line-height:22px}
+.zc.z1{background:var(--red);color:#fff;margin-left:0}
+.zc.z2{background:linear-gradient(to right,var(--violet),rgba(66,23,156,.15));margin-left:7%;color:#fff;border:1px solid #4a3a7a}
+.zc.z3{background:#fff;color:#000;margin-left:14%}
+.legend{display:flex;justify-content:space-between;font-size:13px;color:#a8a8a8}
+
+/* три маршрута */
+.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:160px}
+.aud button{display:flex;justify-content:space-between;gap:16px;text-align:left;padding:28px 30px;border:1px solid var(--line);border-radius:30px;background:#fff;cursor:pointer;transition:.2s}
+.aud button:hover{border-color:var(--ink);background:var(--soft)}
+.aud b{display:block;font-family:Manrope;font-size:22px;letter-spacing:-.02em;margin-bottom:6px}
+.aud span{color:var(--grey);line-height:21px;font-size:15px}
+.aud i{font-style:normal;align-self:center;width:36px;height:36px;flex:none;border-radius:50%;background:var(--soft);display:grid;place-items:center;transition:.2s}
+.aud button:hover i{background:var(--red);color:#fff}
+
+/* человек / ИИ */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{height:48px;padding:0 26px;border-radius:24px;border:1px solid var(--line);background:#fff;font:500 16px Inter;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--dark);color:#fff;border-color:var(--dark)}
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.zone{padding:32px;border-radius:30px;background:var(--soft)}
+.zone:nth-child(1){background:var(--red);color:#fff}
+.zone:nth-child(2){background:var(--dark);color:#fff}
+.zone .n{font-size:15px;opacity:.7}
+.zone h3{font-size:24px;line-height:28px;margin:10px 0 20px}
+.zone ul{list-style:none;padding:0;display:grid;gap:10px}
+.zone li{padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.14);line-height:20px}
+.zone:nth-child(3) li{background:#fff}
+.zone:nth-child(2) li{background:rgba(255,255,255,.09)}
+.where{display:grid;grid-template-columns:1fr 3fr;gap:40px;margin-top:40px;align-items:start}
+.where h3{font-size:24px}
+.where ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.where li{padding:22px;border:1px solid var(--line);border-radius:24px;color:var(--grey);line-height:21px;font-size:15px}
+.where li b{display:block;color:var(--ink);font-family:Manrope;font-size:18px;margin-bottom:6px}
+.edge{margin-top:20px;padding:26px 32px;border-radius:24px;background:var(--soft);display:flex;gap:24px;align-items:baseline;flex-wrap:wrap}
+.edge b{font-family:Manrope;font-size:20px}.edge span{color:var(--grey);max-width:760px}
+
+/* услуги */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sv{display:flex;flex-direction:column;gap:14px;padding:32px;border:1px solid var(--line);border-radius:40px;transition:.25s}
+.sv:hover{border-color:var(--ink)}
+.sv.off{opacity:.32}
+.sv .who{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 12px;color:var(--grey);font-size:15px}
+.sv .who .for{padding:7px 16px;border:1px solid var(--line);border-radius:20px;color:var(--ink);font-weight:500;line-height:20px;text-align:right}
+.sv h3{font-size:28px;line-height:32px}
+.sv p{color:var(--grey);line-height:22px}
+.sv ul{list-style:none;padding:0;display:grid;gap:8px}
+.sv li{padding:12px 16px;border-radius:14px;background:var(--soft);font-size:15px}
+.sv li small{color:var(--red);margin-left:6px}
+.sv .get{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:15px;line-height:22px}
+.sv .get span{display:block;color:var(--grey);margin-bottom:4px}
+.sv .ls{display:flex;gap:16px;flex-wrap:wrap}
+.sv .ls a{border-bottom:1px solid var(--red);font-weight:500}
+.sv.dk{grid-column:span 2;background:var(--dark);color:#fff;border-color:var(--dark)}
+.sv.dk p,.sv.dk .who,.sv.dk .get span{color:#a8a8a8}.sv.dk .get{border-color:#333}.sv.dk .who .for{color:#fff;border-color:#555}
+.sv:first-child{border:0;background:linear-gradient(135deg,#3a1590 0%,#5a2fc0 60%,#7048d6 100%);color:#fff}
+.sv:first-child p,.sv:first-child .who,.sv:first-child .get span{color:#e6defa}.sv:first-child .get{border-color:rgba(255,255,255,.25)}
+.sv:first-child .who .for{color:#fff;border-color:rgba(255,255,255,.5)}
+.sv:first-child li{background:rgba(255,255,255,.12)}
+.more-line{margin-top:28px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;color:var(--grey)}
+
+/* исследования (тёмная панель) */
+.panel{padding:48px;border-radius:40px;color:#fff;background:var(--dark2)}
+.panel>p.intro{max-width:880px;color:#c8c8c8;font-size:18px;line-height:28px;margin-bottom:36px}
+.cyc{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cyc li{display:flex;flex-direction:column;gap:8px;padding:26px;border:1px solid #2f2f2f;border-radius:30px;font-family:Manrope;font-weight:800;font-size:20px;letter-spacing:-.02em;position:relative}
+.cyc li span{color:var(--red);font-size:15px}
+.cyc li:nth-child(4){border-color:#5a2020;background:#1f1313}
+.cyc-note{margin:22px 0 0;color:#a8a8a8;line-height:24px;max-width:900px}
+.out{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.out div{padding:22px;border-radius:22px;background:#242424;color:#bdbdbd;font-size:15px;line-height:21px}
+.out b{display:block;color:#fff;font-family:Manrope;font-size:17px;margin-bottom:6px}
+.out-h{margin-top:40px;font-family:Manrope;font-weight:800;font-size:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.stats div{padding:24px;border:1px solid #333;border-radius:24px;color:#a8a8a8;line-height:21px;font-size:15px}
+.stats b{display:block;color:#fff;font-family:Manrope;font-size:30px;margin-bottom:6px}
+.kb{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kb h4{grid-column:1/-1;font-family:Manrope;font-size:18px;margin-bottom:2px}
+.kb div{padding:22px;border-radius:22px;background:#242424;line-height:22px;color:#bdbdbd;font-size:15px}
+.kb span{display:inline-block;margin-bottom:10px;padding:4px 12px;border-radius:12px;background:#333;color:#fff;font-size:13px}
+.kb .ok span{background:var(--red)}
+.panel .ls{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+
+/* пространство */
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fig .img,.pimg{display:grid;place-items:center;text-align:center;padding:20px;aspect-ratio:4/3;border-radius:30px;background:repeating-linear-gradient(135deg,#efeeee 0 14px,#f7f6f6 14px 28px);color:#9a9a9a;font-size:14px}
+.fig b{display:block;font-family:Manrope;font-size:20px;margin:16px 0 4px}
+.fig span{color:var(--grey);font-size:15px;line-height:21px}
+.lead2{max-width:820px;color:var(--grey);font-size:18px;line-height:28px;margin-bottom:36px}
+.krona{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-top:40px}
+.kr-l,.kr-r{padding:48px;border-radius:40px}
+.kr-l{background:var(--dark);color:#fff}
+.kr-l h3{font-size:36px;line-height:40px;margin:12px 0 18px}
+.kr-l p{color:#c8c8c8;line-height:26px;margin-bottom:28px}
+.kr-l .ls{display:flex;gap:12px;flex-wrap:wrap}
+.kr-r{background:var(--soft);display:flex;flex-direction:column;gap:14px}
+.kr-r .addr{font-family:Manrope;font-weight:800;font-size:30px;line-height:34px;letter-spacing:-.03em}
+.kr-r .ls{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:auto}
+
+/* люди */
+.days{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-top:12px}
+.days-t{margin-top:18px;color:var(--grey);font-size:17px;line-height:25px;max-width:340px}
+.days>div{padding:36px;border-radius:30px;background:var(--soft)}
+.days .big2{font-family:Manrope;font-weight:800;font-size:48px;line-height:1;letter-spacing:-.04em}
+.days .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.days .nums b{display:block;font-family:Manrope;font-size:40px;letter-spacing:-.03em}
+.days .nums span{color:var(--grey);line-height:21px;font-size:15px}
+.days .ls{display:flex;gap:20px;margin-top:20px;flex-wrap:wrap}
+.hist{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:80px 0}
+.hist h3,.h3{font-size:34px;line-height:38px;margin-bottom:20px}
+.hist p{color:var(--grey);font-size:18px;line-height:28px;margin-bottom:14px}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.figs div{padding:20px;border:1px solid var(--line);border-radius:22px;color:var(--grey);font-size:15px;line-height:20px}
+.figs b{display:block;color:var(--ink);font-family:Manrope;font-size:28px}
+.tl{list-style:none;padding:0;display:grid;gap:8px}
+.tl li{display:grid;grid-template-columns:80px 1fr;gap:16px;padding:20px 24px;border:1px solid var(--line);border-radius:24px}
+.tl b{font-family:Manrope}
+.tl span{color:var(--grey);font-size:15px;line-height:21px;display:block;margin-top:2px}
+.tl li:last-child{background:var(--dark);color:#fff;border-color:var(--dark)}.tl li:last-child span{color:#a8a8a8}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:80px}
+.team .pimg{aspect-ratio:1;border-radius:30px;margin-bottom:14px}
+.team b{display:block;font-family:Manrope;font-size:18px}.team span{color:var(--grey);font-size:15px}
+.spk{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sp{display:flex;flex-direction:column;gap:6px;padding:14px 14px 22px;border-radius:30px;background:var(--soft);text-align:left;border:0;cursor:default}
+.sp .pimg{aspect-ratio:1;border-radius:22px;margin-bottom:10px}
+.sp em{align-self:flex-start;font-style:normal;padding:4px 12px;border-radius:12px;background:#fff;font-size:13px}
+.sp em.mentor{background:var(--violet);color:#fff}
+.sp b{font-family:Manrope;padding:0 8px}.sp span{color:var(--grey);font-size:14px;padding:0 8px}
+.sp [hidden]{display:none}
+.center{text-align:center;margin-top:28px}
+
+/* блог */
+.blog{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.blog a{display:flex;flex-direction:column;gap:40px;padding:30px;border:1px solid var(--line);border-radius:30px;transition:.2s;min-height:200px}
+.blog a:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+.blog small{color:var(--grey)}.blog a:hover small{color:var(--red)}
+.blog b{font-family:Manrope;font-size:22px;line-height:27px;letter-spacing:-.02em;margin-top:auto}
+
+/* вопросы */
+.two{display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px}
+.side-dark{position:sticky;top:110px;align-self:start;display:flex;flex-direction:column;align-items:flex-start;gap:24px;padding:65px 48px;color:#fff;background:var(--dark);border-radius:30px}
+.side-dark h2{font-size:42px;line-height:46px}.side-dark p{color:#c8c8c8;font-size:18px;line-height:28px}
+.rows details{position:relative;border:1px solid var(--line);border-radius:24px;padding:30px 72px 30px 32px;transition:.2s}
+.rows details+details{margin-top:8px}
+.rows details[open],.rows details:hover{border-color:var(--ink)}
+.rows summary{list-style:none;cursor:pointer;font-family:Manrope;font-weight:800;font-size:21px;line-height:27px;letter-spacing:-.02em}
+.rows summary::-webkit-details-marker{display:none}
+.rows summary::after{content:"";position:absolute;right:28px;top:32px;width:28px;height:28px;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/10px no-repeat;transition:.2s}
+.rows details[open] summary::after{transform:rotate(180deg)}
+.rows details:hover summary::after{background-color:var(--red)}
+.rows .more{margin-top:14px;color:var(--grey);line-height:24px}
+.rows .more a{display:inline-block;margin-top:12px;color:var(--ink);font-weight:500;border-bottom:1px solid var(--red)}
+
+/* форма */
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:56px 48px;border-radius:40px;background:var(--dark);color:#fff}
+.cta h2{font-size:48px;line-height:50px;margin-bottom:12px}
+.cta .lbl{margin:28px 0 12px;color:#a8a8a8;font-size:15px}
+.cta ul{list-style:none;padding:0;display:grid;gap:10px}
+.cta li{padding:16px 22px;border:1px solid #333;border-radius:20px;color:#d0d0d0;line-height:22px}
+.cta li b{color:#fff;font-weight:600}
+form{display:grid;gap:10px;align-content:start}
+.wh{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.wh .chip{background:transparent;color:#fff;border-color:#444;height:44px}
+.wh .chip[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}
+input,textarea{width:100%;height:56px;padding:0 24px;border:1px solid #3a3a3a;border-radius:28px;background:#232323;color:#fff;font:16px Inter}
+textarea{height:110px;padding:18px 24px;border-radius:24px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#8a8a8a}
+input:focus,textarea:focus{outline:0;border-color:var(--red)}
+form .btn{width:100%;margin-top:6px}
+.tg,.pol{text-align:center;color:#8a8a8a;font-size:14px;line-height:20px}
+.tg{font-size:15px;color:#a0a0a0}.tg a,.pol a{color:#fff;border-bottom:1px solid var(--red)}
+.thanks{display:none;padding:40px;border:1px solid #333;border-radius:24px}
+.thanks b{display:block;font-family:Manrope;font-size:22px;margin-bottom:8px}
+form.sent>*{display:none}form.sent .thanks{display:block}
+
+/* футер */
+footer{color:#fff;background:var(--dark);border-radius:40px 40px 0 0;padding:64px 0 32px}
+.fgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:32px}
+.fgrid h4{font-family:Manrope;font-weight:800;font-size:17px;margin-bottom:18px}
+.fgrid a{display:block;color:#a8a8a8;margin-bottom:10px;font-size:15px;line-height:20px}.fgrid a:hover{color:#fff}
+.fbot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid #333;color:#8a8a8a;font-size:14px}
+.fbot a:hover{color:#fff}
+.sticky{display:none}
+
+/* ===== страница «Клуб ИИ Практики» (раздел «Для себя: работа с нейросетями») ===== */
+body[data-page=klub] nav>.m:nth-child(2)>a{color:var(--red)}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 20px;color:var(--grey);font-size:15px}
+.crumbs a:hover{color:var(--red)}.crumbs i{font-style:normal;opacity:.5}
+#klub .hero{margin-bottom:160px}
+.k-meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:18px;color:#a8a8a8;font-size:15px}
+.k-note{color:#a8a8a8;font-size:15px;line-height:22px}.k-note b{color:#fff;font-weight:500}
+.k-tags{display:flex;gap:8px;flex-wrap:wrap}
+.k-tags span{padding:6px 14px;border-radius:16px;border:1px solid #444;color:#d0d0d0;font-size:13px;letter-spacing:.06em}
+.cyc.c3{grid-template-columns:repeat(3,1fr)}
+.cyc li em{font:400 15px/21px Inter;font-style:normal;letter-spacing:0;color:#a8a8a8}
+.sched{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:48px;border-radius:40px;background:var(--soft)}
+.sched h3{font-size:34px;line-height:38px}
+.sched p{color:var(--grey);line-height:26px;margin-bottom:20px}
+.chat-top{display:flex;justify-content:space-between;align-items:center}
+.chat-top span:last-child{display:flex;align-items:center;gap:6px;font:500 12px Inter;letter-spacing:.08em;color:var(--grey)}
+.chat-top span:last-child::before{content:"";width:8px;height:8px;border-radius:50%;background:#2fb344}
+.bub{padding:16px 20px;border-radius:22px;background:#fff;line-height:22px;font-size:15px;max-width:92%}
+.bub small{display:block;margin-bottom:4px;color:var(--grey);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.bub.k{background:var(--dark);color:#fff;margin-left:auto}.bub.k small{color:#a8a8a8}
+.bub.ok{box-shadow:inset 0 0 0 1px var(--red)}.bub.ok small{color:var(--red)}
+.zone p{line-height:24px;opacity:.85}
+.founder{display:grid;grid-template-columns:5fr 7fr;gap:12px}
+.founder .pimg{aspect-ratio:4/5;border-radius:40px}
+.fd{padding:48px;border-radius:40px;background:var(--soft);display:flex;flex-direction:column;justify-content:center;gap:24px}
+.fd ul{list-style:none;padding:0;display:grid;gap:8px}
+.fd li{padding:14px 20px;border-radius:16px;background:#fff;font-weight:500}
+.fd h3{font-size:40px;line-height:44px}
+.fd p{color:var(--grey);font-size:18px;line-height:28px;max-width:720px}
+.k-lede{margin-top:6px;color:#c8c8c8;font-size:18px;line-height:28px}
+.cta .ticks li::before{content:"✓";color:var(--red);margin-right:12px;font-weight:600}
+.tar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
+.tar button{text-align:left;padding:20px 24px;border:1px solid #444;border-radius:24px;background:transparent;color:#fff;cursor:pointer;transition:.2s}
+.tar button:hover{border-color:#999}
+.tar small{display:block;margin-bottom:6px;color:#a8a8a8;font-size:14px}
+.tar b{font-family:Manrope;font-weight:800;font-size:32px;letter-spacing:-.03em;white-space:nowrap}
+.tar button[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}.tar button[aria-pressed=true] small{color:var(--grey)}
+.sec-head+.lead2{margin-top:-28px}
+/* ===== страница «ИИ-система предпринимателя» (обучение для предпринимателей) ===== */
+body[data-page=kurs] nav>.m:nth-child(2)>a{color:var(--red)}
+#kurs .hero{margin-bottom:160px}
+.sv li a:hover{color:var(--red)}
+.pair{display:grid;grid-template-columns:1fr 56px 1fr;gap:12px;align-items:center}
+.pc{padding:40px;border-radius:30px;align-self:stretch}
+.pc.p1{background:var(--dark);color:#fff}.pc.p2{background:var(--soft)}
+.pc .n{font-size:15px;opacity:.7}
+.pc h3{font-size:28px;line-height:32px;margin:12px 0 14px}
+.pc p{line-height:24px;color:var(--grey)}.pc.p1 p{color:#c8c8c8}
+.pl{font:500 28px/1 Inter;font-style:normal;width:56px;height:56px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center}
+.k-res{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rs{display:flex;flex-direction:column;gap:12px;min-height:280px;padding:32px;border-radius:30px;background:var(--soft)}
+.rs:nth-child(1){background:var(--red);color:#fff}
+.rs:nth-child(2){background:var(--dark);color:#fff}
+.rs:nth-child(3){background:linear-gradient(135deg,#3a1590 0%,#5a2fc0 60%,#7048d6 100%);color:#fff}
+.rs .n{margin-bottom:auto;font:800 15px Manrope;opacity:.7}
+.rs h3{font-size:24px;line-height:28px}
+.rs p{line-height:22px;opacity:.85}.rs:nth-child(4) p{color:var(--grey);opacity:1}
+.les-list{display:grid;gap:12px}
+.les{display:grid;grid-template-columns:170px 1fr 1.5fr;gap:32px;padding:32px;border:1px solid var(--line);border-radius:30px;transition:.25s}
+.les:hover{border-color:var(--ink)}
+.les[hidden]{display:none}
+.les-n b{display:block;font:800 56px/1 Manrope;letter-spacing:-.04em}
+.fmt{display:inline-block;margin-top:14px;padding:6px 14px;border-radius:16px;border:1px solid var(--line);color:var(--grey);font-size:14px;white-space:nowrap}
+.les.off .fmt{background:var(--red);border-color:var(--red);color:#fff}
+.les-h h3{font-size:28px;line-height:32px}
+.pain{margin-top:16px;color:var(--grey);font-style:italic;line-height:24px}
+.les-b{display:grid;gap:18px;align-content:start}
+.les-b>div>span{display:block;margin-bottom:8px;color:var(--grey);font-size:14px}
+.les-b ul{list-style:none;padding:0;display:grid;gap:6px}
+.les-b li{position:relative;padding-left:18px;line-height:22px}
+.les-b li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--red)}
+.les-b p{line-height:22px}
+.les-b .gt{padding:18px 22px;border-radius:20px;background:var(--soft)}
+.les-b a{border-bottom:1px solid var(--red)}
+.les.dark{background:var(--dark);color:#fff;border-color:var(--dark)}
+.les.dark .fmt{border-color:var(--red)}
+.les.dark .les-b>div>span,.les.dark .pain{color:#a8a8a8}
+.les.dark .gt{background:rgba(255,255,255,.09)}
+.ind{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ind div{padding:28px 30px;border:1px solid var(--line);border-radius:30px;transition:.2s}
+.ind div:hover{border-color:var(--ink)}
+.ind b{display:block;margin-bottom:12px;font-family:Manrope;font-size:24px;letter-spacing:-.02em}
+.ind span{display:block;color:var(--grey);line-height:23px}
+.k-lead{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.k-lead .pimg{aspect-ratio:4/3;margin-bottom:14px}
+.k-lead b{display:block;font-family:Manrope;font-size:22px}
+.k-lead span{color:var(--grey);font-size:15px}
+
+.fgrid small{color:var(--red);font-size:12px;margin-left:6px}
+#klub-tarify{margin-bottom:160px}
+
+@media(prefers-reduced-motion:no-preference){.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}.js .rv.in{opacity:1;transform:none}}
+
+@media(max-width:1280px){nav,.hd-r>a:not(.btn){display:none}.burger{display:grid}.hd-r{margin-left:auto}
+ .nav-open nav{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;padding:16px var(--pad) 24px;background:#fff;box-shadow:0 20px 40px rgba(0,0,0,.1)}
+ .nav-open .m>a{padding:12px 0}.nav-open .dd{display:none!important}}
+@media(max-width:1200px){:root{--pad:32px}.hero-in{grid-template-columns:1fr}.hero h1{font-size:56px;line-height:58px}.svc,.zones,.cyc{grid-template-columns:repeat(2,1fr)}.sv.dk{grid-column:span 2}.out,.stats,.team,.spk,.where ul{grid-template-columns:repeat(2,1fr)}.where{grid-template-columns:1fr}.fgrid{grid-template-columns:repeat(3,1fr)}.krona,.days,.hist{grid-template-columns:1fr}}
+@media(max-width:760px){
+ .hint{white-space:normal;padding-bottom:0;width:100%}.hint svg{display:none}
+ :root{--pad:16px}section{margin-bottom:96px}.hd{height:64px}
+ .sec-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:32px}.sec-head h2,.big,.side-dark h2,.h3,.hist h3{font-size:30px;line-height:34px}
+ .hero{margin:0 0 16px}.hero-in{padding:28px 20px;border-radius:24px;gap:28px}.hero h1{font-size:38px;line-height:42px}.sup{font-size:17px;line-height:24px}.lead{font-size:17px;line-height:25px}
+ .proof,.aud,.zones,.svc,.cyc,.photos,.blog,.out,.stats,.kb,.figs,.cta,.two,.days .nums,.team,.spk,.where ul{grid-template-columns:1fr}
+ .sv.dk{grid-column:auto}.aud{margin-bottom:96px}.panel{padding:20px;border-radius:30px}.sv{border-radius:30px;padding:24px}
+ .zc{width:100%;margin-left:0!important}.schema{padding:20px}
+ .side-dark{position:static;padding:32px 24px;margin-bottom:16px}.rows details{padding:22px 60px 22px 22px}.rows summary{font-size:18px;line-height:23px}.rows summary::after{top:24px;right:18px}
+ .cta,.kr-l,.kr-r{padding:32px 22px;border-radius:30px}.cta h2{font-size:32px;line-height:36px}
+ .fgrid{grid-template-columns:1fr 1fr}footer{border-radius:30px 30px 0 0;padding-bottom:96px}
+ .tl li{grid-template-columns:60px 1fr}
+ .sticky{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:40;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+}
+@media(max-width:1200px){.sched,.founder{grid-template-columns:1fr}.founder .pimg{aspect-ratio:4/3}.k-res{grid-template-columns:repeat(2,1fr)}.les{grid-template-columns:150px 1fr}.les-b{grid-column:1/-1}}
+@media(max-width:760px){#kurs .hero{margin-bottom:96px}#kurs .hero h1{font-size:32px;line-height:36px}.pair,.k-res,.ind,.k-lead{grid-template-columns:1fr}.pl{margin:0 auto}.pc,.rs{padding:28px 22px}.rs{min-height:0}.les{grid-template-columns:1fr;gap:18px;padding:24px 20px}.les-n b{font-size:40px}.les-h h3{font-size:24px;line-height:28px}.tar button{padding:16px 18px}.tar b{font-size:26px}#klub .hero{margin-bottom:96px}#klub-tarify{margin-bottom:96px}.cyc.c3{grid-template-columns:1fr}.sched,.fd{padding:28px 22px;border-radius:30px}.sched h3{font-size:28px;line-height:32px}.fd h3{font-size:30px;line-height:34px}.founder .pimg{border-radius:30px}.bub{max-width:100%}}
+
+/* ===== v6: идеи с learn.aimindset.org (словарь, схемы, обучение, отзывы) ===== */
+[hidden]{display:none!important}
+body[data-page=obuchenie] nav>.m:nth-child(2)>a,
+body[data-page=slovar] nav>.m:nth-child(4)>a,
+body[data-page=shemy] nav>.m:nth-child(4)>a,
+body[data-page=otzyvy] nav>.m:nth-child(6)>a{color:var(--red)}
+
+/* шапка внутренних страниц */
+.pg-head{margin:8px 0 56px}
+.pg-head h1{font-size:64px;line-height:68px;max-width:1100px;margin-bottom:20px}
+.pg-head .lead2{margin-bottom:0}
+.pg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.pg-stats div{padding:22px 24px;border:1px solid var(--line);border-radius:24px;color:var(--grey);font-size:15px;line-height:21px}
+.pg-stats b{display:block;margin-bottom:4px;font:800 34px/1.1 Manrope;letter-spacing:-.03em;color:var(--ink)}
+.pg-stats b.ph{color:#9a9a9a}
+.pg-act{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:28px}
+
+/* ---------- словарь ---------- */
+.gl-bar{display:grid;gap:16px;padding:24px;border:1px solid var(--line);border-radius:30px;margin-bottom:24px}
+.gl-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.srch{position:relative;flex:1;min-width:260px;display:block}
+.srch input{height:52px;padding:0 56px 0 52px;border:1px solid var(--line);border-radius:26px;background:#fff;color:var(--ink);font:16px Inter}
+.srch input:focus{border-color:var(--ink)}
+.srch input::placeholder{color:#9a9a9a}
+.srch svg{position:absolute;left:20px;top:17px;color:var(--grey)}
+.srch kbd{position:absolute;right:16px;top:14px;padding:2px 10px;border:1px solid var(--line);border-radius:8px;font:13px Inter;color:var(--grey)}
+.gl-bar .chips{margin:0}
+.gl-bar .chip{height:44px;padding:0 20px;font-size:15px}
+.chip small{margin-left:6px;opacity:.55}
+.gl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tc{display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid var(--line);border-radius:30px;transition:.2s}
+.tc:hover{border-color:var(--ink)}
+.tt{display:flex;justify-content:space-between;gap:8px;color:var(--grey);font-size:13px}
+.gd{display:inline-flex;align-items:center;gap:6px}
+.gd i{width:8px;height:8px;border-radius:50%;background:var(--gc,var(--ink))}
+.tile{display:block;width:100%;height:auto;border-radius:18px;background:var(--soft)}
+.tc-h h3{font-size:24px;line-height:28px}
+.tc-h .en{margin-top:4px;color:var(--grey);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.tc .df{line-height:23px}
+.biz{padding:14px 16px;border-radius:16px;background:var(--soft);font-size:15px;line-height:21px;color:var(--grey)}
+.biz b{color:var(--ink);font-weight:600}
+.tw{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;align-items:center}
+.tw a{padding:5px 12px;border-radius:14px;border:1px solid var(--line);font-size:13px;transition:.2s}
+.tw a:hover{border-color:var(--red);color:var(--red)}
+.tw button{margin-left:auto;padding:0;border:0;border-bottom:1px dotted var(--grey);background:none;color:var(--grey);font:13px Inter;cursor:pointer}
+.tw button:hover{color:var(--red);border-color:var(--red)}
+.gl.list{grid-template-columns:1fr;gap:8px}
+.gl.list .tc{display:grid;grid-template-columns:150px 260px 1fr auto;gap:20px;align-items:center;padding:16px 24px;border-radius:24px}
+.gl.list .tile,.gl.list .biz{display:none}
+.gl.list .tt{flex-direction:column;gap:4px}
+.gl.list .tw{margin-top:0}
+
+/* ---------- схемы ---------- */
+.legend3{display:flex;gap:12px 28px;flex-wrap:wrap;margin-bottom:28px;color:var(--grey);font-size:15px}
+.legend3 span{display:inline-flex;align-items:center;gap:10px}
+.legend3 i{width:18px;height:18px;border-radius:6px;background:var(--red);border:1px solid var(--line)}
+.legend3 span:nth-child(2) i{background:var(--violet)}
+.legend3 span:nth-child(3) i{background:#fff}
+.sch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.sc{display:flex;flex-direction:column;gap:18px;padding:28px;border:1px solid var(--line);border-radius:40px;transition:.25s}
+.sc:hover{border-color:var(--ink)}
+.sc-h{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sc-h h3{font-size:28px;line-height:32px}
+.sc-h .tag{padding:6px 14px;border:1px solid var(--line);border-radius:18px;color:var(--grey);font-size:14px;white-space:nowrap}
+.sc svg{display:block;width:100%;height:auto;border-radius:24px}
+.sc blockquote{margin:0;padding:18px 22px;border-radius:20px;background:var(--soft);font-family:Manrope;font-weight:800;font-size:19px;line-height:25px;letter-spacing:-.02em}
+.sc .src{color:var(--grey);font-size:15px;display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center}
+.sc .src a{border-bottom:1px solid var(--red);color:var(--ink);font-weight:500}
+.sc .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+
+/* ---------- обучение: лестница, календарь, программы ---------- */
+.sv.dk li{background:rgba(255,255,255,.1);color:#fff}
+.sv.dk li .ph{color:#9a9a9a}
+.sv li a{display:block}
+.tl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:30px;background:#fff}
+.tm{position:relative;min-width:900px}
+.tm-h,.tm-r{display:grid;grid-template-columns:120px repeat(12,1fr);align-items:center}
+.tm-h{border-bottom:1px solid var(--line);color:var(--grey);font-size:13px}
+.tm-h span{padding:14px 10px}
+.tm-r{min-height:68px;border-bottom:1px solid #eee}
+.tm-r:last-of-type{border-bottom:0}
+.tm-r>b{grid-column:1;grid-row:1;padding:0 18px;font:800 15px Manrope}
+.bar{grid-row:1;display:flex;align-items:center;height:36px;margin:0 3px;padding:0 14px;border-radius:18px;background:var(--dark);color:#fff;font-size:13px;white-space:nowrap;overflow:hidden}
+.bar.v{background:var(--violet)}.bar.r{background:var(--red)}
+.bar.tbd{background:transparent;border:1.5px dashed #b5b5b5;color:var(--grey)}
+.bar.soft{background:var(--soft);color:var(--ink)}
+.now{position:absolute;top:0;bottom:0;width:2px;background:var(--red);pointer-events:none}
+.now em{position:absolute;bottom:8px;left:6px;font:500 11px Inter;font-style:normal;color:var(--red);white-space:nowrap}
+.tm-note{margin-top:14px;color:var(--grey);font-size:14px}
+.prog{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pr{display:flex;flex-direction:column;gap:12px;padding:32px;border:1px solid var(--line);border-radius:40px;transition:.25s}
+.pr:hover{border-color:var(--ink)}
+.pr .tg2{align-self:flex-start;padding:6px 14px;border-radius:18px;background:var(--dark);color:#fff;font-size:14px}
+.pr h3{font-size:28px;line-height:32px}
+.pr p{color:var(--grey);line-height:22px}
+.pr dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:8px 0;padding:18px 0 0;border-top:1px solid var(--line);font-size:15px}
+.pr dt{color:var(--grey)}.pr dd{margin:0}
+.pr .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:12px}
+.stack{display:flex;flex-wrap:wrap;gap:6px}
+.stack span{padding:5px 12px;border-radius:14px;background:var(--soft);font-size:13px}
+.spec .stack span{background:#fff}
+
+/* ---------- отзывы ---------- */
+.mas{columns:3;column-gap:12px}
+.rc{break-inside:avoid;margin-bottom:12px;padding:26px;border:1px solid var(--line);border-radius:30px;background:#fff;transition:.2s}
+.rc:hover{border-color:var(--ink)}
+.rc[hidden]{display:none}
+.pb{display:inline-block;padding:4px 12px;border-radius:12px;background:var(--soft);font-size:12px;color:var(--grey)}
+.rc dl{margin:16px 0 0}
+.rc dt{margin-top:14px;color:var(--grey);font-size:13px}
+.rc dt:first-child{margin-top:0}
+.rc dd{margin:4px 0 0;line-height:23px}
+.au{display:flex;gap:12px;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font:800 14px Manrope}
+.au b{display:block;font-family:Manrope;font-size:15px}
+.au small{color:var(--grey);font-size:13px}
+
+/* ---------- курс: параметры, термины ---------- */
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.spec>div{padding:20px 22px;border-radius:22px;background:var(--soft);line-height:21px}
+.spec>div>span{display:block;margin-bottom:6px;color:var(--grey);font-size:13px}
+.les-b a.term{border-bottom:1px dotted var(--red);cursor:help;position:relative}
+.term::after{content:attr(data-def);position:absolute;left:0;bottom:calc(100% + 8px);width:280px;padding:12px 14px;border-radius:14px;background:var(--dark);color:#fff;font-size:13px;font-weight:400;line-height:19px;display:none;pointer-events:none;z-index:5;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.les.dark .term::after{background:#fff;color:var(--ink)}
+.term:hover::after,.term:focus::after{display:block}
+
+@media(max-width:1200px){
+ .mas{columns:2}.gl{grid-template-columns:repeat(2,1fr)}
+ .sch-grid,.prog{grid-template-columns:1fr}
+ .pg-stats,.spec{grid-template-columns:repeat(2,1fr)}
+ .gl.list .tc{grid-template-columns:130px 1fr}.gl.list .tw,.gl.list .df{grid-column:1/-1}
+ .pg-head h1{font-size:52px;line-height:56px}
+}
+@media(max-width:760px){
+ .pg-head{margin-bottom:36px}.pg-head h1{font-size:36px;line-height:40px}
+ .pg-stats,.spec,.gl,.sch-grid,.prog{grid-template-columns:1fr}
+ .mas{columns:1}
+ .gl-bar{padding:16px;border-radius:24px}
+ .gl.list .tc{grid-template-columns:1fr}
+ .sc,.pr{padding:22px 20px;border-radius:30px}
+ .sc-h h3,.pr h3{font-size:24px;line-height:28px}
+ .term::after{width:220px}
+}
+
+/* ===== контраст: плейсхолдеры, «скоро», серый текст на тёмном ===== */
+.ph,.pg-stats b.ph{color:#707070}
+.dk .ph,.panel .ph,.side-dark .ph,.cta .ph,.sv.dk .ph{color:#a6a6a6}
+.sv:first-child .ph{color:#e4dafa}
+.kb .ph{display:inline;margin:0;padding:0;background:none;border-radius:0;color:#a6a6a6;font-size:inherit}
+.pimg,.fig .img{color:#6b6b6b}
+.sv small,.sv li small{color:#d41b1a}
+.sv:first-child li small{color:#ffd0cf}
+.sv.dk li small{color:#ff7a78}
+footer small,.fgrid small{color:#ff7a78}
+.out b small{color:#ff7a78!important}
+.kb .ok .ph{background:none;padding:0;margin:0;color:#ffe0df}
+.k-meta .ph{color:#a6a6a6}
+
+</style>
+</head>
+<body>
+<header id="hdr">
+ <div class="wrap hd">
+  <a class="logo" href="#top" aria-label="Тет-а-тет AI"><svg class="logo-svg" viewBox="0 0 303 44" height="44" role="img" aria-label="Тет-а-тет AI" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="44" height="44" fill="var(--logo)" stroke="none"/><g stroke="#fff" stroke-width="1.5" fill="none"><g transform="translate(8.5 4.8) scale(0.7)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(18.5 4.8) scale(0.7)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g><g transform="translate(28.5 4.8) scale(0.7)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(8.5 17.1) scale(0.7)"><path d="M9 3L1 8.5H9"/></g><g transform="translate(18.5 17.1) scale(0.7)"><path d="M0 14V6.5A5 5.5 0 0 1 10 6.5V14M0 9.5H10"/></g><g transform="translate(28.5 17.1) scale(0.7)"><path d="M1 3L9 8.5H1"/></g><g transform="rotate(180 12.0 34.3)"><g transform="translate(8.5 29.4) scale(0.7)"><path d="M0 1H10M5 1V14"/></g></g><g transform="rotate(180 22.0 34.3)"><g transform="translate(18.5 29.4) scale(0.7)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g></g><g transform="rotate(180 32.0 34.3)"><g transform="translate(28.5 29.4) scale(0.7)"><path d="M0 1H10M5 1V14"/></g></g></g><path d="M54 0V44" stroke-width="1" opacity=".55"/><g stroke-width="1.5"><g transform="translate(66.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(88.0 5.0) scale(1.5)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g><g transform="translate(110.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g><path d="M130.0 16.25h13.5" /><g transform="translate(148.5 5.0) scale(1.5)"><path d="M0 14V6.5A5 5.5 0 0 1 10 6.5V14M0 9.5H10"/></g><path d="M168.5 16.25h13.5" /><g transform="translate(187.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(209.0 5.0) scale(1.5)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g><g transform="translate(231.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g></g><g class="ai" stroke="var(--red)" stroke-width="1.8"><g transform="translate(262.0 5.0) scale(1.5)"><path d="M0 14V6.5A5 5.5 0 0 1 10 6.5V14M0 9.5H10"/></g><g transform="translate(284.0 5.0) scale(1.5)"><path d="M5 1V14"/></g></g><text x="66" y="42" class="ld" stroke="none" fill="currentColor">ПРИКЛАДНОЙ ИИ ДЛЯ БИЗНЕСА</text></svg></a>
+  <nav>
+   <div class="m"><a href="#uslugi">Услуги ▾</a><div class="dd">
+    <a href="#">Консультации и ИИ-консалтинг</a><a href="#">AI-аудит</a><a href="#">Внедрение ИИ: программа на год</a><a href="#">Стратегия и дорожная карта</a><a href="#">Подбор ИИ-специалиста</a><a href="#">Разработка ИИ-решений</a><a href="#">Сопровождение</a></div></div>
+   <div class="m"><a href="#obuchenie">Обучение ▾</a><div class="dd">
+    <a href="#obuchenie">Все программы и календарь</a><a href="#klub">Для себя: работа с нейросетями</a><a href="#kurs">Руководителям и топ-менеджерам</a><a href="#">Сотрудникам компаний <small>скоро</small></a></div></div>
+   <div class="m"><a href="#">Решения ▾</a><div class="dd mega">
+    <div><h4>По задачам</h4><a href="#">ИИ-агенты</a><a href="#">Голосовые агенты</a><a href="#">ИИ-ассистенты</a><a href="#">Чат-боты</a><a href="#">База знаний</a><a href="#">Обработка документов</a><a href="#">Автоматизация процессов</a><a href="#">Корпоративный ИИ</a><a href="#">Интеграции с 1С и Битрикс24</a></div>
+    <div><h4>По отделам</h4><a href="#">Продажи</a><a href="#">Маркетинг</a><a href="#">HR</a><a href="#">Бухгалтерия и финансы</a><a href="#">Закупки и тендеры</a><a href="#">Клиентский сервис</a><a href="#">Юристы</a><a href="#">Руководителю</a></div>
+    <div><h4>По отраслям</h4><a href="#">Производство</a><a href="#">Медицина</a><a href="#">Строительство</a><a href="#">Логистика</a><a href="#">Банки и финансы</a><a href="#">Ритейл</a></div></div></div>
+   <div class="m"><a href="#issledovaniya">Исследования ▾</a><div class="dd">
+    <a href="#issledovaniya">Исследовательский центр (НИОКР)</a><a href="#slovar">Словарь терминов</a><a href="#shemy">Схемы «ИИ / человек»</a><a href="#blog">Блог</a><a href="#blog">Дайджест инструментов</a></div></div>
+   <div class="m"><a href="#krona">ИИ-стол</a></div>
+   <div class="m"><a href="#praktiki">О компании ▾</a><div class="dd">
+    <a href="#praktiki">Команда и практики</a><a href="#otzyvy">Отзывы</a><a href="#">Кейсы</a><a href="#">Безопасность данных</a><a href="#">Стоимость</a><a href="#">Контакты</a></div></div>
+  </nav>
+  <div class="hd-r">
+   <a href="#">Telegram</a>
+   <a class="btn btn-k btn-s" href="#vopros">Задать вопрос по ИИ</a>
+   <button class="burger" aria-label="Меню" onclick="document.getElementById('hdr').classList.toggle('nav-open')"><svg width="18" height="12" viewBox="0 0 18 12"><path d="M0 1h18M0 6h18M0 11h18" stroke="#000" stroke-width="1.6"/></svg></button>
+  </div>
+ </div>
+</header>
+
+<main class="wrap" id="top">
+
+<!-- 01 Первый экран -->
+<div class="hero"><div class="hero-in">
+ <div class="hero-l">
+  <div>
+   <div class="sup">Исследовательский центр прикладного ИИ</div>
+   <h1>ИИ для бизнеса: что делает человек, а&nbsp;что&nbsp;— <em>ИИ</em></h1>
+   <p class="lead">Проверяем инструменты в собственном исследовательском центре, консультируем, обучаем и внедряем. Один партнер на всем пути — от первого вопроса до работающего процесса.</p>
+   <div class="start"><span class="hint">Не знаете, с чего начать?<svg width="74" height="40" viewBox="0 0 74 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6C22 -2 50 2 63 27"/><path d="M52 24L63 28.5L66 16.5"/></svg></span><a class="btn btn-r" href="#vopros">Задать вопрос по ИИ →</a></div>
+  </div>
+  <div class="proof">
+   <a class="fact" href="#otkuda"><b>10 лет</b>в маркетинге, разработке и автоматизации</a>
+   <a class="fact" href="#prostranstvo"><b>Ленина, 4</b>пространство в центре Новосибирска</a>
+   <a class="fact" href="#krona"><b>Бизнес-клуб KRONA</b>площадка для пилотов</a>
+  </div>
+ </div>
+ <div class="schema">
+  <div class="top"><span id="hDept">Пример — Продажи</span><div class="dots" id="hDots"></div></div>
+  <div class="stair" id="hStair">
+   <div class="zc z1"><small>ИИ делает сам</small><span></span></div>
+   <div class="zc z2"><small>ИИ готовит, человек решает</small><span></span></div>
+   <div class="zc z3"><small>Делает человек</small><span></span></div>
+  </div>
+  <a class="lk" style="align-self:flex-start;color:#fff;border-color:#555" href="#chelovek-ii">Разбор по отделам ↓</a>
+ </div>
+</div></div>
+
+<div class="aud rv" id="aud">
+ <button data-r="0"><div><b>Для компании</b><span>AI-аудит, внедрение и обучение сотрудников</span></div><i>↓</i></button>
+ <button data-r="1"><div><b>Для руководителя</b><span>Консультации, обучение для топ-менеджеров, профильный ИИ-стол</span></div><i>↓</i></button>
+ <button data-r="2"><div><b>Для себя</b><span>Клуб ИИ Практики и профильный ИИ-стол</span></div><i>↓</i></button>
+</div>
+
+<!-- 02 Главный вопрос -->
+<section id="chelovek-ii">
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Главный вопрос</span><h2>Как ИИ помогает бизнесу: что отдать ИИ, а что оставить людям</h2></div></div>
+ <div class="chips" id="dTabs"></div>
+ <div class="zones" id="zones"></div>
+ <div class="where rv">
+  <h3>Где этот ответ работает</h3>
+  <ul>
+   <li><b>Консультация и аудит</b>Карта зон: что в вашей компании отдать ИИ, а что оставить людям</li>
+   <li><b>Обучение</b>Сотрудники учатся отдавать ИИ нужную часть работы</li>
+   <li><b>Внедрение</b>Границу между работой ИИ и человека фиксируем до разработки</li>
+   <li><b>Бизнес-клуб KRONA</b>На профильном ИИ-столе разбираем, как эту границу проводят другие компании</li>
+  </ul>
+ </div>
+ <div class="edge rv"><b>Исключение</b><span>Иногда правильный ответ — ИИ здесь не нужен: если процесс описывается простыми правилами, дешевле обычная автоматизация.</span></div>
+</section>
+
+<!-- 03 Направления -->
+<section id="uslugi">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Направления</span><h2>ИИ-услуги для бизнеса: от консультации до внедрения</h2></div></div>
+ <div class="svc">
+  <article class="sv" data-r="0,1"><div class="who"><span>01</span><span class="for">Компаниям и руководителям</span></div><h3>Консультации и AI-аудит</h3><p>Разовый вопрос или аудит из двух встреч.</p><div class="get"><span>Вы получаете</span>10–15 гипотез, разбор 3–5 зон, список «что ИИ делает сам, что подтверждает человек»</div><div class="ls"><a href="#">Подробнее →</a></div></article>
+  <article class="sv" data-r="0"><div class="who"><span>02</span><span class="for">Компаниям с оборотом от 300 млн ₽</span></div><h3>Внедрение ИИ в бизнес под ключ</h3><p>Программа на год: 6 месяцев внедрения и 6 месяцев поддержки.</p><div class="get"><span>Вы получаете</span>3 проекта на первые 90 дней, ИИ-специалист в штате</div><div class="ls"><a href="#">Подробнее →</a></div></article>
+  <article class="sv" data-r="0,1,2"><div class="who"><span>03</span><span class="for">Три уровня</span></div><h3>Обучение работе с ИИ</h3><p>От обучения сотрудников до личного курса.</p>
+   <ul><li><a href="#klub">Для себя — Клуб ИИ Практики: материалы, онлайн-встречи и закрытый чат</a></li><li><a href="#kurs">Руководителям и топ-менеджерам — курс «ИИ-система предпринимателя»: 12 занятий за 4 недели</a></li><li>Сотрудники компаний <small>скоро</small></li></ul>
+   <div class="get"><span>Вы получаете</span>Люди учатся отдавать ИИ нужную часть работы</div><div class="ls"><a href="#klub">Клуб ИИ Практики →</a><a href="#kurs">Курс для предпринимателей →</a><a href="#obuchenie">Все программы →</a></div></article>
+  <article class="sv" data-r="1,2"><div class="who"><span>04</span><span class="for">Предпринимателям, руководителям, специалистам</span></div><h3>Круглый стол по ИИ</h3><p>Профильный ИИ-стол в бизнес-клубе KRONA на Ленина, 4. Тет-а-тет AI — председатель стола. Участие — 5&nbsp;000&nbsp;₽.</p><div class="get"><span>Как проходит</span>Участники одного профиля обсуждают применение ИИ на равных: отдельные столы по отраслям, ролям и направлениям</div><div class="ls"><a href="#krona">Подробнее →</a></div></article>
+  <article class="sv dk" data-r="0,1,2"><div class="who"><span>05</span><span class="for">Работает на все направления</span></div><h3>Исследовательский центр</h3><p>Тестирует инструменты, делает прототипы, ведёт базу знаний.</p><div class="get"><span>Как это устроено</span>Ежедневно тестируем новые инструменты на реальных бизнес-задачах и в пилотах бизнес-клуба KRONA — клиентам отдаем только то, что проверено и работает</div><div class="ls"><a href="#" style="border-color:var(--red)">Подробнее →</a><a href="#issledovaniya" style="border-color:var(--red)">Как работает центр ↓</a></div></article>
+ </div>
+ <div class="more-line rv">Ищете конкретное решение — ИИ-агента, ассистента, базу знаний? <a class="lk" href="#">Решения по задачам</a><a class="lk" href="#">по отделам</a><a class="lk" href="#">по отраслям</a></div>
+</section>
+
+<!-- 04 Исследования -->
+<section id="issledovaniya">
+ <div class="sec-head rv"><div><span class="eyebrow">04 — Исследования</span><h2>Исследовательский центр: какие технологии искусственного интеллекта в бизнесе уже работают</h2></div></div>
+ <div class="panel dk rv">
+  <p class="intro">Специалисты исследовательского центра каждый день изучают новые модели и инструменты, проверяют их на бизнес-задачах и пополняют базу знаний. Из этой базы мы берём рекомендации для аудита, готовые прототипы для внедрения, задания для обучения и темы для профильного ИИ-стола.</p>
+  <ol class="cyc">
+   <li><span>01 →</span>Поиск технологии</li><li><span>02 →</span>Выбор задачи</li><li><span>03 →</span>Тест и прототип</li>
+   <li><span>04 →</span>Пилот в компании бизнес-клуба KRONA</li><li><span>05 →</span>Оценка</li><li><span>06 ✓</span>Передача команде</li>
+  </ol>
+  <p class="cyc-note">У каждого инструмента проверяем: качество результата, удобство, стоимость, ограничения, условия работы с данными. Пилот в бизнес-клубе KRONA: решение, прошедшее тест, проверяем в работающей компании клуба — и только потом предлагаем клиентам. <a class="lk" style="color:#fff" href="#krona">Подробнее ↓</a></p>
+  <div class="out-h">Куда идёт результат</div>
+  <div class="out" style="margin-top:16px">
+   <div><b>Консультации и аудит</b>Рекомендации инструментов с их ограничениями</div>
+   <div><b>Внедрение</b>Проверенные прототипы и микросервисы</div>
+   <div><b>Обучение</b>Актуальные инструменты и задания</div>
+   <div><b>Профильный ИИ-стол</b>Дайджесты и разборы</div>
+  </div>
+  <div class="stats">
+   <div><b class="ph">[N]</b>инструментов в базе</div><div><b class="ph">[N]</b>проверено за последний месяц</div><div><b class="ph">[N]</b>прототипов передано во внедрение</div><div><b class="ph">[состав]</b>например, разработчик и бизнес-аналитик</div>
+  </div>
+  <div class="kb">
+   <h4>Последние записи базы знаний</h4>
+   <div class="ok"><span>Подходит</span><br><span class="ph">[дата]</span> · <span class="ph">[Инструмент]</span><br>Подходит для <span class="ph">[задача]</span></div>
+   <div><span>Не подходит</span><br><span class="ph">[дата]</span> · <span class="ph">[Инструмент]</span><br>Не подходит, потому что <span class="ph">[причина]</span></div>
+   <div class="ok"><span>Подходит</span><br><span class="ph">[дата]</span> · <span class="ph">[Инструмент]</span><br>Подходит для <span class="ph">[задача]</span></div>
+  </div>
+  <div class="ls"><a class="btn btn-w" href="#">Исследовательский центр →</a><a class="btn btn-o" href="#">Дайджест инструментов →</a></div>
+ </div>
+</section>
+
+<!-- 05 Пространство -->
+<section id="prostranstvo">
+ <div class="sec-head rv"><div><span class="eyebrow">05 — Пространство</span><h2>Пространство в центре Новосибирска</h2></div></div>
+ <p class="lead2 rv">Работаем на Ленина, 4 — в бизнес-клубе KRONA. Здесь встречаемся с клиентами, проводим обучение, профильные ИИ-столы и Дни ИИ, здесь же работает исследовательский центр.</p>
+ <div class="photos rv">
+  <div class="fig"><div class="img">Фото конференц-зала</div><b>Конференц-зал</b><span>Дни ИИ, профильные ИИ-столы, офлайн-занятия</span></div>
+  <div class="fig"><div class="img">Фото переговорной</div><b>Переговорные</b><span>AI-аудит и стратегические сессии с руководителями</span></div>
+  <div class="fig"><div class="img">Фото офиса, команда за работой</div><b>Офис команды</b><span>Здесь работает исследовательский центр</span></div>
+ </div>
+ <div class="krona rv" id="krona">
+  <div class="kr-l"><span class="eyebrow" style="color:#a8a8a8">Бизнес-клуб KRONA</span><h3>Решения проверяем в работающем бизнесе, прежде чем предложить их вам</h3><p>Профильный ИИ-стол проходит на базе бизнес-клуба KRONA, Тет-а-тет AI — его председатель. Решение, прошедшее тест в исследовательском центре, идёт в пилот в компании клуба — и только после оценки результата попадает к клиентам.</p><div class="ls"><a class="btn btn-w" href="#">Профильный ИИ-стол →</a><a class="btn btn-o" href="#issledovaniya">Цикл исследований ↑</a></div></div>
+  <div class="kr-r"><span class="eyebrow" style="margin:0">Адрес</span><div class="addr">Новосибирск, ул.&nbsp;Ленина,&nbsp;4</div><span style="color:var(--grey)">Бизнес-клуб KRONA</span><div class="ls"><a class="btn btn-r" href="#vopros">Договориться о встрече</a><a class="lk" href="#">Как добраться</a></div></div>
+ </div>
+ <div class="days rv">
+  <div><span class="eyebrow">Дни ИИ <span class="ph">[год]</span> · в бизнес-клубе KRONA</span><div class="big2">4 дня</div><p class="days-t">Доклады, воркшопы, разборы бизнеса участников</p></div>
+  <div><div class="nums"><div><b>4 дня</b><span>программы</span></div><div><b>150+</b><span>предпринимателей и топ-менеджеров</span></div><div><b>15+</b><span>экспертов</span></div></div><div class="ls"><a class="lk" href="#">Записи выступлений</a><a class="lk" href="#">Презентации</a></div></div>
+ </div>
+</section>
+
+<!-- 06 Люди -->
+<section id="praktiki">
+ <div class="sec-head rv"><div><span class="eyebrow">06 — Люди</span><h2>Практики, которые внедряют AI в бизнес</h2></div></div>
+ <div class="hist rv" id="otkuda">
+  <div>
+   <h3>Наш опыт</h3>
+   <p>10 лет подряд делаем для бизнеса маркетинг, разработку и автоматизацию.</p>
+   <p>Поэтому знаем процессы продаж, маркетинга и учета, к которым подключаем ИИ. Честно говорим, где хватит обычной автоматизации.</p>
+   <div class="figs"><div><b>10 лет</b>подряд в digital</div><div><b class="ph">[N]</b>проектов</div><div><b class="ph">[N]</b>клиентов</div></div>
+  </div>
+  <ol class="tl">
+   <li><b class="ph">[год]</b><div>Маркетинг<span class="ph">[Что делали и для кого]</span></div></li>
+   <li><b class="ph">[год]</b><div>Разработка<span class="ph">[Сайты, сервисы, интеграции — уточнить]</span></div></li>
+   <li><b class="ph">[год]</b><div>Автоматизация<span class="ph">[CRM, 1С, процессы — уточнить]</span></div></li>
+   <li><b>[год]</b><div>Тет-а-тет AI<span>Исследовательский центр прикладного ИИ и профильный ИИ-стол в бизнес-клубе KRONA</span></div></li>
+  </ol>
+ </div>
+ <h3 class="h3 rv">Команда Тет-а-тет AI</h3>
+ <div class="team rv">
+  <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Основатель]</span></div>
+  <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Исследовательский центр]</span></div>
+  <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Исследовательский центр]</span></div>
+  <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Ведущий направления]</span></div>
+ </div>
+ <h3 class="h3 rv">Спикеры и наставники</h3>
+ <div class="spk" id="spk"></div>
+ <div class="center" id="spMore"><button class="btn btn-k" id="spBtn">Показать ещё 8</button></div>
+</section>
+
+<!-- Блог -->
+<section id="blog">
+ <div class="sec-head rv"><h2>Из блога и дайджеста</h2><a class="lk" href="#">Блог →</a></div>
+ <div class="blog rv">
+  <a href="#"><small>Статья</small><b>Как нейросети помогают бизнесу: задачи и решения</b></a>
+  <a href="#"><small>Статья</small><b>Эффект от внедрения ИИ</b></a>
+  <a href="#"><small>Дайджест</small><b>Дайджест инструментов: <span class="ph">[месяц]</span></b></a>
+  <a href="#slovar"><small>Материал</small><b>Словарь терминов ИИ для бизнеса</b></a>
+  <a href="#shemy"><small>Материал</small><b>Схемы «ИИ / человек» по отделам</b></a>
+  <a href="#otzyvy"><small>Отзывы</small><b>Что говорят участники курса, клуба и ИИ-стола</b></a>
+ </div>
+</section>
+
+<!-- 07 Вопросы -->
+<section id="voprosy">
+ <div class="two">
+  <div class="side-dark rv"><span class="eyebrow" style="color:#a8a8a8;margin:0">07 — Вопросы</span><h2>Вопросы об использовании ИИ в бизнесе</h2><p>Не нашли свой — задайте его специалисту.</p><a class="btn btn-w" href="#vopros">Задать вопрос по ИИ</a></div>
+  <div class="rows rv">
+   <details open><summary>С чего начать, если в компании никто не разбирается в ИИ?</summary><div class="more">С консультации: разберём ваш вопрос и скажем, нужен ли AI-аудит.<br><a href="#">AI-аудит</a></div></details>
+   <details><summary>Чем вы отличаетесь от ИТ-интегратора и от онлайн-школы?</summary><div class="more">За плечами 10 лет в маркетинге, разработке и автоматизации — мы понимаем процессы, к которым подключаем ИИ. У всех направлений одна база знаний исследовательского центра, а решения перед передачей клиентам проходят пилот в компании бизнес-клуба KRONA.<br><a href="#issledovaniya">Исследовательский центр</a></div></details>
+   <details><summary>Безопасно ли передавать вам данные компании?</summary><div class="more">Да. Модели можно развернуть на серверах вашей компании или в российском облаке, чтобы данные не выходили за ваш контур — так проще соблюдать 152-ФЗ о персональных данных. <span class="ph">[NDA подписываем до первой встречи — подтвердить]</span><br><a href="#">Безопасность данных</a></div></details>
+   <details><summary>Сколько это стоит?</summary><div class="more">Цены не публикуем: стоимость зависит от направления и объёма работы. <span class="ph">[Условия для курсов]. Участие в профильном ИИ-столе — 5&nbsp;000&nbsp;₽</span><br><a href="#">Стоимость</a></div></details>
+   <details><summary>Работаете ли вы с другими городами?</summary><div class="more">Да, по всей России: консультации и обучение проходят онлайн. Офлайн-встречи, профильные ИИ-столы и Дни ИИ — в нашем пространстве в Новосибирске, на Ленина, 4. <span class="ph">[Что ещё проходит только офлайн]</span><br><a href="#">Контакты</a></div></details>
+  </div>
+ </div>
+</section>
+
+<!-- 08 Вопрос (форма) -->
+<section id="vopros" style="margin-bottom:24px">
+ <div class="cta rv">
+  <div>
+   <span class="eyebrow" style="color:#a8a8a8">08 — Вопрос</span>
+   <h2>Задать вопрос по ИИ</h2>
+   <div class="lbl">Что будет после заявки</div>
+   <ul>
+    <li><b>Ответ.</b> Ответит специалист <span class="ph">[срок ответа]</span></li>
+    <li><b>Вопрос компании.</b> Предложим консультацию или AI-аудит — онлайн или у нас на Ленина, 4</li>
+    <li><b>Вопрос об обучении.</b> Подберём программу</li>
+    <li><b>Вопрос об инструменте.</b> Ответим по базе знаний</li>
+   </ul>
+  </div>
+  <form id="f">
+   <div class="lbl" style="margin:0">Кто вы</div>
+   <div class="wh" id="who"><button type="button" class="chip" aria-pressed="true">Компания</button><button type="button" class="chip" aria-pressed="false">Руководитель</button><button type="button" class="chip" aria-pressed="false">Для себя</button></div>
+   <textarea id="q" placeholder="Например, где в отделе продаж ИИ окупится первым"></textarea>
+   <input required placeholder="Как к вам обращаться" autocomplete="name">
+   <input required placeholder="+7 … или @username">
+   <button class="btn btn-r" type="submit">Задать вопрос →</button>
+   <div class="tg">или <a href="#">написать в Telegram</a></div>
+   <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
+   <div class="thanks"><b>Вопрос отправлен</b>Спасибо. Специалист ответит <span class="ph">[срок ответа]</span>. (Это макет: данные никуда не уходят.)</div>
+  </form>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="klub" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#obuchenie">Обучение</a><i>/</i><span>Для себя: работа с нейросетями</span></nav>
+
+<!-- Первый экран -->
+<div class="hero"><div class="hero-in">
+ <div class="hero-l">
+  <div>
+   <div class="sup">Закрытое сообщество · Практика ИИ</div>
+   <h1>Клуб <em>ИИ</em> Практики</h1>
+   <p class="lead">Сообщество собственников, маркетологов, экспертов и разработчиков, которые внедряют ИИ в реальные процессы и делятся результатами.</p>
+   <div class="start"><a class="btn btn-r" href="#klub-tarify">Присоединиться →</a><a class="btn btn-o" href="#">Вход для участников</a></div>
+   <div class="k-meta">990 ₽ в месяц или 9&nbsp;900 ₽ в год. Оплата разовая.</div>
+  </div>
+  <div class="proof">
+   <div class="fact"><b>9</b>опубликованных материалов</div>
+   <div class="fact"><b class="ph">[N]</b>ближайших встреч в расписании</div>
+   <div class="fact"><b>990 ₽</b>доступ в клуб на один месяц</div>
+  </div>
+ </div>
+ <div class="schema">
+  <div class="top"><span>Что внутри клуба</span></div>
+  <div class="stair">
+   <div class="zc z1"><small>Разбираем кейсы</small><span>Реальные кейсы клуба: личные ИИ-ассистенты, память агентов, контент-конвейеры и продвижение в AI-поиске</span></div>
+   <div class="zc z2"><small>Онлайн-встречи</small><span>Встречи по визуалу, видео и виртуальным отделам из AI-агентов</span></div>
+   <div class="zc z3"><small>Закрытый чат</small><span>Обсуждаем инструменты и внедрения в закрытом Telegram-чате участников</span></div>
+  </div>
+  <div class="k-tags"><span>АГЕНТЫ</span><span>OPENCLAW</span><span>КОНТЕНТ</span></div>
+  <p class="k-note">Свежее в клубе: <b>Сервис для проверки вероятности блокировки вашего Claude</b></p>
+ </div>
+</div></div>
+
+<!-- 01 Зачем этот клуб -->
+<section id="klub-zachem">
+ <div class="sec-head rv"><div><span class="eyebrow">01 — Зачем этот клуб</span><h2>Практика по ИИ устаревает за квартал</h2></div></div>
+ <div class="panel dk rv">
+  <p class="intro">Рынок ИИ переписывается каждые несколько недель. Чтобы не гнаться за хайпом, мы проверяем инструменты на реальных задачах и фиксируем то, что сработало.<br><br>Здесь можно посмотреть опубликованные разборы, прийти на запланированную встречу и обсудить свою задачу с участниками.</p>
+  <div class="out-h" style="margin:0 0 16px">Рабочий цикл клуба · непрерывно</div>
+  <ol class="cyc c3">
+   <li><span>01 →</span>Сигнал<em>новая модель или инструмент</em></li>
+   <li><span>02 →</span>Проверка<em>реальная рабочая задача</em></li>
+   <li><span>03 ✓</span>Практика<em>результат и инструкция</em></li>
+  </ol>
+  <p class="cyc-note">На выходе: не хайп, а повторяемый результат.</p>
+ </div>
+</section>
+
+<!-- 02 Реальные темы -->
+<section id="klub-temy">
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Уже опубликовано</span><h2>Реальные темы клуба</h2></div></div>
+ <p class="lead2 rv">Никаких демонстрационных заглушек: ниже последние опубликованные материалы клуба.</p>
+ <div class="blog rv">
+  <a href="#"><small>01 · Антон Новгородцев · Материал клуба</small><b>Сервис для проверки вероятности блокировки вашего Claude</b></a>
+  <a href="#"><small>02 · Антон Новгородцев · Материал клуба</small><b>Я потратил 1,76 млрд токенов. Что выгоднее: подписка или API?</b></a>
+  <a href="#"><small>03 · Антон Новгородцев · Материал клуба</small><b>🎨 Дизайн при помощи нейросетей: figma всему голова</b></a>
+  <a href="#"><small>04 · Антон Новгородцев · Материал клуба</small><b>🤖 Запускаем рой ии-агентов продавцов вместе с Дмитрием Герасимовым</b></a>
+  <a href="#"><small>05 · Антон Новгородцев · Материал клуба</small><b>🌏 Как попасть в выдачу ChatGPT?</b></a>
+  <a href="#"><small>06 · Антон Новгородцев · Материал клуба</small><b>Как синхронизировать память двух агентов на OpenClaw через приватный Git</b></a>
+  <a href="#"><small>07 · Антон Новгородцев · Материал клуба</small><b>Как мы превратили публикацию статей для корпоративного блога в конвейер и сэкономили десятки часов</b></a>
+  <a href="#"><small>08 · Антон Новгородцев · Материал клуба</small><b>🧠 Делаем второй мозг предпринимателя</b></a>
+  <a href="#"><small>09 · Антон Новгородцев · Материал клуба</small><b>🤖 Мастер-класс по созданию своего виртуального ассистента на базе OpenClaw</b></a>
+ </div>
+ <div class="center"><a class="btn btn-k" href="#klub-tarify">Присоединиться →</a></div>
+</section>
+
+<!-- 03 Расписание -->
+<section id="klub-raspisanie">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Актуальное расписание</span><h2>Ближайшие встречи клуба</h2></div></div>
+ <p class="lead2 rv">Список формируется из опубликованных событий клуба.</p>
+ <div class="sched rv">
+  <div><h3>Новое расписание готовится.</h3><p style="margin:14px 0 0">Анонс появится здесь после публикации события.</p></div>
+  <div><p>Чтобы участвовать во встречах и получить доступ к материалам, присоединяйтесь к клубу.</p><a class="btn btn-k" href="#klub-tarify">Присоединиться →</a></div>
+ </div>
+</section>
+
+<!-- 04 Закрытый чат -->
+<section id="klub-chat">
+ <div class="sec-head rv"><div><span class="eyebrow">04 — Закрытый чат</span><h2>Обсуждаем конкретные задачи</h2></div></div>
+ <div class="krona rv" style="margin-top:0">
+  <div class="kr-l">
+   <span class="eyebrow" style="color:#a8a8a8">Закрытый Telegram-чат</span>
+   <h3>Здесь можно задать вопрос по своему внедрению</h3>
+   <p>Чат дополняет библиотеку и встречи: здесь можно задать вопрос по своему внедрению, поделиться результатом и обсудить инструменты с другими участниками.</p>
+   <p style="color:#a8a8a8;font-size:15px;margin-top:-10px">Ссылка на главный чат доступна участникам в разделе «Чаты и сервисы».</p>
+   <div class="ls"><a class="btn btn-w" href="#klub-tarify">Обсудить свою задачу →</a></div>
+  </div>
+  <div class="kr-r">
+   <div class="chat-top"><span style="font-size:18px;color:var(--ink);letter-spacing:-.02em;font-family:Manrope;font-weight:800">Чат участников</span><span>ONLINE</span></div>
+   <div class="bub"><small>Участник</small>Как автоматизировать разбор встреч и не потерять задачи?</div>
+   <div class="bub k"><small>Клуб</small>Свяжите транскрибацию, резюме и постановку задач. Вот рабочая схема →</div>
+   <div class="bub ok"><small>✓ Результат</small>Собрал прототип. Теперь итоги встречи готовы автоматически.</div>
+  </div>
+ </div>
+</section>
+
+<!-- 05 Для кого -->
+<section id="klub-dlya-kogo">
+ <div class="sec-head rv"><div><span class="eyebrow">05 — Для кого клуб</span><h2>Участники клуба</h2></div></div>
+ <p class="lead2 rv">Кому пригодятся материалы, встречи и сообщество.</p>
+ <div class="zones rv">
+  <div class="zone"><span class="n">/01</span><h3>Собственники и руководители</h3><p>Для тех, кто ищет практические способы снять рутину с команды и внедрить ИИ в процессы.</p></div>
+  <div class="zone"><span class="n">/02</span><h3>Эксперты и консультанты</h3><p>Для тех, кому нужна личная ИИ-система, автоматизация знаний и работы с контентом.</p></div>
+  <div class="zone"><span class="n">/03</span><h3>Маркетологи и агентства</h3><p>Для тех, кто внедряет AI-поиск, контент-конвейеры, агентов и новые услуги для клиентов.</p></div>
+ </div>
+</section>
+
+<!-- 06 Основатель -->
+<section id="klub-osnovatel">
+ <div class="sec-head rv"><div><span class="eyebrow">06 — Основатель клуба</span><h2>Антон Новгородцев</h2></div></div>
+ <div class="founder rv">
+  <div class="pimg">Фото: Антон Новгородцев</div>
+  <div class="fd">
+   <ul>
+    <li>Основатель агентства Nova Media</li>
+    <li>Автор опубликованных материалов клуба</li>
+    <li>Ведущий запланированных онлайн-встреч</li>
+   </ul>
+   <h3>Показываю то, что собираю руками</h3>
+   <p>В клубе публикую собственные разборы по OpenClaw, контент-автоматизации, AI-поиску и работе с нейросетями, а также веду практические онлайн-встречи.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 07 Стоимость -->
+<section id="klub-tarify">
+ <div class="cta rv">
+  <div>
+   <span class="eyebrow" style="color:#a8a8a8">07 — Стоимость участия</span>
+   <h2>Присоединяйтесь к Клубу ИИ Практики</h2>
+   <p class="k-lede">Доступ к опубликованным материалам, запланированным встречам и закрытому Telegram-чату.</p>
+   <div class="lbl">Что входит</div>
+   <ul class="ticks">
+    <li>Материалы и записи клуба</li>
+    <li>Участие в запланированных онлайн-встречах</li>
+    <li>Закрытый Telegram-чат участников</li>
+    <li>Новые публикации по мере выхода</li>
+   </ul>
+  </div>
+  <form id="kf">
+   <div class="lbl" style="margin:0">Разовая оплата без автосписаний</div>
+   <div class="tar" id="kTar">
+    <button type="button" aria-pressed="true"><small>На 1 месяц</small><b>990 ₽</b></button>
+    <button type="button" aria-pressed="false"><small>На 1 год</small><b>9&nbsp;900 ₽</b></button>
+   </div>
+   <input type="email" required placeholder="Ваш e-mail" autocomplete="email">
+   <button class="btn btn-r" type="submit">Оставить заявку →</button>
+   <a class="btn btn-o" href="#">Уже участвую — войти</a>
+   <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
+   <div class="thanks"><b>Заявка отправлена</b>Спасибо. Антон свяжется с вами и пришлёт способ оплаты. (Это макет: данные никуда не уходят.)</div>
+  </form>
+ </div>
+</section>
+
+<!-- 08 FAQ -->
+<section id="klub-faq" style="margin-bottom:24px">
+ <div class="two">
+  <div class="side-dark rv"><span class="eyebrow" style="color:#a8a8a8;margin:0">08 — FAQ</span><h2>Ответы на вопросы</h2><p>Не нашли свой — оставьте заявку, Антон ответит.</p><a class="btn btn-w" href="#klub-tarify">Оставить заявку</a></div>
+  <div class="rows rv">
+   <details open><summary>Сколько стоит участие?</summary><div class="more">990 ₽ за месяц или 9&nbsp;900 ₽ за год. Оплата разовая, без автоматических списаний и сохранения карты.</div></details>
+   <details><summary>Как подать заявку?</summary><div class="more">Выберите тариф и оставьте e-mail. Антон получит заявку в Telegram и на почту, после чего свяжется с вами и пришлёт способ оплаты.</div></details>
+   <details><summary>Какие темы уже есть в клубе?</summary><div class="more">Личные ИИ-ассистенты на OpenClaw, память агентов, контент-конвейеры, второй мозг предпринимателя, AI-поиск, визуал, видео и рои AI-агентов.</div></details>
+   <details><summary>Где проходят встречи?</summary><div class="more">Встречи проходят онлайн. Актуальные дата, время и тема автоматически выводятся на этой странице из расписания клуба.</div></details>
+   <details><summary>Кому подойдёт клуб по практическому применению ИИ?</summary><div class="more">Клуб рассчитан на предпринимателей, руководителей, маркетологов, экспертов и разработчиков, которые хотят применять искусственный интеллект в реальной работе: автоматизировать рутину, создавать контент, анализировать данные и собирать ИИ-ассистентов.</div></details>
+   <details><summary>Можно ли научиться работать с нейросетями с нуля?</summary><div class="more">Да. Материалы помогают освоить работу с нейросетями по практическим примерам. Для сложных тем мы объясняем контекст, инструменты и последовательность действий, чтобы участник мог повторить решение на своей задаче.</div></details>
+   <details><summary>Какие ИИ-инструменты разбираются в клубе?</summary><div class="more">В опубликованных материалах и встречах разбираются ChatGPT, Claude, OpenClaw, генерация изображений и видео, память ИИ-агентов, AI-поиск и автоматизация рабочих процессов. Список обновляется по мере выхода проверенных разборов.</div></details>
+   <details><summary>Как использовать ИИ и нейросети в бизнесе?</summary><div class="more">В клубе рассматриваем прикладные сценарии: подготовку контента, поиск и обработку информации, автоматизацию продаж и маркетинга, создание личных ассистентов и цифровых команд из ИИ-агентов. Цель каждого разбора — получить решение, применимое в рабочем процессе.</div></details>
+   <details><summary>Есть ли материалы по созданию ИИ-ассистентов и AI-агентов?</summary><div class="more">Да. В клубе есть практические материалы о личных ИИ-ассистентах, памяти агентов, OpenClaw и взаимодействии нескольких AI-агентов. Разбираем не только настройку, но и применение таких систем в ежедневной работе.</div></details>
+   <details><summary>Можно ли применять материалы клуба в своей компании?</summary><div class="more">Да. Разборы ориентированы на перенос в реальные процессы компании или личную практику. При внедрении важно учитывать доступы, конфиденциальность данных и проверку результата человеком.</div></details>
+   <details><summary>Чем клуб отличается от обычных курсов по искусственному интеллекту?</summary><div class="more">Клуб — это постоянно обновляемая библиотека практических материалов, живые онлайн-встречи и сообщество участников. Вместо фиксированной учебной программы здесь появляются новые разборы по мере развития моделей, сервисов и рабочих подходов.</div></details>
+   <details><summary>Будут ли записи онлайн-встреч по ИИ?</summary><div class="more">Материалы и записи встреч публикуются в клубе по мере подготовки. Участники получают доступ к библиотеке клуба и могут возвращаться к опубликованным разборам в удобное время.</div></details>
+  </div>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="kurs" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#obuchenie">Обучение</a><i>/</i><span>Руководителям и топ-менеджерам</span></nav>
+
+<!-- 01 Первый экран курса -->
+<div class="hero"><div class="hero-in">
+ <div class="hero-l">
+  <div>
+   <div class="sup">NOVA Media × ТЕТ-А-ТЕТ · Обучение для предпринимателей</div>
+   <h1>ИИ-система <em>предпринимателя</em></h1>
+   <p class="lead">Как расти без раздувания ФОТ: ИИ-сотрудники в каждой функции бизнеса. Для собственников и первых лиц компаний, где вместе с оборотом растут рутина и штат.</p>
+   <div class="start"><a class="btn btn-r" href="#kurs-zayavka">Оставить заявку →</a><a class="btn btn-o" href="#kurs-programma">Программа курса ↓</a></div>
+   <div class="k-meta"><span>Старт: <span class="ph">[дата старта]</span></span><span>Стоимость: <span class="ph">[условия участия]</span></span></div>
+  </div>
+  <div class="proof">
+   <div class="fact"><b>12 занятий</b>по 2,5–3 часа</div>
+   <div class="fact"><b>4 недели</b>офлайн в Новосибирске + онлайн</div>
+   <div class="fact"><b>70%</b>практики на занятиях</div>
+  </div>
+ </div>
+ <div class="schema">
+  <div class="top"><span>Как устроен курс</span><span>12 занятий</span></div>
+  <div class="stair">
+   <div class="zc z1"><small>Занятия 1–3</small><span>Рабочее место, личный штаб собственника и диагностика: где ИИ даст деньги</span></div>
+   <div class="zc z2"><small>Занятия 4–11</small><span>Восемь функций бизнеса: готовые рецепты, которые вы применяете к своей компании прямо на занятии</span></div>
+   <div class="zc z3"><small>Занятие 12</small><span>Demo Day: защита своих ИИ-сотрудников цифрами «было / стало»</span></div>
+  </div>
+  <p class="k-note">На каждом занятии вы делаете шаг к своим ИИ-сотрудникам: от выбора процессов до защиты на Demo Day.</p>
+  <a class="lk" style="align-self:flex-start;color:#fff;border-color:#555" href="#kurs-programma">Все занятия ↓</a>
+ </div>
+</div></div>
+
+<!-- Параметры курса -->
+<section id="kurs-parametry" style="margin-bottom:96px">
+ <div class="spec rv">
+  <div><span>Формат</span>Офлайн в Новосибирске, Ленина, 4, и онлайн</div>
+  <div><span>Ритм и состав</span>12 занятий · 4 недели · по 2,5–3 часа. Учатся парой: собственник и сотрудник</div>
+  <div><span>Старт и стоимость</span><b class="ph" style="font-weight:400">[дата старта] · [условия участия]</b></div>
+  <div><span>Инструменты</span><div class="stack"><span>ChatGPT</span><span>Claude</span><span>GigaChat</span><span>YandexGPT</span><span>n8n</span><span>CRM</span><span>1С</span></div></div>
+ </div>
+</section>
+
+<!-- 02 Для кого -->
+<section id="kurs-dlya-kogo">
+ <div class="sec-head rv"><div><span class="eyebrow">01 — Для кого</span><h2>Учатся парой: собственник и сотрудник, который собирает решения вместе с куратором</h2></div></div>
+ <div class="pair rv">
+  <div class="pc p1"><span class="n">Собственник или первое лицо</span><h3>Строит личную ИИ-систему и план внедрения</h3><p>Компания, где вместе с оборотом растут рутина и штат. Получает карту ИИ-возможностей с расчётом эффекта и регламент ИИ с бюджетом.</p></div>
+  <i class="pl" aria-hidden="true">+</i>
+  <div class="pc p2"><span class="n">Сотрудник</span><h3>Собирает ИИ-сотрудников вместе с куратором</h3><p>На каждом занятии делает шаг к своим ИИ-сотрудникам: от выбора процессов до защиты на Demo Day.</p></div>
+ </div>
+</section>
+
+<!-- 03 Что получите -->
+<section id="kurs-rezultat">
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Результат</span><h2>Что вы получите после курса</h2></div></div>
+ <div class="k-res rv">
+  <div class="rs"><span class="n">01</span><h3>Личная ИИ-система собственника</h3><p>Каждую неделю возвращает часы</p></div>
+  <div class="rs"><span class="n">02</span><h3>Карта ИИ-возможностей компании</h3><p>По восьми функциям, с расчётом эффекта</p></div>
+  <div class="rs"><span class="n">03</span><h3>Несколько ИИ-сотрудников</h3><p>Работают в процессах вашей компании</p></div>
+  <div class="rs"><span class="n">04</span><h3>Регламент ИИ и план внедрения на 90 дней</h3><p>С бюджетом</p></div>
+ </div>
+ <div class="edge rv"><b>Как устроен курс</b><span>Занятия 4–11 посвящены функциям бизнеса — каждое даёт готовые рецепты, которые вы применяете к своей компании прямо на занятии. Параллельно на каждом занятии вы делаете шаг к своим ИИ-сотрудникам: от выбора процессов до защиты на Demo Day.</span></div>
+</section>
+
+<!-- 04 Программа -->
+<section id="kurs-programma">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Программа</span><h2>12 занятий за 4 недели: от личной ИИ-системы до защиты на Demo Day</h2></div></div>
+ <div class="chips rv" id="kFmt">
+  <button class="chip" data-f="all" aria-pressed="true">Все занятия · 12</button>
+  <button class="chip" data-f="off" aria-pressed="false">Офлайн в Новосибирске · 5</button>
+  <button class="chip" data-f="on" aria-pressed="false">Онлайн · 7</button>
+ </div>
+ <p class="tm-note rv" style="margin:-8px 0 20px">Термины в программе подчёркнуты: наведите курсор, чтобы увидеть определение. Все термины — в <a class="lk" href="#slovar">словаре</a>.</p>
+ <div class="les-list">
+  <article class="les off rv" data-fmt="off" id="kurs-z1">
+   <div class="les-n"><b>01</b><span class="fmt">Офлайн · 3 ч</span></div>
+   <div class="les-h"><h3>Старт: ИИ-система собственника</h3><p class="pain">«Пробовал ChatGPT — выходит вода, и непонятно, чему доверять»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>выбирать модель под задачу (ChatGPT, Claude, GigaChat, YandexGPT и другие)</li><li>оплачивать в рублях и через юрлицо</li><li>ставить задачу и проверять ответ</li><li>понимать, какие данные можно отдавать ИИ</li></ul></div>
+    <div class="gt"><span>Получите</span><p>Настроенное рабочее место, контекст-пакет компании и пять ежедневных рецептов на своих документах</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z2">
+   <div class="les-n"><b>02</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Личный штаб собственника</h3><p class="pain">«Всё держу в голове, теряю договорённости»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>отличать чат, ассистента и агента</li><li>получать утренний брифинг из почты, календаря и CRM</li><li>превращать встречи в задачи</li><li>давать агенту полномочия</li><li>Демонстрация персонального агента 24/7</li></ul></div>
+    <div class="gt"><span>Получите</span><p>Ассистента, который каждый день готовит вам брифинг</p></div>
+   </div>
+  </article>
+  <article class="les off rv" data-fmt="off" id="kurs-z3">
+   <div class="les-n"><b>03</b><span class="fmt">Офлайн · 3 ч</span></div>
+   <div class="les-h"><h3>Диагностика: где ИИ даст деньги</h3><p class="pain">«Непонятно, с чего начать и что окупится»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>находить утечки времени и денег в восьми функциях компании</li><li>выбирать между ИИ, регламентом и наймом</li><li>считать экономику внедрения</li><li>«Горячий стул» по процессам участников</li></ul></div>
+    <div class="gt"><span>Получите</span><p>Карту ИИ-возможностей компании и список процессов для ИИ-сотрудников с расчётом эффекта</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z4">
+   <div class="les-n"><b>04</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Продажи: от заявки до сделки</h3><p class="pain">«Заявки теряются, КП уходит через неделю, звонки никто не слушает»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>находить и квалифицировать клиентов</li><li>готовить досье к встрече и КП из голосового сообщения</li><li>разбирать звонки</li><li>возвращать «спящую» базу</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Как устроен агент, техническое задание</p></div>
+    <div class="gt"><span>Получите</span><p>КП на реальную сделку, разбор своих звонков и ТЗ на своих ИИ-сотрудников</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z5">
+   <div class="les-n"><b>05</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Клиентский сервис и удержание</h3><p class="pain">«Клиенты пишут в пять мессенджеров и уходят, не дождавшись ответа»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>собирать Telegram, Max, Авито и почту в одно окно</li><li>отвечать по базе знаний</li><li>контролировать качество общения</li><li>замечать клиентов на грани ухода</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Российский стек — n8n, CRM, мессенджеры, российские и локальные модели</p></div>
+    <div class="gt"><span>Получите</span><p>Черновик бота-ответчика по своей базе знаний и схему своих решений</p></div>
+   </div>
+  </article>
+  <article class="les off rv" data-fmt="off" id="kurs-z6">
+   <div class="les-n"><b>06</b><span class="fmt">Офлайн · 3 ч</span></div>
+   <div class="les-h"><h3>Документы и заявки + лаборатория сборки</h3><p class="pain">«Менеджеры полдня переносят данные из письма в CRM, счёт и договор»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>превращать заявку в карточку CRM, КП и счёт</li><li>готовить первичку по данным CRM и 1С</li><li>проверять договоры на риски</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Собираете их на шаблонах без программиста</p></div>
+    <div class="gt"><span>Получите</span><p>Рабочие прототипы ИИ-сотрудников на данных компании</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z7">
+   <div class="les-n"><b>07</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Финансы и управленческий учёт</h3><p class="pain">«Цифры собираются к концу месяца, когда решать уже поздно»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>разносить выписки по ДДС</li><li>считать план-факт и себестоимость</li><li>вести платёжный календарь и прогноз</li><li>ловить ошибки ИИ в расчётах</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Тестирование на реальных данных и разбор ошибок</p></div>
+    <div class="gt"><span>Получите</span><p>ДДС из своих выписок, план-факт по проекту и проверенные прототипы</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z8">
+   <div class="les-n"><b>08</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Персонал и управление командой</h3><p class="pain">«Найм долгий, новички вникают месяцами, поручения теряются»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>разбирать отклики и интервью</li><li>запускать бота адаптации</li><li>делать регламенты из голосовых</li><li>контролировать поручения после совещаний</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Внедрение в команде — ИИ-чемпион, страх «заменят», обучение сотрудников</p></div>
+    <div class="gt"><span>Получите</span><p>Бота адаптации или контроль поручений и план подключения команды</p></div>
+   </div>
+  </article>
+  <article class="les off rv" data-fmt="off" id="kurs-z9">
+   <div class="les-n"><b>09</b><span class="fmt">Офлайн · 3 ч</span></div>
+   <div class="les-h"><h3>Производство, стройка, закупки и логистика</h3><p class="pain">«Сметы и графики вручную, снабжение в таблицах, объекты контролируем по звонкам»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>готовить сметы и спецификации из ТЗ</li><li>собирать калькуляторы</li><li>вести графики работ и закупок</li><li>сравнивать КП поставщиков</li><li>превращать фотоотчёты с объекта в статус работ</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Масштаб — новые процессы, контроль работы агентов, стоимость владения</p></div>
+    <div class="gt"><span>Получите</span><p>Калькулятор или документный сценарий для своего производства</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z10">
+   <div class="les-n"><b>10</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Маркетинг, контент и маркетплейсы</h3><p class="pain">«Контент делается урывками, реклама сливает бюджет, ИИ-поиск о нас не знает»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>запускать контент-конвейер</li><li>делать видео без продакшена</li><li>собирать отчёт по рекламе</li><li>вести карточки и отзывы на маркетплейсах</li><li>попадать в ответы ChatGPT и Алисы</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>Право и безопасность — 152-ФЗ, закон об ИИ, маркировка контента</p></div>
+    <div class="gt"><span>Получите</span><p>Контент-план на месяц, аудит видимости в ИИ-поиске и регламент ИИ в компании</p></div>
+   </div>
+  </article>
+  <article class="les on rv" data-fmt="on" id="kurs-z11">
+   <div class="les-n"><b>11</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Управление по данным и стратегия</h3><p class="pain">«Решения принимаю на ощущениях, отчёты собираю сам»</p></div>
+   <div class="les-b">
+    <div><span>Научитесь</span><ul><li>получать еженедельную сводку собственника из CRM, 1С и таблиц</li><li>исследовать рынок</li><li>проверять решения «советом директоров» из нескольких моделей</li></ul></div>
+    <div><span>Шаг к ИИ-сотрудникам</span><p>План внедрения на 90 дней</p></div>
+    <div class="gt"><span>Получите</span><p>Сводку собственника и дорожную карту внедрения с бюджетом</p></div>
+   </div>
+  </article>
+  <article class="les off dark rv" data-fmt="off" id="kurs-z12">
+   <div class="les-n"><b>12</b><span class="fmt">Офлайн · 3 ч</span></div>
+   <div class="les-h"><h3>Demo Day</h3></div>
+   <div class="les-b">
+    <div><span>На занятии</span><ul><li>Защищаете своих ИИ-сотрудников цифрами «было / стало» перед экспертной комиссией и гостями из бизнес-клубов</li></ul></div>
+    <div class="gt"><span>Получите</span><p>Защищённые результаты и план на 90 дней. После выпуска — созвоны на 30-й и 60-й день и 3 месяца в <a href="#klub">Клубе ИИ Практики</a></p></div>
+   </div>
+  </article>
+
+ </div>
+</section>
+
+<!-- 05 Отраслевые сценарии -->
+<section id="kurs-otrasli">
+ <div class="sec-head rv"><div><span class="eyebrow">04 — Отрасли</span><h2>Отраслевые сценарии</h2></div></div>
+ <div class="ind rv">
+  <div><b>Стройка</b><span>Сметы и ведомости, графики работ, фотоотчёты с объекта, тендеры</span></div>
+  <div><b>Производство</b><span>Заявка → КП и счёт, себестоимость, контроль качества по фото</span></div>
+  <div><b>Опт и дистрибуция</b><span>Заявки и прайсы, поставщики, остатки, дебиторка</span></div>
+  <div><b>Розница и маркетплейсы</b><span>Карточки, отзывы, аналитика, единое окно сообщений</span></div>
+  <div><b>Услуги и B2B</b><span>Запись клиентов, база знаний, качество звонков, удержание</span></div>
+  <div><b>Общепит</b><span>Отзывы, меню, закупки, найм персонала</span></div>
+ </div>
+</section>
+
+<!-- 06 Ведущие -->
+<section id="kurs-vedushchie">
+ <div class="sec-head rv"><div><span class="eyebrow">05 — Ведущие</span><h2>Курс ведут практики NOVA Media и Тет-а-тет AI</h2></div></div>
+ <div class="k-lead rv">
+  <div><div class="pimg">Фото</div><b>Антон Новгородцев</b><span>NOVA Media</span></div>
+  <div><div class="pimg">Фото</div><b>Сергей Сергунин</b><span>Тет-а-тет AI</span></div>
+  <div><div class="pimg">Фото</div><b>Приглашённые практики</b><span class="ph">[имена и компании — уточнить]</span></div>
+ </div>
+</section>
+
+<!-- 06 Вопросы о курсе -->
+<section id="kurs-faq">
+ <div class="two">
+  <div class="side-dark rv"><span class="eyebrow" style="color:#a8a8a8;margin:0">06 — Вопросы</span><h2>Вопросы о курсе</h2><p>Не нашли свой — задайте его при записи.</p><a class="btn btn-w" href="#kurs-zayavka">Оставить заявку</a></div>
+  <div class="rows rv">
+   <details open><summary>Нужен ли опыт работы с ИИ?</summary><div class="more">Первое занятие начинается с основ: как выбрать модель под задачу, поставить задачу и проверить ответ. <span class="ph">[Уточнить входной уровень]</span></div></details>
+   <details><summary>Нужна ли платная подписка на ChatGPT или Claude?</summary><div class="more">На первом занятии разбираем, как выбрать модель (ChatGPT, Claude, GigaChat, YandexGPT и другие) и как оплачивать сервисы в рублях и через юрлицо. <span class="ph">[Уточнить, что нужно оплатить до старта]</span></div></details>
+   <details><summary>Почему учатся парой?</summary><div class="more">Собственник выбирает процессы и принимает решения, а сотрудник собирает решения вместе с куратором. На каждом занятии вы делаете шаг к своим ИИ-сотрудникам — от выбора процессов до защиты на Demo Day.</div></details>
+   <details><summary>Подойдёт ли курс для моей отрасли?</summary><div class="more">Есть отраслевые сценарии: стройка, производство, опт и дистрибуция, розница и маркетплейсы, услуги и B2B, общепит. Отдельное занятие посвящено производству, стройке, закупкам и логистике.<br><a href="#kurs-otrasli">Отраслевые сценарии</a></div></details>
+   <details><summary>Безопасно ли загружать данные компании?</summary><div class="more">На первом занятии разбираем, какие данные можно отдавать ИИ. На занятии по маркетингу и контенту — 152-ФЗ, закон об ИИ и маркировку контента.<br><a href="#voprosy">Подробнее о безопасности данных</a></div></details>
+   <details><summary>Что делать, если пропущу занятие или отстану?</summary><div class="more"><span class="ph">[Уточнить: записи занятий, возможность догнать на следующем потоке, помощь куратора]</span></div></details>
+   <details><summary>Где получить помощь, если что-то не работает?</summary><div class="more"><span class="ph">[Уточнить канал поддержки: чат группы, куратор]</span></div></details>
+   <details><summary>Что будет после выпуска?</summary><div class="more">Вы защищаете результаты на Demo Day и получаете план на 90 дней. После выпуска — созвоны на 30-й и 60-й день и 3 месяца в <a href="#klub">Клубе ИИ Практики</a>.</div></details>
+  </div>
+ </div>
+</section>
+
+<!-- 07 Заявка -->
+<section id="kurs-zayavka" style="margin-bottom:24px">
+ <div class="cta rv">
+  <div>
+   <span class="eyebrow" style="color:#a8a8a8">07 — Заявка</span>
+   <h2>Записаться на курс</h2>
+   <div class="lbl">Условия</div>
+   <ul>
+    <li><b>Формат.</b> 12 занятий за 4 недели: офлайн в Новосибирске, на Ленина, 4, и онлайн</li>
+    <li><b>Учатся парой.</b> Собственник и сотрудник — укажите обоих в заявке</li>
+    <li><b>Старт.</b> <span class="ph">[дата старта]</span></li>
+    <li><b>Стоимость.</b> <span class="ph">[условия участия]</span></li>
+   </ul>
+  </div>
+  <form id="kzf">
+   <input required placeholder="Как к вам обращаться" autocomplete="name">
+   <input required placeholder="+7 … или @username">
+   <input placeholder="Компания и ваша роль">
+   <textarea placeholder="Кто будет учиться вместе с вами: сотрудник и его должность"></textarea>
+   <button class="btn btn-r" type="submit">Оставить заявку →</button>
+   <div class="tg">или <a href="#">написать в Telegram</a></div>
+   <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
+   <div class="thanks"><b>Заявка отправлена</b>Спасибо. Мы свяжемся с вами <span class="ph">[срок ответа]</span>. (Это макет: данные никуда не уходят.)</div>
+  </form>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="obuchenie" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><span>Обучение</span></nav>
+
+<div class="pg-head rv">
+ <span class="eyebrow">Обучение</span>
+ <h1>Обучение работе с ИИ: от бесплатных материалов до курса</h1>
+ <p class="lead2">Три уровня: для себя, для руководителей и для сотрудников. Начните с бесплатных материалов, продолжите в клубе или на курсе, закрепите на профильном ИИ-столе.</p>
+ <div class="pg-stats">
+  <div><b class="ph">[N]</b>программ в работе</div>
+  <div><b class="ph">[N]</b>участников обучения</div>
+  <div><b class="ph">[N]%</b>возвращаются на следующую программу</div>
+  <div><b>от 990 ₽</b>доступ в клуб на один месяц</div>
+ </div>
+</div>
+
+<!-- 01 Лестница программ -->
+<section id="obuchenie-programmy">
+ <div class="sec-head rv"><div><span class="eyebrow">01 — Программы и поддержка</span><h2>С чего начать и куда расти дальше</h2></div></div>
+ <div class="svc rv">
+  <article class="sv"><div class="who"><span>01</span><span class="for">Всем</span></div><h3>Бесплатные материалы</h3><p>Чтобы разобраться, нужно ли вам обучение, и говорить с командой на одном языке.</p>
+   <ul><li><a href="#slovar">Словарь терминов ИИ для бизнеса</a></li><li><a href="#shemy">Схемы «ИИ / человек» по отделам</a></li><li>Мини-курс <small>скоро · <span class="ph">[название]</span></small></li></ul>
+   <div class="get"><span>Вы получаете</span>Общий язык и карту зон «ИИ / человек» без оплаты</div></article>
+  <article class="sv"><div class="who"><span>02</span><span class="for">Собственникам, экспертам, маркетологам</span></div><h3>Клуб ИИ Практики</h3><p>Библиотека разборов, онлайн-встречи и закрытый Telegram-чат. Ведёт Антон Новгородцев.</p>
+   <div class="get"><span>Доступ</span>990 ₽ в месяц или 9&nbsp;900 ₽ в год, оплата разовая</div><div class="ls"><a href="#klub">Подробнее →</a></div></article>
+  <article class="sv"><div class="who"><span>03</span><span class="for">Собственникам и первым лицам</span></div><h3>Курс «ИИ-система предпринимателя»</h3><p>12 занятий за 4 недели, офлайн в Новосибирске и онлайн. Учатся парой: собственник и сотрудник.</p>
+   <div class="get"><span>Вы получаете</span>Личную ИИ-систему, карту возможностей, ИИ-сотрудников и план на 90 дней</div><div class="ls"><a href="#kurs">Подробнее →</a></div></article>
+  <article class="sv"><div class="who"><span>04</span><span class="for">Предпринимателям, руководителям, специалистам</span></div><h3>Профильный ИИ-стол</h3><p>Участники одного профиля обсуждают применение ИИ на равных. Тет-а-тет AI — председатель стола, бизнес-клуб KRONA, Ленина, 4.</p>
+   <div class="get"><span>Участие</span>5&nbsp;000&nbsp;₽</div><div class="ls"><a href="#krona">Подробнее →</a></div></article>
+  <article class="sv dk"><div class="who"><span>05</span><span class="for">Командам и выпускникам</span></div><h3>Командный тариф и программа лояльности</h3>
+   <ul><li>Командный тариф: участие от <span class="ph">[N]</span> человек, групповые условия <small>скоро</small></li><li>Выпускникам: скидка <span class="ph">[N]%</span> на следующую программу <small>скоро</small></li><li>Приведите коллегу: бонус вам и ему <span class="ph">[условия]</span> <small>скоро</small></li></ul>
+   <div class="get"><span>Зачем</span>Курс рассчитан на пару «собственник и сотрудник» — командный тариф делает такое участие дешевле</div></article>
+ </div>
+</section>
+
+<!-- 02 Календарь -->
+<section id="obuchenie-kalendar">
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Календарь</span><h2>Ближайшие 12 месяцев: потоки курса, ИИ-столы и Дни ИИ</h2></div></div>
+ <div class="tl-wrap rv"><div class="tm" id="tm">
+  <div class="tm-h" id="tmH"><span></span></div>
+  <div class="tm-r"><b>Курс</b><span class="bar tbd" style="grid-column:4/6">Поток 1 · <span class="ph">[даты]</span></span><span class="bar tbd" style="grid-column:9/11">Поток 2 · <span class="ph">[даты]</span></span></div>
+  <div class="tm-r"><b>Клуб</b><span class="bar soft" style="grid-column:2/14">Материалы и закрытый чат — постоянно · онлайн-встречи <span class="ph">&nbsp;[по расписанию]</span></span></div>
+  <div class="tm-r"><b>ИИ-стол</b><span class="bar tbd" style="grid-column:3/4">Стол</span><span class="bar tbd" style="grid-column:5/6">Стол</span><span class="bar tbd" style="grid-column:7/8">Стол</span><span class="bar tbd" style="grid-column:9/10">Стол</span><span class="bar tbd" style="grid-column:11/12">Стол</span><span class="bar tbd" style="grid-column:13/14">Стол</span></div>
+  <div class="tm-r"><b>Дни ИИ</b><span class="bar tbd" style="grid-column:10/12">Дни ИИ · <span class="ph">[даты]</span></span></div>
+  <i class="now" id="tmNow"><em>сегодня</em></i>
+ </div></div>
+ <p class="tm-note rv">Пунктир — даты уточняются, положение условное. Сплошная полоса — работает сейчас. Красная линия — сегодняшний день.</p>
+</section>
+
+<!-- 03 Ближайшие программы -->
+<section id="obuchenie-blizhajshie">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Ближайшие программы</span><h2>Что можно начать уже сейчас</h2></div></div>
+ <div class="prog rv">
+  <article class="pr"><span class="tg2">Курс</span><h3>ИИ-система предпринимателя</h3><p>Как расти без раздувания ФОТ: ИИ-сотрудники в каждой функции бизнеса.</p>
+   <dl><dt>Формат</dt><dd>офлайн в Новосибирске + онлайн</dd><dt>Ритм</dt><dd>12 занятий · 4 недели · по 2,5–3 часа</dd><dt>Для кого</dt><dd>собственники и первые лица, парой с сотрудником</dd><dt>Старт</dt><dd class="ph">[дата старта]</dd><dt>Стоимость</dt><dd class="ph">[условия участия]</dd></dl>
+   <div class="stack"><span>ChatGPT</span><span>Claude</span><span>GigaChat</span><span>YandexGPT</span><span>n8n</span><span>CRM</span><span>1С</span></div>
+   <div class="acts"><a class="btn btn-r btn-s" href="#kurs-zayavka">Подать заявку</a><a class="btn btn-k btn-s" href="#kurs">Подробнее</a></div></article>
+  <article class="pr"><span class="tg2">Клуб</span><h3>Клуб ИИ Практики</h3><p>Сообщество, которое внедряет ИИ в реальные процессы и делится результатами.</p>
+   <dl><dt>Формат</dt><dd>онлайн: библиотека, встречи, Telegram-чат</dd><dt>Ритм</dt><dd>постоянно, встречи по расписанию</dd><dt>Для кого</dt><dd>собственники, эксперты, маркетологи, разработчики</dd><dt>Ближайшая встреча</dt><dd class="ph">[дата и тема]</dd><dt>Стоимость</dt><dd>990 ₽ в месяц · 9&nbsp;900 ₽ в год</dd></dl>
+   <div class="stack"><span>ChatGPT</span><span>Claude</span><span>OpenClaw</span><span>AI-поиск</span><span>контент-конвейеры</span><span>агенты</span></div>
+   <div class="acts"><a class="btn btn-r btn-s" href="#klub-tarify">Присоединиться</a><a class="btn btn-k btn-s" href="#klub">Подробнее</a></div></article>
+ </div>
+</section>
+
+<!-- 04 Записи -->
+<section id="obuchenie-zapisi" style="margin-bottom:96px">
+ <div class="sec-head rv"><div><span class="eyebrow">04 — Записи</span><h2>Видеоархив: смотреть в своём темпе</h2></div></div>
+ <div class="panel dk rv">
+  <p class="intro">Здесь будут только те программы, где запись доступна как отдельный self-paced доступ. Закрытые живые наборы без продажи записей в архив не попадают.</p>
+  <div class="out" style="grid-template-columns:repeat(3,1fr);margin-top:0">
+   <div><b>Дни ИИ <small style="color:var(--red);font-weight:400">скоро</small></b>Записи выступлений и презентации</div>
+   <div><b>Профильные ИИ-столы <small style="color:var(--red);font-weight:400">скоро</small></b>Разборы и дайджесты</div>
+   <div><b>Занятия курса <small style="color:var(--red);font-weight:400">скоро</small></b>Записи по <span class="ph">[условиям доступа]</span></div>
+  </div>
+  <div class="ls"><a class="btn btn-w" href="#vopros">Сообщить, когда появятся →</a></div>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="slovar" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#issledovaniya">Исследования</a><i>/</i><span>Словарь терминов</span></nav>
+
+<div class="pg-head rv">
+ <span class="eyebrow">Исследования · Материалы</span>
+ <h1>Словарь терминов ИИ для бизнеса</h1>
+ <p class="lead2">Термины из консультаций, курсов и аудитов — простым языком и с примером для бизнеса. У каждого термина есть ссылка на занятие или материал, где его разбирают.</p>
+ <div class="pg-stats" id="glStats"></div>
+</div>
+
+<div class="gl-bar rv">
+ <div class="gl-top">
+  <label class="srch"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M12.5 12.5L16 16"/></svg><input id="glQ" type="search" placeholder="Поиск: термин, английское название или определение" autocomplete="off" aria-label="Поиск по словарю"><kbd>/</kbd></label>
+  <div class="chips" id="glView"><button class="chip" data-v="grid" aria-pressed="true">Карточки</button><button class="chip" data-v="list" aria-pressed="false">Список</button></div>
+ </div>
+ <div class="chips" id="glGroups"></div>
+</div>
+<p class="lead2" id="glCount" style="margin-bottom:20px;font-size:16px"></p>
+<div class="gl" id="gl"></div>
+<div class="edge" id="glEmpty" hidden><b>Ничего не нашли</b><span>Попробуйте другое слово или <a class="lk" href="#vopros">задайте вопрос специалисту</a> — добавим термин в словарь.</span></div>
+
+<section id="slovar-o" style="margin:100px 0 96px">
+ <div class="edge rv"><b>О словаре</b><span>Словарь пополняется по материалам курса, клуба и исследовательского центра: термин появляется вместе со ссылкой на занятие, где его разбирают. В программе курса термины подчёркнуты — наведите курсор, чтобы увидеть определение. Поиск — клавиша «/».</span></div>
+</section>
+</main>
+
+<main class="wrap" id="shemy" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#issledovaniya">Исследования</a><i>/</i><span>Схемы «ИИ / человек»</span></nav>
+
+<div class="pg-head rv">
+ <span class="eyebrow">Исследования · Материалы</span>
+ <h1>Схемы «ИИ / человек» по отделам</h1>
+ <p class="lead2">Для каждого отдела — карта: что ИИ делает сам, что готовит для человека и что остаётся человеку. Схему можно скачать и показать команде.</p>
+ <div class="pg-stats" id="schStats"></div>
+</div>
+
+<div class="legend3 rv"><span><i></i>ИИ делает сам</span><span><i></i>ИИ готовит, человек проверяет и решает</span><span><i></i>Делает человек</span></div>
+<div class="sch-grid" id="schGrid"></div>
+
+<section id="shemy-o" style="margin:80px 0 96px">
+ <div class="edge rv"><b>Исключение</b><span>Иногда правильный ответ — ИИ здесь не нужен: если процесс описывается простыми правилами, дешевле обычная автоматизация.</span></div>
+ <div class="pg-act rv"><a class="btn btn-r" href="#vopros">Нужна схема для вашего отдела →</a><a class="lk" href="#slovar">Словарь терминов</a><a class="lk" href="#kurs">Курс «ИИ-система предпринимателя»</a></div>
+</section>
+</main>
+
+<main class="wrap" id="otzyvy" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#praktiki">О компании</a><i>/</i><span>Отзывы</span></nav>
+
+<div class="pg-head rv">
+ <span class="eyebrow">О компании</span>
+ <h1>Отзывы участников</h1>
+ <p class="lead2">О курсе, клубе, профильном ИИ-столе и консультациях. Каждый отзыв — ответы на три вопроса: что было самым ценным, какой получился результат, кто из ведущих зашёл.</p>
+ <div class="pg-act"><span class="ph" style="font-size:16px">[N] отзывов</span><a class="btn btn-r btn-s" href="#otzyvy-forma">Оставить отзыв</a><a class="lk" href="#">Рекомендуете нас? Станьте партнёром →</a></div>
+</div>
+
+<div class="chips rv" id="rvF">
+ <button class="chip" data-f="all" aria-pressed="true">Все</button>
+ <button class="chip" data-f="kurs" aria-pressed="false">Курс</button>
+ <button class="chip" data-f="klub" aria-pressed="false">Клуб</button>
+ <button class="chip" data-f="stol" aria-pressed="false">ИИ-стол</button>
+ <button class="chip" data-f="consult" aria-pressed="false">Консультации</button>
+</div>
+
+<div class="mas rv" id="rvList">
+ <article class="rc" data-p="kurs"><span class="pb">Курс</span><dl><dt>Самое ценное</dt><dd class="ph">[Текст отзыва: что оказалось полезнее всего]</dd><dt>Результат</dt><dd class="ph">[Что получилось: цифры «было / стало», если есть]</dd><dt>Кто из ведущих зашёл</dt><dd class="ph">[Имя]</dd></dl><div class="au"><span class="av ph">ИФ</span><div><b class="ph">[Имя Фамилия]</b><small class="ph">[Должность, компания] · [срок назад]</small></div></div></article>
+ <article class="rc" data-p="klub"><span class="pb">Клуб</span><dl><dt>Самое ценное</dt><dd class="ph">[Короткий отзыв в одну-две строки]</dd></dl><div class="au"><span class="av ph">ИФ</span><div><b class="ph">[Имя Фамилия]</b><small class="ph">[Должность, компания] · [срок назад]</small></div></div></article>
+ <article class="rc" data-p="stol"><span class="pb">ИИ-стол</span><dl><dt>Самое ценное</dt><dd class="ph">[Текст отзыва]</dd><dt>Результат</dt><dd class="ph">[Что получилось]</dd></dl><div class="au"><span class="av ph">ИФ</span><div><b class="ph">[Имя Фамилия]</b><small class="ph">[Должность, компания] · [срок назад]</small></div></div></article>
+ <article class="rc" data-p="kurs"><span class="pb">Курс</span><dl><dt>Самое ценное</dt><dd class="ph">[Текст отзыва из двух-трёх предложений: как менялось отношение к ИИ в компании]</dd><dt>Кто из ведущих зашёл</dt><dd class="ph">[Имя]</dd></dl><div class="au"><span class="av ph">ИФ</span><div><b class="ph">[Имя Фамилия]</b><small class="ph">[Должность, компания] · [срок назад]</small></div></div></article>
+ <article class="rc" data-p="consult"><span class="pb">Консультации</span><dl><dt>Самое ценное</dt><dd class="ph">[Текст отзыва]</dd><dt>Результат</dt><dd class="ph">[Что получилось: список гипотез, зоны для ИИ]</dd></dl><div class="au"><span class="av ph">ИФ</span><div><b class="ph">[Имя Фамилия]</b><small class="ph">[Должность, компания] · [срок назад]</small></div></div></article>
+ <article class="rc" data-p="klub"><span class="pb">Клуб</span><dl><dt>Самое ценное</dt><dd class="ph">[Текст отзыва]</dd><dt>Результат</dt><dd class="ph">[Что получилось]</dd><dt>Кто из ведущих зашёл</dt><dd class="ph">[Имя]</dd></dl><div class="au"><span class="av ph">ИФ</span><div><b class="ph">[Имя Фамилия]</b><small class="ph">[Должность, компания] · [срок назад]</small></div></div></article>
+</div>
+
+<section id="otzyvy-forma" style="margin:100px 0 24px">
+ <div class="cta rv">
+  <div>
+   <span class="eyebrow" style="color:#a8a8a8">Оставить отзыв</span>
+   <h2>Три вопроса — и отзыв готов</h2>
+   <div class="lbl">Что мы спросим</div>
+   <ul>
+    <li><b>Самое ценное.</b> Что оказалось полезнее всего</li>
+    <li><b>Результат.</b> Что получилось у вас или в вашей компании</li>
+    <li><b>Кто из ведущих зашёл.</b> Чьи объяснения помогли больше</li>
+   </ul>
+  </div>
+  <form id="rf">
+   <div class="lbl" style="margin:0">О какой программе отзыв</div>
+   <div class="wh" id="rfWho"><button type="button" class="chip" aria-pressed="true">Курс</button><button type="button" class="chip" aria-pressed="false">Клуб</button><button type="button" class="chip" aria-pressed="false">ИИ-стол</button><button type="button" class="chip" aria-pressed="false">Консультации</button></div>
+   <textarea placeholder="Самое ценное"></textarea>
+   <textarea placeholder="Результат"></textarea>
+   <input placeholder="Кто из ведущих зашёл">
+   <input required placeholder="Как вас подписать: имя, должность, компания">
+   <button class="btn btn-r" type="submit">Отправить отзыв →</button>
+   <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a> и публикацией отзыва на сайте после проверки</div>
+   <div class="thanks"><b>Спасибо за отзыв</b>Мы проверим его и опубликуем. (Это макет: данные никуда не уходят.)</div>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div><h4>Услуги</h4><a href="#">Консультации и ИИ-консалтинг</a><a href="#">AI-аудит</a><a href="#">Внедрение ИИ: программа на год</a><a href="#">Стратегия и дорожная карта</a><a href="#">Подбор ИИ-специалиста</a><a href="#">Разработка ИИ-решений</a><a href="#">Сопровождение</a></div>
+   <div><h4>Обучение</h4><a href="#obuchenie">Все программы и календарь</a><a href="#klub">Для себя: работа с нейросетями</a><a href="#kurs">Руководителям и топ-менеджерам</a><a href="#">Сотрудникам компаний <small>скоро</small></a></div>
+   <div><h4>Решения</h4><a href="#">ИИ-агенты</a><a href="#">Голосовые агенты</a><a href="#">ИИ-ассистенты</a><a href="#">Чат-боты</a><a href="#">База знаний</a><a href="#">Обработка документов</a><a href="#">Автоматизация процессов</a><a href="#">Корпоративный ИИ</a><a href="#">Интеграции с 1С и Битрикс24</a></div>
+   <div><h4>Отделы и отрасли</h4><a href="#">Решения по отделам</a><a href="#">Решения по отраслям</a><a href="#">Продажи</a><a href="#">Маркетинг</a><a href="#">HR</a><a href="#">Бухгалтерия и финансы</a><a href="#">Производство</a><a href="#">Медицина</a><a href="#">Строительство</a></div>
+   <div><h4>Компания</h4><a href="#issledovaniya">Исследовательский центр</a><a href="#slovar">Словарь терминов</a><a href="#shemy">Схемы «ИИ / человек»</a><a href="#praktiki">Команда</a><a href="#otzyvy">Отзывы</a><a href="#">Кейсы</a><a href="#krona">Профильный ИИ-стол</a><a href="#">Блог</a><a href="#">Безопасность данных</a><a href="#">Стоимость</a><a href="#">Контакты</a></div>
+  </div>
+  <div class="fbot"><span>© Тет-а-тет AI · Новосибирск, ул. Ленина, 4</span><span><a href="#">Политика обработки персональных данных</a> · <a href="#">Telegram-канал</a></span></div>
+ </div>
+</footer>
+<a class="btn btn-r sticky" href="#vopros">Задать вопрос по ИИ</a>
+
+<script>
+document.documentElement.classList.add('js');
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+// [отдел, ИИ сам (2), ИИ готовит (2), человек (2)] — как в v5
+const D=[
+ ['Продажи',['Расшифровка звонка и протокол','Заполнение карточки сделки в CRM'],['Черновик коммерческого предложения','Сводка по клиенту перед встречей'],['Переговоры о цене','Решение о скидке']],
+ ['Юристы',['Сверка договора с чек-листом компании','Поиск похожих договоров в архиве'],['Черновик договора, который подписывает юрист','Список рисков по договору'],['Позиция в споре','Подпись договора']],
+ ['HR',['Первичный отбор резюме по требованиям','Ответы новичкам по регламентам'],['Черновик текста вакансии','Вопросы для собеседования'],['Собеседование','Решение о найме']],
+ ['Бухгалтерия',['Распознавание первичных документов','Сверка документов с 1С'],['Черновик отчёта для руководителя','Список расхождений для проверки'],['Решение по спорным операциям','Подпись отчётности']],
+ ['Руководитель',['Расшифровка встречи и протокол','Сводка по исполнению поручений'],['Черновик письма партнёру','Сравнение предложений подрядчиков'],['Переговоры','Решения о стратегии и людях']]
+];
+const ZN=['ИИ делает сам','ИИ готовит, человек проверяет и решает','Делает человек'];
+// вкладки отделов + зоны
+const tabs=$('#dTabs'),zones=$('#zones');
+function showDept(i){
+  $$('.chip',tabs).forEach((c,j)=>c.setAttribute('aria-pressed',i===j));
+  zones.innerHTML=ZN.map((n,k)=>`<div class="zone"><span class="n">0${k+1}</span><h3>${n}</h3><ul>${D[i][k+1].map(t=>`<li>${t}</li>`).join('')}</ul></div>`).join('');
+}
+D.forEach((d,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=d[0];b.onclick=()=>showDept(i);tabs.append(b)});
+showDept(0);
+// пример в первом экране: смена раз в 4,2 с, пауза при наведении, без анимации при prefers-reduced-motion
+let hi=0,pause=false;const st=$('#hStair'),dots=$('#hDots');
+D.forEach((d,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Пример: '+d[0]);b.onclick=()=>{hi=i;hero()};dots.append(b)});
+function hero(){
+  $('#hDept').textContent='Пример — '+D[hi][0];
+  $$('.zc span',st).forEach((s,k)=>s.textContent=D[hi][k+1][0]);
+  $$('button',dots).forEach((b,i)=>b.classList.toggle('on',i===hi));
+}
+hero();
+$('.schema').onmouseenter=()=>pause=true;$('.schema').onmouseleave=()=>pause=false;
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(pause||document.hidden)return;st.classList.add('fade');setTimeout(()=>{hi=(hi+1)%D.length;hero();st.classList.remove('fade')},350)},4200);
+// три входа «Для компании / руководителя / себя» ведут к блоку «Направления»
+$$('#aud button').forEach(b=>b.onclick=()=>$('#uslugi').scrollIntoView({behavior:'smooth'}));
+// спикеры: 8 карточек + ещё 8
+const spk=$('#spk');
+for(let i=0;i<16;i++){const m=i%4===3;const e=document.createElement('div');e.className='sp';if(i>7)e.hidden=true;
+  e.innerHTML=`<div class="pimg">Фото спикера</div><em class="${m?'mentor':''}">${m?'Наставник курса':'Спикер Дней ИИ'}</em><b class="ph">[Имя Фамилия]</b><span class="ph">[Должность, компания]</span>`;spk.append(e)}
+$('#spBtn').onclick=()=>{$$('.sp[hidden]',spk).forEach(e=>e.hidden=false);$('#spMore').remove()};
+// форма
+const ph=['Например, где в отделе продаж ИИ окупится первым','Например, как руководителю проверять работу ИИ','Например, какую нейросеть выбрать для работы с текстами'];
+$$('#who .chip').forEach((c,i)=>c.onclick=()=>{$$('#who .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));$('#q').placeholder=ph[i]});
+$('#f').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+// появление при прокрутке
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.08});
+$$('.rv').forEach(el=>io.observe(el));
+
+// страницы: главная, обучение, клуб, курс, словарь, схемы, отзывы
+const PG={home:$('#top'),obuchenie:$('#obuchenie'),klub:$('#klub'),kurs:$('#kurs'),slovar:$('#slovar'),shemy:$('#shemy'),otzyvy:$('#otzyvy')};let cur=null;
+const TITLES={home:document.title,
+ obuchenie:'Обучение работе с ИИ: клуб, курс, ИИ-стол и календарь | Тет-а-тет AI',
+ klub:'Клуб ИИ Практики — закрытое сообщество практиков ИИ | Тет-а-тет AI',
+ kurs:'ИИ-система предпринимателя — обучение для собственников | Тет-а-тет AI',
+ slovar:'Словарь терминов ИИ для бизнеса | Тет-а-тет AI',
+ shemy:'Схемы «ИИ / человек» по отделам | Тет-а-тет AI',
+ otzyvy:'Отзывы участников курса, клуба и ИИ-стола | Тет-а-тет AI'};
+const CTA={home:'#vopros',obuchenie:'#obuchenie-programmy',klub:'#klub-tarify',kurs:'#kurs-zayavka',slovar:'#vopros',shemy:'#vopros',otzyvy:'#otzyvy-forma'};
+const pageOf=id=>{const m=/^(obuchenie|klub|kurs|slovar|shemy|otzyvy)($|-)/.exec(id);return m?m[1]:'home'};
+function route(){
+  const id=decodeURIComponent(location.hash.slice(1));
+  const pg=pageOf(id);
+  const changed=pg!==cur;cur=pg;
+  for(const k in PG)PG[k].hidden=k!==pg;
+  document.body.dataset.page=pg;document.title=TITLES[pg];
+  $('.sticky').href=CTA[pg];
+  $('#hdr').classList.remove('nav-open');
+  const t=id&&id!==pg&&id!=='top'?document.getElementById(id):null;
+  if(t)t.scrollIntoView({behavior:changed?'instant':'smooth'});
+  else if(changed)scrollTo({top:0,behavior:'instant'});
+}
+addEventListener('hashchange',route);route();
+// ссылки-заглушки «#» не должны уводить со страницы
+document.addEventListener('click',e=>{if(e.target.closest('a[href="#"]'))e.preventDefault()});
+// тариф и форма заявки клуба
+$$('#kTar button').forEach(b=>b.onclick=()=>$$('#kTar button').forEach(x=>x.setAttribute('aria-pressed',x===b)));
+$('#kf').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+// курс: заявка и фильтр программы
+$('#kzf').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+$$('#kFmt .chip').forEach(c=>c.onclick=()=>{$$('#kFmt .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));$$('.les').forEach(l=>l.hidden=c.dataset.f!=='all'&&l.dataset.fmt!==c.dataset.f)});
+
+// ===== v6: словарь, схемы, календарь, отзывы, подсказки терминов =====
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const GR=['Основы','Работа с моделью','Агенты и автоматизация','Данные и безопасность','Внедрение и оценка','Роли и форматы'];
+const GC=['#f72221','#42179c','#242424','#f72221','#42179c','#242424'];
+// [термин, английское название, группа, определение, «для бизнеса», ссылки]
+const TERMS=[
+ ['Нейросеть','Neural network',0,'Программа, которая учится на примерах, а не по заранее написанным правилам. Находит закономерности в текстах, картинках, звуке.','Годится там, где правила не описать словами: разобрать письмо, расшифровать звонок, найти похожий договор.',[['Схемы «ИИ / человек»','#shemy']]],
+ ['Большая языковая модель','LLM',0,'Нейросеть, обученная на огромном объёме текстов. Продолжает и переписывает текст, отвечает на вопросы, пишет код. ChatGPT, Claude, GigaChat, YandexGPT — примеры.','Модель не знает вашу компанию, пока вы не дадите ей контекст: документы, регламенты, примеры.',[['Выбор модели — занятие 1','#kurs-z1']]],
+ ['Токен','Token',0,'Кусочек текста, на которые модель режет всё, что читает и пишет: слово, часть слова, знак. Стоимость и лимиты считаются в токенах.','Длинные документы и переписка стоят дороже коротких. Токены — основа любой сметы на ИИ.',[['Выбор модели — занятие 1','#kurs-z1']]],
+ ['Контекстное окно','Context window',0,'Сколько текста модель удерживает «перед глазами» в одном разговоре. Что не поместилось, модель не учитывает.','Если загрузить весь архив сразу, модель потеряет часть. Для больших баз нужен поиск по базе знаний (RAG).',[['RAG','#slovar']]],
+ ['Галлюцинация','Hallucination',0,'Уверенный, но выдуманный ответ: несуществующая цифра, ссылка, закон. Модель подбирает правдоподобное продолжение, а не проверяет факт.','Поэтому ответ ИИ проверяют: по источнику, по цифрам, человеком, который отвечает за результат.',[['Схемы «ИИ / человек»','#shemy']]],
+ ['Мультимодальность','Multimodality',0,'Способность модели работать не только с текстом, но и с изображением, звуком, видео, таблицами.','Фото с объекта, скан договора, запись звонка — всё это можно разбирать одной моделью.',[['Отраслевые сценарии','#kurs-otrasli']]],
+
+ ['Промпт','Prompt',1,'Задание, которое вы формулируете для модели. Чем конкретнее роль, цель, формат и пример, тем ближе результат к нужному.','Хороший промпт — это короткое техзадание. Его можно сохранить и дать сотруднику.',[['Занятие 1','#kurs-z1']]],
+ ['Контекст-пакет','Context pack',1,'Заготовленный набор сведений о компании: кто вы, что продаёте, как говорите с клиентом, какие правила. Его подкладывают в начало задачи.','Один раз собрали — и любой сотрудник получает ответы «в стиле компании», а не усреднённые.',[['Занятие 1','#kurs-z1']]],
+ ['Системная инструкция','System prompt',1,'Постоянные правила для модели, которые действуют на весь разговор: роль, тон, запреты, формат ответа.','Так настраивают ИИ-ассистента, чтобы он не обещал лишнего и отвечал по регламенту.',[['Услуги','#uslugi']]],
+ ['Примеры в промпте','Few-shot',1,'Приём: показать модели два-три образца «вход — нужный результат», прежде чем просить сделать то же самое.','Лучший способ научить ИИ вашему формату коммерческого предложения или протокола.',[['Занятие 1','#kurs-z1']]],
+ ['Температура','Temperature',1,'Настройка «смелости» модели. Низкая даёт предсказуемые, повторяемые ответы, высокая — более разнообразные и рискованные.','Для документов и учёта нужна низкая, для идей и названий — выше.',[['Словарь','#slovar']]],
+ ['Рассуждающая модель','Reasoning model',1,'Модель, которая перед ответом выстраивает цепочку шагов. Медленнее и дороже, но надёжнее в расчётах и сложных задачах.','Берут для анализа договоров и расчётов. Для типовых писем хватает обычной.',[['Выбор модели — занятие 1','#kurs-z1']]],
+
+ ['ИИ-ассистент','AI assistant',2,'Помощник, который отвечает на запросы человека: пишет, ищет, суммирует. Сам ничего не делает без вашей команды.','Разумная первая ступень: быстро даёт эффект и не требует прав доступа к системам.',[['Занятие 2','#kurs-z2']]],
+ ['ИИ-агент','AI agent',2,'Программа на базе модели, которая сама планирует шаги и выполняет их: ходит в почту, CRM, календарь, приносит готовый результат.','Агенту нужно давать полномочия и границы: что может делать сам, а что только предложить.',[['Занятие 2','#kurs-z2'],['Клуб ИИ Практики','#klub']]],
+ ['Сценарий автоматизации','Workflow',2,'Цепочка заранее заданных шагов: пришла заявка → ИИ разобрал → запись в CRM → уведомление. Шаги известны, ИИ работает на отдельных из них.','Если процесс описывается простыми правилами, достаточно сценария без агента. Он дешевле и предсказуемее.',[['Схемы «ИИ / человек»','#shemy']]],
+ ['Оркестрация','Orchestration',2,'Управление несколькими ИИ-исполнителями и инструментами: кто берёт задачу, что передаёт дальше, где остановиться.','Нужна, когда «ИИ-сотрудников» несколько и они работают в одном процессе.',[['Занятия 4–11','#kurs-programma']]],
+ ['MCP','Model Context Protocol',2,'Единый способ подключить к модели внешние сервисы и данные: почту, таблицы, CRM, документы. Своего рода «розетка» для ИИ.','Позволяет не писать отдельную интеграцию под каждый инструмент.',[['Клуб ИИ Практики','#klub']]],
+ ['Интеграция по API','API integration',2,'Подключение ИИ к вашим системам программным путём: 1С, Битрикс24, CRM, почта. Обмен данными идёт без участия человека.','Здесь решается, увидит ли ИИ актуальные данные, и важно заранее определить права доступа.',[['Услуги','#uslugi']]],
+
+ ['Поиск по базе знаний','RAG',3,'Схема, где модель сначала находит нужные фрагменты в ваших документах, а затем отвечает по ним. Модель не переобучают, ей подкладывают источники.','Ответы можно сопровождать ссылкой на документ — их легче проверить. Подходит для регламентов и договоров.',[['Услуги','#uslugi']]],
+ ['База знаний','Knowledge base',3,'Упорядоченный набор документов, инструкций, ответов, из которого берёт сведения человек или ИИ.','Качество ответов ИИ упирается в порядок в документах: устаревшее и противоречивое он повторит.',[['Услуги','#uslugi']]],
+ ['Эмбеддинг','Embedding',3,'Числовой «отпечаток» смысла текста. По нему находят близкие по смыслу фрагменты, даже если слова другие.','Лежит в основе умного поиска по документам.',[['Словарь','#slovar']]],
+ ['Персональные данные','152-ФЗ',3,'Сведения о человеке, которые закон обязывает защищать и хранить по правилам. Передача их внешним сервисам ограничена.','Прежде чем загружать в ИИ базу клиентов или резюме, определите, куда уходят данные и есть ли согласие.',[['Вопросы о безопасности','#voprosy']]],
+ ['Локальная модель','On-premise model',3,'Модель, которая работает на вашем оборудовании или в вашем контуре, а не в облаке стороннего сервиса.','Выбирают для закрытых данных. Дороже в настройке и слабее топовых облачных.',[['Вопросы о безопасности','#voprosy']]],
+ ['Внедрение чужих команд','Prompt injection',3,'Атака: во входящем тексте (письмо, сайт, файл) спрятана команда для модели, и она начинает выполнять чужие указания.','Агентам с доступом к почте и данным нужны ограничения и проверка действий человеком.',[['Занятие 2','#kurs-z2']]],
+
+ ['Пилот','Pilot',4,'Небольшой запуск на одном процессе с замером результата, прежде чем масштабировать на всю компанию.','Пилот отвечает на вопрос «работает ли это у нас», пока ошибка стоит недорого.',[['Исследовательский центр','#issledovaniya']]],
+ ['Замер «было / стало»','Baseline',4,'Измерение показателя до внедрения и после: время на задачу, число ошибок, стоимость операции.','Без замера до начала эффект не доказать. Именно такие цифры показывают на Demo Day.',[['Demo Day','#kurs-z12']]],
+ ['Человек в контуре','Human-in-the-loop',4,'Подход, при котором ключевой шаг проверяет или подтверждает человек, а ИИ готовит черновик или вариант.','Так устроены схемы «ИИ / человек»: понятно, за что отвечает каждый.',[['Схемы','#shemy']]],
+ ['Регламент ИИ','AI policy',4,'Внутренний документ: какие инструменты разрешены, какие данные можно загружать, кто проверяет результат, кто отвечает.','Без регламента сотрудники пользуются ИИ как хотят, и риск растёт незаметно.',[['Результаты курса','#kurs-rezultat']]],
+ ['Окупаемость ИИ','ROI',4,'Сравнение выгоды (сэкономленные часы, деньги, выручка) с затратами на модели, настройку и обучение людей.','Считают по каждому процессу отдельно, а не «по компании в целом».',[['Занятие 3','#kurs-z3']]],
+ ['Дообучение','Fine-tuning',4,'Дополнительное обучение готовой модели на ваших примерах, чтобы она лучше работала в узкой задаче.','Нужно редко. Чаще хватает хорошего контекста и поиска по базе знаний.',[['Исследовательский центр','#issledovaniya']]],
+
+ ['ИИ-сотрудник','AI employee',5,'Агент или связка агентов, которым поручена конкретная должностная функция: описаны задачи, права, проверка результата.','Не замена человека, а отдельная «позиция» в процессе с понятным владельцем.',[['Результат курса','#kurs-rezultat']]],
+ ['Demo Day','Demo Day',5,'Заключительное занятие курса: участники защищают своих ИИ-сотрудников цифрами «было / стало» перед экспертами.','Итог курса — не диплом, а работающее решение с замером.',[['Занятие 12','#kurs-z12']]],
+ ['Профильный ИИ-стол','Expert table',5,'Встреча участников одного профиля, где обсуждают применение ИИ на равных. Ведёт председатель.','Формат обмена опытом: что уже работает у коллег, а что не прижилось.',[['ИИ-стол','#krona']]],
+ ['Вайб-кодинг','Vibe coding',5,'Создание программ, когда вы описываете задачу словами, а код пишет модель. Человек направляет и проверяет.','Позволяет быстро собрать прототип внутреннего инструмента без разработчика, но продакшн требует проверки.',[['Клуб ИИ Практики','#klub']]]
+];
+const T=TERMS.map(([t,en,g,d,b,l],i)=>({t,en,g,d,b,l,i}));
+
+// плитка-иллюстрация: матрица точек, у каждого термина свой узор
+function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let x=Math.imul(seed^seed>>>15,1|seed);x=x+Math.imul(x^x>>>7,61|x)^x;return((x^x>>>14)>>>0)/4294967296}}
+function tileSVG(i,col){
+  const r=rng(i*977+31);let s=`<svg class="tile" viewBox="0 0 300 96" aria-hidden="true">`;
+  for(let y=0;y<4;y++)for(let x=0;x<14;x++){
+    const v=r(),cx=17+x*20,cy=18+y*20;
+    s+=v<.22?`<circle cx="${cx}" cy="${cy}" r="6.5" fill="${col}"/>`:v<.34?`<circle cx="${cx}" cy="${cy}" r="6.5" fill="#242424"/>`:`<circle cx="${cx}" cy="${cy}" r="2.6" fill="#cfcfcf"/>`;
+  }
+  return s+'</svg>';
+}
+
+// ---- словарь ----
+const glEl=$('#gl'),glQ=$('#glQ');let glG=-1,glV='grid';
+$('#glStats').innerHTML=`<div><b>${T.length}</b>термина с определениями</div><div><b>${GR.length}</b>тематических групп</div><div><b>${T.reduce((n,x)=>n+x.l.length,0)}</b>ссылок на занятия и материалы</div><div><b>«/»</b>быстрый поиск с клавиатуры</div>`;
+const glG_=$('#glGroups');
+function glChips(){
+  glG_.innerHTML=[['Все',T.length,-1],...GR.map((n,k)=>[n,T.filter(x=>x.g===k).length,k])].map(([n,c,k])=>`<button class="chip" data-g="${k}" aria-pressed="${k===glG}">${n}<small>${c}</small></button>`).join('');
+}
+function glRender(){
+  const q=glQ.value.trim().toLowerCase();
+  const list=T.filter(x=>(glG<0||x.g===glG)&&(!q||(x.t+' '+x.en+' '+x.d+' '+x.b).toLowerCase().includes(q)));
+  glEl.className='gl'+(glV==='list'?' list':'');
+  glEl.innerHTML=list.map(x=>`<article class="tc" style="--gc:${GC[x.g]}" id="t-${x.i}">
+   <div class="tt"><span class="gd"><i></i>${GR[x.g]}</span><span>${String(x.i+1).padStart(2,'0')}</span></div>
+   ${tileSVG(x.i,GC[x.g])}
+   <div class="tc-h"><h3>${esc(x.t)}</h3><div class="en">${esc(x.en)}</div></div>
+   <p class="df">${esc(x.d)}</p>
+   <div class="biz"><b>Для бизнеса.</b> ${esc(x.b)}</div>
+   <div class="tw">${x.l.map(([n,h])=>`<a href="${h}">${esc(n)}</a>`).join('')}<button type="button" data-c="${x.i}">Копировать</button></div></article>`).join('');
+  $('#glCount').textContent=list.length===T.length?`Все термины: ${T.length}`:`Найдено: ${list.length} из ${T.length}`;
+  $('#glEmpty').hidden=list.length>0;
+  $$('#glGroups .chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.g===glG));
+}
+glChips();
+glG_.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;glG=+b.dataset.g;glRender()};
+$('#glView').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;glV=b.dataset.v;$$('#glView .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));glRender()};
+glQ.oninput=glRender;
+glEl.onclick=e=>{
+  const b=e.target.closest('button[data-c]');if(!b)return;
+  const x=T[+b.dataset.c];const txt=`${x.t} (${x.en}). ${x.d}`;
+  try{navigator.clipboard.writeText(txt)}catch(_){}
+  b.textContent='Скопировано';setTimeout(()=>b.textContent='Копировать',1400);
+};
+glRender();
+// «/» — переход в строку поиска
+document.addEventListener('keydown',e=>{
+  if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(document.body.dataset.page!=='slovar')return;
+  const a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))return;
+  e.preventDefault();glQ.focus();glQ.select();
+});
+
+// ---- схемы «ИИ / человек» ----
+const FILL=['#f72221','#42179c','#ffffff'],TXT=['#ffffff','#ffffff','#242424'];
+function schemaSVG(i){
+  const d=D[i],W=600,rh=100,gap=12,top=76,H=top+3*rh+2*gap+44;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" font-family="Manrope,Inter,Arial,sans-serif"><rect width="${W}" height="${H}" fill="#242424"/>`;
+  s+=`<text x="24" y="34" fill="#a8a8a8" font-size="13">Схема «ИИ / человек»</text><text x="24" y="62" fill="#ffffff" font-size="24" font-weight="800">${esc(d[0])}</text>`;
+  for(let k=0;k<3;k++){
+    const y=top+k*(rh+gap);
+    s+=`<rect x="16" y="${y}" width="568" height="${rh}" rx="18" fill="${FILL[k]}"/>`;
+    s+=`<text x="36" y="${y+28}" fill="${TXT[k]}" font-size="13" font-weight="700" opacity=".8">0${k+1} · ${esc(ZN[k])}</text>`;
+    d[k+1].forEach((t,j)=>{const ty=y+56+j*24;s+=`<circle cx="40" cy="${ty-5}" r="3" fill="${TXT[k]}"/><text x="52" y="${ty}" fill="${TXT[k]}" font-size="15">${esc(t)}</text>`});
+  }
+  s+=`<text x="24" y="${H-16}" fill="#777777" font-size="11">Тет-а-тет AI · исследовательский центр прикладного ИИ</text></svg>`;
+  return s;
+}
+const TAKE=[
+ 'Ценовое решение и переговоры остаются за человеком: ИИ экономит время вокруг них.',
+ 'ИИ ищет и сверяет, позиция в споре и подпись остаются за юристом.',
+ 'ИИ отсеивает и отвечает на типовое, решение о человеке принимает человек.',
+ 'ИИ готовит и сверяет, ответственность за отчётность не передаётся.',
+ 'ИИ снимает протоколы и сводки, решения о стратегии и людях остаются руководителю.'];
+$('#schStats').innerHTML=`<div><b>${D.length}</b>отделов</div><div><b>${D.length*6}</b>задач разложено по зонам</div><div><b>3</b>зоны ответственности</div><div><b>SVG</b>скачивается и вставляется в презентацию</div>`;
+$('#schGrid').innerHTML=D.map((d,i)=>`<article class="sc rv"><div class="sc-h"><h3>${esc(d[0])}</h3><span class="tag">Схема ${i+1} из ${D.length}</span></div>${schemaSVG(i).replace(' xmlns="http://www.w3.org/2000/svg"','')}<blockquote>${TAKE[i]}</blockquote><div class="src">Где разбираем: <a href="#kurs-programma">программа курса</a><a href="#slovar">словарь терминов</a></div><div class="acts"><button class="btn btn-k btn-s" data-s="${i}">Скачать схему (SVG)</button><a class="lk" href="#vopros" style="align-self:center">Обсудить для моей компании →</a></div></article>`).join('');
+$('#schGrid').onclick=e=>{
+  const b=e.target.closest('button[data-s]');if(!b)return;
+  const i=+b.dataset.s,blob=new Blob([schemaSVG(i)],{type:'image/svg+xml'}),a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='shema-ii-chelovek-'+(i+1)+'.svg';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+};
+$$('#schGrid .rv').forEach(el=>io.observe(el));
+
+// ---- календарь на 12 месяцев и линия «сегодня» ----
+(function(){
+  const MN=['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'],now=new Date();
+  const h=$('#tmH');
+  for(let k=0;k<12;k++){const s=document.createElement('span');const m=(now.getMonth()+k)%12;s.textContent=MN[m]+(m===0||k===0?' '+String((now.getFullYear()+(now.getMonth()+k>11?1:0))).slice(2):'');h.append(s)}
+  const dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+  $('#tmNow').style.left=`calc(120px + (100% - 120px) * ${((now.getDate()-1)/dim/12).toFixed(5)})`;
+})();
+
+// ---- отзывы ----
+$('#rvF').onclick=e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  $$('#rvF .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));
+  $$('#rvList .rc').forEach(r=>r.hidden=b.dataset.f!=='all'&&r.dataset.p!==b.dataset.f);
+};
+$$('#rfWho .chip').forEach(b=>b.onclick=()=>$$('#rfWho .chip').forEach(x=>x.setAttribute('aria-pressed',x===b)));
+$('#rf').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+
+// ---- подсказки терминов в программе курса ----
+const HL=[[/ИИ-агент\w*|агент\w*/i,'ИИ-агент'],[/контекст-пакет\w*/i,'Контекст-пакет'],[/\bRAG\b/,'Поиск по базе знаний'],[/промпт\w*/i,'Промпт'],[/галлюцинац\w*/i,'Галлюцинация'],[/регламент\w* ИИ/i,'Регламент ИИ'],[/Demo Day/,'Demo Day'],[/персональн\w+ данн\w+/i,'Персональные данные'],[/ассистент\w*/i,'ИИ-ассистент'],[/\bMCP\b/,'MCP'],[/\bAPI\b/,'Интеграция по API']];
+$$('.les').forEach(les=>{
+  const used=new Set();
+  HL.forEach(([re,name])=>{
+    const term=T.find(x=>x.t===name);if(!term||used.has(name))return;
+    const w=document.createTreeWalker(les,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('a,.les-h,.les-n,.term')||!n.parentElement.closest('.les-b')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+    let n;while(n=w.nextNode()){
+      const m=re.exec(n.nodeValue);if(!m)continue;
+      const a=document.createElement('a');a.className='term';a.href='#slovar';a.dataset.def=term.d;a.dataset.t=term.t;a.textContent=m[0];
+      const rest=n.splitText(m.index);rest.nodeValue=rest.nodeValue.slice(m[0].length);n.parentNode.insertBefore(a,rest);used.add(name);break;
+    }
+  });
+});
+document.addEventListener('click',e=>{const a=e.target.closest('a.term');if(a){glQ.value=a.dataset.t;glG=-1;glRender()}});
+</script>
+</body>
+</html>
