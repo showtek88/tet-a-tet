@@ -19,7 +19,7 @@
 {"@type":"Question","name":"С чего начать, если в компании никто не разбирается в ИИ?","acceptedAnswer":{"@type":"Answer","text":"С консультации: разберём ваш вопрос и скажем, нужен ли AI-аудит."}},
 {"@type":"Question","name":"Чем вы отличаетесь от ИТ-интегратора и от онлайн-школы?","acceptedAnswer":{"@type":"Answer","text":"За плечами 10 лет в маркетинге, разработке и автоматизации — мы понимаем процессы, к которым подключаем ИИ. У всех направлений одна база знаний исследовательского центра, а решения перед передачей клиентам проходят пилот в компании бизнес-клуба KRONA."}},
 {"@type":"Question","name":"Безопасно ли передавать вам данные компании?","acceptedAnswer":{"@type":"Answer","text":"Да. Модели можно развернуть на серверах вашей компании или в российском облаке, чтобы данные не выходили за ваш контур — так проще соблюдать 152-ФЗ о персональных данных."}},
-{"@type":"Question","name":"Работаете ли вы с другими городами?","acceptedAnswer":{"@type":"Answer","text":"Да, по всей России: консультации и обучение проходят онлайн. Офлайн-встречи, профильные ИИ-столы и Дни ИИ — в нашем пространстве в Новосибирске, на Ленина, 4."}}
+{"@type":"Question","name":"Работаете ли вы с другими городами?","acceptedAnswer":{"@type":"Answer","text":"Да, по всей России: консультации и встречи Клуба ИИ Практики проходят онлайн. Курс для предпринимателей, ИИ-стол и Дни ИИ — офлайн, в нашем пространстве в Новосибирске, на Ленина, 4."}}
 ]}</script>
 <style>
 /* Контент — из «Главная Тет-а-тет AI v5.dc.html». Оформление — по мотивам zebrains.ru.
@@ -56,8 +56,7 @@ header::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inh
 header .wrap{padding:0 24px}
 .hd{display:flex;align-items:center;gap:32px;height:64px}
 .logo{display:flex;align-items:center;flex:none;color:var(--logo);--logo:#250412}
-.logo-svg{display:block;height:44px;width:auto;overflow:visible}
-.logo-svg .ld{font:500 8.2px Manrope,system-ui,sans-serif;letter-spacing:.14em}
+.logo-svg{display:block;height:52px;width:auto}
 nav{display:flex;gap:4px;font-weight:500;flex:1}
 .m{position:relative}
 .m>a{display:flex;align-items:center;gap:4px;height:64px;padding:0 12px;white-space:nowrap}
@@ -126,6 +125,7 @@ nav{display:flex;gap:4px;font-weight:500;flex:1}
 .chip[aria-pressed=true]{background:var(--dark);color:#fff;border-color:var(--dark)}
 .zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .d-more{margin-top:24px;font-weight:500}
+.d-case{margin-top:12px;padding:16px 24px;border:1px solid var(--line);border-radius:24px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;line-height:22px}.d-case b{font-family:Manrope;color:var(--red)}.d-case span{flex:1 1 320px}
 .zone{padding:32px;border-radius:24px;background:var(--soft)}
 .zone:nth-child(1){background:var(--red);color:#fff}
 .zone:nth-child(2){background:var(--dark);color:#fff}
@@ -226,6 +226,8 @@ nav{display:flex;gap:4px;font-weight:500;flex:1}
 .tl b{font-family:Manrope}
 .tl span{color:var(--grey);font-size:14px;line-height:20px;display:block;margin-top:2px}
 .tl li:last-child{background:var(--dark);color:#fff;border-color:var(--dark)}.tl li:last-child span{color:#a8a8a8}
+.tl.comp li{grid-template-columns:140px 1fr;line-height:22px}.tl.comp b{font-size:18px}.tl.comp span{margin-top:8px;color:var(--ink)}.tl.comp li:not(:last-child) span{padding-left:12px;border-left:2px solid var(--red)}
+.hist .hist-lead{color:var(--ink);font-weight:500;font-size:20px;line-height:30px}
 .team{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:80px}
 .team .pimg{aspect-ratio:1;border-radius:24px;margin-bottom:12px}
 .team b{display:block;font-family:Manrope;font-size:18px}.team span{color:var(--grey);font-size:14px}
@@ -426,8 +428,90 @@ button{font-size:inherit}
 .js .tag .w{color:rgba(13,12,12,.3);transition:color .5s var(--ease)}
 .js .tag .w.on{color:var(--ink)}
 @keyframes up{from{opacity:0;transform:translateY(24px)}}
-@media(max-width:760px){.hero h1 .br{display:none}.tag{font-size:30px;line-height:36px}header .wrap{padding:0 16px}.logo-svg{height:32px}.hd{gap:12px}.hd-r{gap:8px}.hd-r .btn-s{display:none}}
+@media(max-width:760px){.hero h1 .br{display:none}.tag{font-size:30px;line-height:36px}header .wrap{padding:0 16px}.logo-svg{height:38px}.hd{gap:12px}.hd-r{gap:8px}.hd-r .btn-s{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .tag .w{color:var(--ink);transition:none}.nav-open .m{animation:none}.btn,.chip,.aud button{transition:none}}
+/* ===== страницы «Дни ИИ» и «ИИ-стол» ===== */
+body[data-page=stol] nav>.m:nth-child(5)>a,body[data-page=dni] nav>.m:nth-child(6)>a{color:var(--red)}
+#dni .hero,#stol .hero{margin-bottom:96px}
+.dni-shot .shot{flex:1;min-height:260px;border-radius:16px;overflow:hidden;background:#333;display:grid;place-items:center;color:#a8a8a8;font-size:14px}
+.shot img,.gal img,.pimg img{display:block;width:100%;height:100%;object-fit:cover}
+.k-res.c3{grid-template-columns:repeat(3,1fr)}
+.ind.c2{grid-template-columns:repeat(2,1fr)}
+.ind .day{display:inline-block;margin-bottom:12px;padding:4px 12px;border-radius:9999px;background:var(--red);color:#fff;font-size:12px}
+.note{margin-top:16px;color:var(--grey);font-size:14px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal div{aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#efeeee;display:grid;place-items:center;color:#9a9a9a;font-size:14px}
+.gal div:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.pimg.ph-img{padding:0;overflow:hidden}
+.sp .topic{margin-top:8px;padding:8px 8px 0;border-top:1px solid var(--line);font-size:14px;line-height:20px;color:var(--ink)}
+.st-list{list-style:none;padding:0;display:grid;gap:8px;margin:8px 0}
+.st-list li{padding:12px 16px;border-radius:12px;background:#fff;line-height:20px}
+@media(max-width:1200px){.k-res.c3{grid-template-columns:1fr 1fr 1fr}.gal{grid-template-columns:repeat(2,1fr)}.gal div:first-child{grid-row:auto}}
+@media(max-width:760px){#dni .hero h1,#stol .hero h1{font-size:36px;line-height:40px}.k-res.c3,.ind.c2,.ind,.gal{grid-template-columns:1fr}.gal div:first-child{grid-column:auto;aspect-ratio:4/3}.dni-shot .shot{min-height:200px}.tl.comp li{grid-template-columns:1fr;gap:4px}}
+/* ===== курс (две ступени), программа стола, кейсы, принципы ===== */
+body[data-page=kejsy] nav>.m:nth-child(6)>a{color:var(--red)}
+#kejsy,#kejsy-spisok{scroll-margin-top:96px}
+.cmp{border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.cmp>div{display:grid;grid-template-columns:180px 1fr 1fr;gap:24px;padding:16px 32px;border-top:1px solid var(--line);line-height:22px}
+.cmp>div:first-child{border-top:0}
+.cmp-h{background:var(--dark);color:#fff}.cmp-h b{font-family:Manrope;font-size:18px}
+.cmp span[role=rowheader]{color:var(--grey);font-size:14px}
+.cmp-price{background:var(--soft)}.cmp-price b{font-family:Manrope;font-size:20px}
+.talk{padding:16px 24px;border-radius:16px;background:var(--soft)}
+.les.dark .talk{background:rgba(255,255,255,.09)}
+.talk b{display:block;color:var(--red);font-size:14px;margin-bottom:4px}
+.talk h4{font-family:Manrope;font-size:18px;line-height:24px;margin-bottom:8px}
+.talk p{color:var(--grey);font-size:14px;line-height:20px}.les.dark .talk p{color:#a8a8a8}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cs{display:flex;flex-direction:column;gap:12px;padding:32px;border:1px solid var(--line);border-radius:24px;transition:all .3s var(--ease)}
+.cs:hover{border-color:var(--ink)}.cs[hidden]{display:none}
+.cs .cn{font:600 14px Manrope;color:var(--red)}
+.cs h3{font-size:22px;line-height:28px}
+.cs small{color:var(--grey);font-size:14px;line-height:20px}
+.cs p{line-height:22px;font-size:15px}.cs p b{font-weight:600}
+.cs .res{margin-top:auto;padding:16px;border-radius:16px;background:var(--soft)}
+.cs.dk{grid-column:span 2;background:var(--dark);color:#fff;border-color:var(--dark)}.cs.dk small{color:#a8a8a8}.cs.dk .res{background:var(--red)}
+.cs .res a{border-bottom:1px solid var(--red);font-weight:500}
+.prn-g{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-top:24px}
+.prn-g h3{font-size:24px;line-height:32px}
+.prn{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.prn div{padding:24px;border:1px solid var(--line);border-radius:24px}
+.prn span{display:block;color:var(--red);font:600 14px Manrope;margin-bottom:12px}
+.prn b{display:block;font-family:Manrope;font-size:18px;line-height:24px;margin-bottom:8px}
+.prn p{color:var(--grey);font-size:14px;line-height:20px}
+.prn.dk div{background:var(--dark);border-color:var(--dark);color:#fff}.prn.dk p{color:#a8a8a8}
+@media(max-width:1200px){.cases,.prn{grid-template-columns:repeat(2,1fr)}.prn-g{grid-template-columns:1fr}.cmp>div{grid-template-columns:140px 1fr 1fr;padding:16px 24px}}
+@media(max-width:760px){.cases,.prn{grid-template-columns:1fr}.cs.dk{grid-column:auto}.cs{padding:24px}.cmp>div{grid-template-columns:1fr;gap:4px}.cmp-h span{display:none}.cmp>div:not(.cmp-h) p::before{display:block;color:var(--grey);font-size:12px}.cmp>div:not(.cmp-h) p:nth-of-type(1)::before{content:"Ступень 1"}.cmp>div:not(.cmp-h) p:nth-of-type(2)::before{content:"Ступень 2"}#stol-cennost .team{grid-template-columns:1fr!important}}
+/* ===== детальная страница кейса ===== */
+body[data-page=kejs] nav>.m:nth-child(6)>a{color:var(--red)}
+#kejs .hero{margin-bottom:96px}
+.kj-tags{margin-top:24px}
+.kj-meta{display:grid;gap:12px}
+.kj-meta div{padding:16px 24px;border-radius:16px;background:#333}
+.kj-meta dt{color:#a8a8a8;font-size:12px;margin-bottom:4px}.kj-meta dd{margin:0;color:#fff;line-height:22px}
+.kj-intro{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px}
+.kj-intro div{padding:32px;border-radius:24px;background:var(--soft)}
+.kj-intro div:first-child{background:var(--dark);color:#fff}
+.kj-intro span{display:block;color:var(--red);font:600 14px Manrope;margin-bottom:12px}
+.kj-intro p{font-size:20px;line-height:30px;letter-spacing:-.01em}
+.kj-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.kj-steps li{padding:32px;border:1px solid var(--line);border-radius:24px}
+.kj-steps span{display:block;color:var(--red);font:600 14px Manrope;margin-bottom:12px}
+.kj-steps b{display:block;font-family:Manrope;font-size:22px;line-height:28px;margin-bottom:8px}
+.kj-steps p{color:var(--grey);line-height:24px}
+.kj-res{padding:48px;border-radius:24px;background:var(--dark);color:#fff;display:grid;gap:24px;justify-items:start}
+.kj-res>p{font-family:Manrope;font-weight:600;font-size:28px;line-height:36px;letter-spacing:-.02em;max-width:980px}
+.kj-res .stats{width:100%;margin:0;grid-template-columns:repeat(3,1fr)}
+a.cs{color:inherit}a.cs p{color:var(--grey)}
+.cs-more{margin-top:auto;align-self:flex-start;font-weight:500;border-bottom:1px solid var(--red)}
+.cs .res+.cs-more{margin-top:4px}
+.cs.dk .cs-more{color:#fff}
+.kj-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:96px}
+.kj-nav a{padding:24px 32px;border:1px solid var(--line);border-radius:24px;font-family:Manrope;font-weight:600;font-size:18px;line-height:24px;transition:all .3s var(--ease)}
+.kj-nav a:hover{border-color:var(--ink)}.kj-nav a:last-child{text-align:right}
+.kj-nav small{display:block;color:var(--grey);font-weight:400;margin-bottom:4px}
+@media(max-width:1200px){.kj-steps{grid-template-columns:1fr}}
+@media(max-width:760px){#kejs .hero h1{font-size:32px;line-height:38px}.kj-roles{grid-template-columns:1fr!important}.kj-res{padding:32px 24px}.kj-res>p{font-size:22px;line-height:30px}.kj-res .stats{grid-template-columns:1fr}.kj-nav{grid-template-columns:1fr}.kj-nav a:last-child{text-align:left}.kj-steps li,.kj-intro div{padding:24px}.kj-intro p{font-size:18px;line-height:28px}}
 </style>
 </head>
 <body>
@@ -435,7 +519,7 @@ button{font-size:inherit}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-caret" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol></svg>
 <header id="hdr">
  <div class="wrap hd">
-  <a class="logo" href="#top" aria-label="Тет-а-тет AI"><svg class="logo-svg" viewBox="0 0 303 44" height="44" role="img" aria-label="Тет-а-тет AI" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="44" height="44" fill="var(--logo)" stroke="none"/><g stroke="#fff" stroke-width="1.5" fill="none"><g transform="translate(8.5 4.8) scale(0.7)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(18.5 4.8) scale(0.7)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g><g transform="translate(28.5 4.8) scale(0.7)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(8.5 17.1) scale(0.7)"><path d="M9 3L1 8.5H9"/></g><g transform="translate(18.5 17.1) scale(0.7)"><path d="M0 14V6.5A5 5.5 0 0 1 10 6.5V14M0 9.5H10"/></g><g transform="translate(28.5 17.1) scale(0.7)"><path d="M1 3L9 8.5H1"/></g><g transform="rotate(180 12.0 34.3)"><g transform="translate(8.5 29.4) scale(0.7)"><path d="M0 1H10M5 1V14"/></g></g><g transform="rotate(180 22.0 34.3)"><g transform="translate(18.5 29.4) scale(0.7)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g></g><g transform="rotate(180 32.0 34.3)"><g transform="translate(28.5 29.4) scale(0.7)"><path d="M0 1H10M5 1V14"/></g></g></g><path d="M54 0V44" stroke-width="1" opacity=".55"/><g stroke-width="1.5"><g transform="translate(66.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(88.0 5.0) scale(1.5)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g><g transform="translate(110.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g><path d="M130.0 16.25h13.5" /><g transform="translate(148.5 5.0) scale(1.5)"><path d="M0 14V6.5A5 5.5 0 0 1 10 6.5V14M0 9.5H10"/></g><path d="M168.5 16.25h13.5" /><g transform="translate(187.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g><g transform="translate(209.0 5.0) scale(1.5)"><ellipse cx="5" cy="7.5" rx="5" ry="6.5"/><path d="M1.2 13.6L8.8 1.4"/></g><g transform="translate(231.0 5.0) scale(1.5)"><path d="M0 1H10M5 1V14"/></g></g><g class="ai" stroke="var(--red)" stroke-width="1.8"><g transform="translate(262.0 5.0) scale(1.5)"><path d="M0 14V6.5A5 5.5 0 0 1 10 6.5V14M0 9.5H10"/></g><g transform="translate(284.0 5.0) scale(1.5)"><path d="M5 1V14"/></g></g><text x="66" y="42" class="ld" stroke="none" fill="currentColor">ПРИКЛАДНОЙ ИИ ДЛЯ БИЗНЕСА</text></svg></a>
+  <a class="logo" href="#top" aria-label="Тет-а-тет — на главную"><svg class="logo-svg" viewBox="245.6 1874.7 4499.9 1250.7" role="img" aria-label="Тет-а-тет" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g> <defs> <rect id="lgid0" x="245.6" y="1874.7" width="4499.9" height="1250.7"/> </defs> <clipPath id="lgid1"> <use xlink:href="#lgid0" style="overflow:visible;"/> </clipPath> <g style="clip-path:url(#lgid1);"> <path fill-rule="evenodd" clip-rule="evenodd" fill="#542236" d="M1164,1874.7H245.6v1250.7H1164V1874.7z M331.7,1973.2v22.6h98.7v196h22.7v-196H552v-22.6H331.7z M796.4,2070.7l18.3-21.7l0.1-0.1c3.4,10.5,5.2,21.8,5.2,33.4c0,60.5-49,109.3-109.6,109.3c-5,0-10.1-0.4-15-1.1 c-17.7-2.3-34.1-8.9-48-18.8l-70.7,84h-29.7l83.1-98.7c-18.3-19.6-29.5-45.8-29.5-74.7c0-60.4,49.1-109.2,109.7-109.2 c22,0,42.6,6.5,59.8,17.7c6.3,4.1,12.3,8.9,17.6,14.2l-14.8,17.5l-111,131.9c13.9,9.2,30.4,14.6,48.3,14.6h3.2 c46.4-1.8,83.6-39.9,83.6-86.7C797.2,2078.4,796.9,2074.5,796.4,2070.7z M623.3,2082.5c0,21.9,8.2,41.8,21.6,57.1l110.4-131.1 c-13.2-8-28.6-12.6-45.1-12.6C662.2,1995.8,623.3,2034.7,623.3,2082.5z M552,2488.8v22.7H331.7l18.9-22.7l107.8-127.9h29.7 l-107.8,127.9H552z M857.5,1995.8v-22.6h220.3v22.6h-98.7v196h-22.7v-196H857.5z M1077.8,3027v-22.7H979v-196h-22.7v196h-98.7 v22.7H1077.8z M1058.8,2511.3l18.9-22.6H857.5v22.6h171.6L939.2,2618h29.7L1058.8,2511.3z M657.7,2511.4H752v-22.7h-94.2V2511.4z M600.1,2618v-156.6h0.1c0-55.5,45.1-100.5,100.9-100.5h7.8c55.7,0,100.9,44.9,100.9,100.5V2618H787v-152.8 c0-45.1-36.7-81.8-82-81.8s-82,36.6-82,81.8V2618H600.1z M594.9,2951.1l18.3-21.7c-0.5-3.8-0.8-7.7-0.8-11.7 c0-46.8,37.2-84.9,83.6-86.7h3.2c17.9,0,34.4,5.4,48.3,14.6l-111,131.9l-14.8,17.6c5.3,5.3,11.3,10.1,17.6,14.2 c17.2,11.1,37.7,17.6,59.8,17.6c60.6,0,109.7-48.9,109.7-109.2c0-28.9-11.2-55.2-29.5-74.7l83.1-98.7h-29.7l-70.7,84 c-13.9-9.8-30.3-16.4-48-18.8c-4.9-0.7-10-1.1-15-1.1c-60.6,0-109.6,48.9-109.6,109.3C589.6,2929.4,591.4,2940.6,594.9,2951.1 L594.9,2951.1z M764.7,2860.6c13.5,15.2,21.6,35.2,21.6,57.1c0,47.8-39,86.7-87,86.7c-16.5,0-31.9-4.6-45.1-12.6L764.7,2860.6z M552,3004.3v22.7H331.7v-22.7h98.8v-196h22.7v196H552z"/> <path fill="#250412" d="M1457,1874.7h-21.9v1250.7h21.9V1874.7z"/> <path fill="#250412" d="M1784.2,2647.7h30.5l43.8,113.8l0.6,0.2l41.5-114h29.5v136.8h-17.9v-115.8h-1.1l-44,115.8h-18.4l-45.3-115.8 h-1v115.8h-18.4L1784.2,2647.7L1784.2,2647.7z"/> <path fill="#250412" d="M1976.3,2647.7h20.5v50.6h16.2c11.3,0,20.7,0.6,27.9,1.8c7.2,1.2,13,3.8,17.5,7.9c4.4,4.1,6.6,10.1,6.6,18.2 v28.7c0,19.8-16.1,29.7-48.2,29.7h-40.4v-136.8V2647.7z M2015.2,2770.6c9.8,0,17.3-1.2,22.2-3.6c4.9-2.4,7.5-6.7,7.5-13.1v-25.5 c0-4.5-0.9-7.8-2.7-10.1c-1.8-2.2-4.8-3.8-8.9-4.7c-4.1-0.9-10-1.4-17.6-1.4h-19.2v58.4h18.8H2015.2z M2086,2647.7h20.5v136.8 H2086V2647.7z"/> <path fill="#250412" d="M2211.3,2647.7h44.6c6.3,0,11.4,0.1,15.2,0.4c3.8,0.3,7.9,0.9,12.3,1.9c4.5,1,8.1,2.5,10.8,4.4 c2.7,2,5.1,4.6,7,8c1.8,3.2,2.7,7.3,2.7,12.2v28.4c0,11.3-4.4,19.6-13.1,24.6c-8.8,5-21.8,7.5-38.8,7.5h-20.5v49.3h-20.5v-136.8 H2211.3z M2254.9,2722.3c8.8,0,15.9-1.6,21.3-4.8s8-8.3,8-15.4v-24.9c0-3.8-1-6.9-2.9-9.3c-2-2.4-4.8-4.2-8.4-5.1 c-3.5-0.8-6.4-1.4-8.8-1.7c-2.4-0.3-5.5-0.4-9.5-0.4h-23v61.7h23.4V2722.3z"/> <path fill="#250412" d="M2381.7,2647.7h23.6l53.1,136.8H2437l-15.5-41.6h-58.6l-15.3,41.6h-20.3L2381.7,2647.7z M2416.5,2728.8 l-23.2-61.7h-1.9l-23.2,61.7H2416.5z"/> <path fill="#250412" d="M2489.7,2647.7h83.7v14.6h-63.2v44.5h20.5c7.3,0,13.2,0.2,18,0.5c4.6,0.3,9.2,1.1,13.7,2.2 c4.6,1.1,8.3,2.7,11.1,4.6c2.8,2,5,4.6,6.7,8c1.7,3.5,2.5,7.6,2.5,12.4v20.3c0,19.8-16,29.7-48.3,29.7h-44.6v-136.8H2489.7z M2532.8,2770.6c3.9,0,7.1-0.1,9.5-0.4c2.4-0.3,5.3-0.8,8.8-1.7c3.6-1,6.4-2.7,8.4-5.1c2-2.4,2.9-5.6,2.9-9.3v-17.1 c0-5.9-2.2-10-6.7-12.5c-4.5-2.4-12-3.7-22.6-3.7h-23.4v50L2532.8,2770.6L2532.8,2770.6z"/> <path fill="#250412" d="M2616.6,2749.4v-64.8c0-26.1,19.1-39.2,57.3-39.2c38.2,0,58,12.9,58,38.9v65c0,13.2-5.3,22.7-16.1,28.4 c-10.6,5.7-24.7,8.6-41.9,8.6c-38.2,0-57.3-12.3-57.3-37.1V2749.4z M2712,2749.2v-65.1c0-16.9-12.6-25.3-37.9-25.3 c-12.2,0-21.6,1.9-28.1,5.7c-6.5,3.8-9.8,10.3-9.8,19.6v65.1c0,15.8,12.7,23.6,38.1,23.6C2699.6,2772.8,2712,2765,2712,2749.2z"/> <path fill="#250412" d="M2807.7,2662h-46.3v-14.4h113.2v14.4h-46.3v122.5h-20.5V2662z"/> <path fill="#250412" d="M2947.5,2647.7h23.6l53.1,136.8h-21.3l-15.5-41.6h-58.6l-15.4,41.6h-20.3L2947.5,2647.7z M2982.3,2728.8 l-23.2-61.7h-1.9l-23.2,61.7H2982.3z"/> <path fill="#250412" d="M3055.5,2647.7h91.9v14.4H3076v44.7h64.5v14.4H3076v49.1h73.5v14.4h-94V2647.7z"/> <path fill="#250412" d="M3188.4,2647.7h30.5l43.8,113.8l0.6,0.2l41.5-114h29.5v136.8h-18v-115.8h-1.1l-44,115.8h-18.4l-45.2-115.8 h-1.1v115.8h-18.4v-136.8H3188.4z"/> <path fill="#250412" d="M3434.9,2749.4v-64.9c0-26.1,19.2-39.2,57.5-39.2c13.1,0,25.6,1.3,37.5,4v15.2c-13.4-3.4-25.9-5-37.1-5 c-5.5,0-10.2,0.3-14.4,0.9c-4.1,0.6-8,1.7-11.8,3.3c-8.1,3.5-12.2,10.4-12.2,20.7v64c0,15.8,13.1,23.6,39.2,23.6 c11.2,0,23.6-1.7,37.1-5v15.6c-11.9,2.7-24.7,4-38.3,4C3454.1,2786.5,3434.9,2774.1,3434.9,2749.4L3434.9,2749.4z"/> <path fill="#250412" d="M3616.1,2784.3v-20.5c2.1,0.4,4.1,0.6,6.1,0.6c5.5,0,10-2.5,13.6-7.4c3.6-4.9,6.4-13.6,8.3-25.9 c1.9-12.4,2.8-29.5,2.8-51.4v-32h82.4v136.8h-20.5V2662h-44v25.3c0,30.6-3.2,54.6-9.7,71.8c-6.4,17.2-16.5,25.8-29.9,25.8 c-3.2,0-6.3-0.2-9.2-0.6H3616.1z"/> <path fill="#250412" d="M3878.7,2647.6l-52.7,112.5c-2.9,6.3-5.7,11.3-8.2,15c-2.5,3.6-5.5,6.4-9,8.4s-7.8,2.9-13,2.9 c-5.6,0-11.5-0.7-17.6-2.1v-14.8c4.1,1,8.3,1.5,12.8,1.5c4.5,0,8.3-1.4,10.9-4.1c2.7-2.7,5.5-7.2,8.4-13.6l2.3-5.3l-54.8-100.6 h22.8l41.3,80.3l36.6-80.3h20.3L3878.7,2647.6z"/> <path fill="#250412" d="M3993.8,2647.7v136.8h-20.5V2732c-10.9,5.6-22.9,8.4-35.8,8.4c-14.2,0-24.4-2.8-30.7-8.5 c-6.2-5.7-9.3-14.3-9.3-25.8v-58.4h20.3v56.7c0,7.8,2,13.5,6,16.8c4,3.3,10.2,4.9,18.6,4.9c6.6,0,12.3-0.7,17.2-2.1 c4.8-1.4,9.4-3.5,13.8-6.3v-70h20.5H3993.8z"/> <path fill="#250412" d="M4039.5,2647.7h20.5v122.7h49.5v-122.7h20.5v122.7h49.5v-122.7h20.5v136.8h-160.3L4039.5,2647.7 L4039.5,2647.7z"/> <path fill="#250412" d="M4246,2647.7h18.8v110.9l77.4-110.9h18.8v136.8h-18.8v-112.8l-77.4,112.8H4246V2647.7z"/> <path fill="#250412" d="M4408.6,2647.7h30.5l43.8,113.8l0.6,0.2l41.5-114h29.5v136.8h-18v-115.8h-1.1l-44,115.8h-18.4l-45.2-115.8 h-1.1v115.8h-18.4v-136.8H4408.6z"/> <path fill="#250412" d="M4600.8,2647.7h18.8v110.9l77.4-110.9h18.8v136.8h-18.8v-112.8l-77.4,112.8h-18.8V2647.7z"/> <path fill="#542236" d="M2020.1,2213.6v30.1h-130.9v260.7H1859v-260.7h-130.9v-30.1H2020.1z"/> <path fill="#542236" d="M2368,2314.5l-24.3,28.8c0.7,5.1,1.1,10.3,1.1,15.7c0,62.2-49.4,112.9-110.9,115.2c-1.4,0.1-2.9,0.1-4.3,0.1 c-23.7,0-45.6-7.2-64-19.5l147.1-175.5l19.6-23.3c-7.1-7.1-14.9-13.4-23.4-19c-22.8-14.9-50-23.5-79.2-23.5 c-80.2,0-145.4,65-145.4,145.3c0,38.4,14.9,73.4,39.1,99.4l-38.6,46.1h39.2l22.2-26.4c18.5,13.1,40.1,21.9,63.6,25 c6.5,0.9,13.1,1.4,19.9,1.4c80.2,0,145.3-65,145.3-145.5C2374.9,2343.5,2372.5,2328.5,2368,2314.5z M2143.1,2434.8 c-17.9-20.3-28.7-46.8-28.7-75.9c0-63.5,51.7-115.2,115.3-115.2c21.9,0,42.2,6.1,59.7,16.8L2143.1,2434.8z"/> <path fill="#542236" d="M2716.6,2213.6v30.1h-130.9v260.7h-30.1v-260.7h-130.9v-30.1H2716.6z"/> <path fill="#542236" d="M4048.9,2213.6v30.1H3918v260.7h-30.1v-260.7H3757v-30.1H4048.9z"/> <path fill="#542236" d="M4397.1,2314.5l-24.3,28.8c0.7,5.1,1.1,10.3,1.1,15.7c0,62.2-49.4,112.9-110.9,115.2 c-1.4,0.1-2.9,0.1-4.3,0.1c-23.7,0-45.6-7.2-64-19.5l147.1-175.5l19.6-23.3c-7.1-7.1-14.9-13.4-23.4-19 c-22.8-14.9-50-23.5-79.2-23.5c-80.2,0-145.4,65-145.4,145.3c0,38.4,14.8,73.4,39.1,99.4l-38.6,46.1h39.2l22.2-26.4 c18.5,13.1,40.1,21.9,63.6,25c6.5,0.9,13.1,1.4,19.9,1.4c80.2,0,145.3-65,145.3-145.5C4404,2343.5,4401.6,2328.5,4397.1,2314.5z M4172.2,2434.8c-17.9-20.3-28.7-46.8-28.7-75.9c0-63.5,51.7-115.2,115.3-115.2c21.9,0,42.2,6.1,59.7,16.8L4172.2,2434.8z"/> <path fill="#542236" d="M4745.5,2213.6v30.1h-130.9v260.7h-30.1v-260.7h-130.9v-30.1H4745.5z"/> <path fill="#542236" d="M3032.6,2362.8v30.1h-292l25.2-30.1H3032.6z"/> <path fill="#542236" d="M3437.4,2392.9v-30.1h292l-25.2,30.1H3437.4z"/> <path fill="#262626" d="M3172.4,2392.7h124.8v-30.1h-124.8V2392.7z"/> <path fill="#262626" d="M3096.1,2347.3v157.1h30.1v-151.9c0-60.1,48.6-108.8,108.7-108.8s108.7,48.7,108.7,108.8v151.9h30.1v-157.1 c0-73.9-59.9-133.7-133.6-133.7h-10.3c-73.8,0-133.6,59.9-133.6,133.7H3096.1z"/> </g> </g></svg></a>
   <nav aria-label="Основная навигация">
    <div class="m"><a href="#uslugi">Услуги <svg class="ic" aria-hidden="true"><use href="#i-caret"/></svg></a><div class="dd">
     <a href="#">Консультации и ИИ-консалтинг</a><a href="#">AI-аудит</a><a href="#">Внедрение ИИ: программа на год</a><a href="#">Стратегия и дорожная карта</a><a href="#">Подбор ИИ-специалиста</a><a href="#">Разработка ИИ-решений</a><a href="#">Сопровождение</a></div></div>
@@ -447,9 +531,9 @@ button{font-size:inherit}
     <div><h4>По отраслям</h4><a href="#">Производство</a><a href="#">Медицина</a><a href="#">Строительство</a><a href="#">Логистика</a><a href="#">Банки и финансы</a><a href="#">Ритейл</a></div></div></div>
    <div class="m"><a href="#issledovaniya">Исследования <svg class="ic" aria-hidden="true"><use href="#i-caret"/></svg></a><div class="dd">
     <a href="#issledovaniya">Исследовательский центр (НИОКР)</a><a href="#blog">Блог</a><a href="#blog">Дайджест инструментов</a></div></div>
-   <div class="m"><a href="#krona">ИИ-стол</a></div>
+   <div class="m"><a href="#stol">ИИ-стол</a></div>
    <div class="m"><a href="#praktiki">О компании <svg class="ic" aria-hidden="true"><use href="#i-caret"/></svg></a><div class="dd">
-    <a href="#praktiki">Команда и практики</a><a href="#">Кейсы</a><a href="#">Безопасность данных</a><a href="#">Стоимость</a><a href="#">Контакты</a></div></div>
+    <a href="#praktiki">Команда и практики</a><a href="#dni">Дни ИИ</a><a href="#kejsy">Кейсы</a><a href="#">Безопасность данных</a><a href="#">Стоимость</a><a href="#">Контакты</a></div></div>
   </nav>
   <div class="hd-r">
    <a href="#">Telegram</a>
@@ -489,8 +573,8 @@ button{font-size:inherit}
 
 <div class="aud rv" id="aud">
  <button data-r="0"><div><b>Для компании</b><span>AI-аудит, внедрение и обучение сотрудников</span></div><i><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></i></button>
- <button data-r="1"><div><b>Для руководителя</b><span>Консультации, обучение для топ-менеджеров, профильный ИИ-стол</span></div><i><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></i></button>
- <button data-r="2"><div><b>Для себя</b><span>Клуб ИИ Практики и профильный ИИ-стол</span></div><i><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></i></button>
+ <button data-r="1"><div><b>Для руководителя</b><span>Консультации, обучение для топ-менеджеров, ИИ-стол</span></div><i><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></i></button>
+ <button data-r="2"><div><b>Для себя</b><span>Клуб ИИ Практики и ИИ-стол</span></div><i><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></i></button>
 </div>
 
 <!-- 02 Главный вопрос -->
@@ -498,6 +582,7 @@ button{font-size:inherit}
  <div class="sec-head rv"><div><span class="eyebrow">02 — Главный вопрос</span><h2>Как ИИ помогает бизнесу: что отдать ИИ, а что оставить людям</h2></div></div>
  <div class="chips" id="dTabs"></div>
  <div class="zones" id="zones"></div>
+ <p class="d-case" id="dCase"></p>
  <div class="d-more"><a class="lk" id="dLink" href="#">Решения ИИ для отдела продаж →</a></div>
  <div class="where rv">
   <h3>Где этот ответ работает</h3>
@@ -505,7 +590,7 @@ button{font-size:inherit}
    <li><b>Консультация и аудит</b>Карта зон: что в вашей компании отдать ИИ, а что оставить людям</li>
    <li><b>Обучение</b>Сотрудники учатся отдавать ИИ нужную часть работы</li>
    <li><b>Внедрение</b>Границу между работой ИИ и человека фиксируем до разработки</li>
-   <li><b>Бизнес-клуб KRONA</b>На профильном ИИ-столе разбираем, как эту границу проводят другие компании</li>
+   <li><b>Бизнес-клуб KRONA</b>На ИИ-столе разбираем, как эту границу проводят другие компании</li>
   </ul>
  </div>
  <div class="edge rv"><b>Исключение</b><span>Иногда правильный ответ — ИИ здесь не нужен: если процесс описывается простыми правилами, дешевле обычная автоматизация.</span></div>
@@ -524,9 +609,9 @@ button{font-size:inherit}
   <article class="sv" data-r="0,1"><div class="who"><span>01</span><span class="for">Компаниям и руководителям</span></div><h3>Консультации и AI-аудит</h3><p>Разовый вопрос или аудит из двух встреч.</p><div class="get"><span>Вы получаете</span>10–15 гипотез, разбор 3–5 зон, список «что ИИ делает сам, что подтверждает человек»</div><div class="ls"><a href="#">Подробнее →</a></div></article>
   <article class="sv" data-r="0"><div class="who"><span>02</span><span class="for">Компаниям с оборотом от 300 млн ₽</span></div><h3>Внедрение ИИ в бизнес под ключ</h3><p>Программа на год: 6 месяцев внедрения и 6 месяцев поддержки.</p><div class="get"><span>Вы получаете</span>3 проекта на первые 90 дней, ИИ-специалист в штате</div><div class="ls"><a href="#">Подробнее →</a></div></article>
   <article class="sv" data-r="0,1,2"><div class="who"><span>03</span><span class="for">Три уровня</span></div><h3>Обучение работе с ИИ</h3><p>От обучения сотрудников до личного курса.</p>
-   <ul><li><a href="#klub">Для себя — Клуб ИИ Практики: материалы, онлайн-встречи и закрытый чат</a></li><li><a href="#kurs">Руководителям и топ-менеджерам — курс «ИИ-система предпринимателя»: 12 занятий за 4 недели</a></li><li>Сотрудники компаний <small>скоро</small></li></ul>
+   <ul><li><a href="#klub">Для себя — Клуб ИИ Практики: материалы, онлайн-встречи и закрытый чат</a></li><li><a href="#kurs">Руководителям и топ-менеджерам — курс «ИИ-система предпринимателя»: ступени «Старт» и «Внедрение», офлайн</a></li><li>Сотрудники компаний <small>скоро</small></li></ul>
    <div class="get"><span>Вы получаете</span>Люди учатся отдавать ИИ нужную часть работы</div><div class="ls"><a href="#klub">Клуб ИИ Практики →</a><a href="#kurs">Курс для предпринимателей →</a></div></article>
-  <article class="sv" data-r="1,2"><div class="who"><span>04</span><span class="for">Предпринимателям, руководителям, специалистам</span></div><h3>Круглый стол по ИИ</h3><p>Профильный ИИ-стол в бизнес-клубе KRONA на Ленина, 4. Тет-а-тет AI — председатель стола.</p><div class="get"><span>Как проходит</span>Участники одного профиля обсуждают применение ИИ на равных: отдельные столы по отраслям, ролям и направлениям</div><div class="ls"><span class="price">Участие — 5&nbsp;000&nbsp;₽</span><a href="#krona">Подробнее →</a></div></article>
+  <article class="sv" data-r="1,2"><div class="who"><span>04</span><span class="for">Предпринимателям и руководителям</span></div><h3>ИИ-стол «Бизнес и AI-технологии»</h3><p>Регулярные встречи в бизнес-клубе KRONA на Ленина, 4. Тет-а-тет AI — председатель стола.</p><div class="get"><span>Как проходит</span>Раз в месяц два эксперта по 45 минут, затем общение и разбор кейсов. Модератор — Сергей Сергунин</div><div class="ls"><span class="price">15&nbsp;000&nbsp;₽ за сезон из трёх встреч · резидентам KRONA бесплатно</span><a href="#stol">ИИ-стол →</a></div></article>
   <article class="sv dk" data-r="0,1,2"><div class="who"><span>05</span><span class="for">Работает на все направления</span></div><h3>Исследовательский центр</h3><p>Тестирует инструменты, делает прототипы, ведёт базу знаний.</p><div class="get"><span>Как это устроено</span>Ежедневно тестируем новые инструменты на реальных бизнес-задачах и в пилотах бизнес-клуба KRONA — клиентам отдаем только то, что проверено и работает</div><div class="ls"><a href="#" style="border-color:var(--red)">Подробнее →</a><a href="#issledovaniya" style="border-color:var(--red)">Как работает центр ↓</a></div></article>
  </div>
  <div class="more-line rv">Ищете конкретное решение — ИИ-агента, ассистента, базу знаний? <a class="lk" href="#">Решения по задачам</a><a class="lk" href="#">по отделам</a><a class="lk" href="#">по отраслям</a></div>
@@ -536,7 +621,7 @@ button{font-size:inherit}
 <section id="issledovaniya">
  <div class="sec-head rv"><div><span class="eyebrow">04 — Исследования</span><h2>Исследовательский центр: какие технологии искусственного интеллекта в бизнесе уже работают</h2></div></div>
  <div class="panel dk rv">
-  <p class="intro">Специалисты исследовательского центра каждый день изучают новые модели и инструменты, проверяют их на бизнес-задачах и пополняют базу знаний. Из этой базы мы берём рекомендации для аудита, готовые прототипы для внедрения, задания для обучения и темы для профильного ИИ-стола.</p>
+  <p class="intro">Специалисты исследовательского центра каждый день изучают новые модели и инструменты, проверяют их на бизнес-задачах и пополняют базу знаний. Из этой базы мы берём рекомендации для аудита, готовые прототипы для внедрения, задания для обучения и темы для ИИ-стола.</p>
   <ol class="cyc">
    <li><span>01 →</span>Поиск технологии</li><li><span>02 →</span>Выбор задачи</li><li><span>03 →</span>Тест и прототип</li>
    <li><span>04 →</span>Пилот в компании бизнес-клуба KRONA</li><li><span>05 →</span>Оценка</li><li><span>06 ✓</span>Передача команде</li>
@@ -547,7 +632,7 @@ button{font-size:inherit}
    <div><b>Консультации и аудит</b>Рекомендации инструментов с их ограничениями</div>
    <div><b>Внедрение</b>Проверенные прототипы и микросервисы</div>
    <div><b>Обучение</b>Актуальные инструменты и задания</div>
-   <div><b>Профильный ИИ-стол</b>Дайджесты и разборы</div>
+   <div><b>ИИ-стол</b>Дайджесты и разборы</div>
   </div>
   <div class="stats">
    <div><b class="ph">[N]</b>инструментов в базе</div><div><b class="ph">[N]</b>проверено за последний месяц</div><div><b class="ph">[N]</b>прототипов передано во внедрение</div><div><b class="ph">[состав]</b>например, разработчик и бизнес-аналитик</div>
@@ -562,22 +647,48 @@ button{font-size:inherit}
  </div>
 </section>
 
+<!-- Принципы работы -->
+<section id="principy">
+ <div class="sec-head rv"><div><span class="eyebrow">Принципы</span><h2>Как мы строим и внедряем ИИ-системы</h2></div></div>
+ <p class="lead2 rv">Строим как инженеры: чтобы система работала годами, была защищена и не дорожала в поддержке.</p>
+ <div class="prn-g rv"><h3>Как строим</h3>
+  <div class="prn">
+   <div><span>01</span><b>Система целиком</b><p>Смотрим на процессы, данные и работающие инструменты и выбираем вариант, который будет стабильным, защищённым и недорогим в поддержке</p></div>
+   <div><span>02</span><b>Проверенное вместо самописного</b><p>Берём зрелые open source решения с большим сообществом и дорабатываем под заказчика</p></div>
+   <div><span>03</span><b>Скрипт считает, нейросеть думает</b><p>Цены, сметы и расчёты считает код. Нейросеть понимает запрос, анализирует и работает с текстом</p></div>
+   <div><span>04</span><b>Проверка перед запуском</b><p>Любой сторонний плагин, навык агента или библиотеку разработчик разбирает до передачи заказчику</p></div>
+   <div><span>05</span><b>Модель под задачу</b><p>Для кода, текстов, расчётов и изображений — разные модели. Рутину переносим на локальные, без оплаты за каждый запрос</p></div>
+   <div><span>06</span><b>Данные по правилу трёх цветов</b><p>Публичное — любые модели. Внутреннее — модели, которые не обучаются на ваших данных. Цены, клиенты и персональные данные — только локальная модель</p></div>
+   <div><span>07</span><b>Без привязки к чужим платформам</b><p>Данные и база знаний принадлежат вам. Модели меняются вместе с рынком, база остаётся</p></div>
+   <div><span>08</span><b>Узкий контекст</b><p>Каждый агент получает только данные своей задачи: когда процессы смешивают в одном окне, точность падает</p></div>
+  </div>
+ </div>
+ <div class="prn-g rv"><h3>Как внедряем</h3>
+  <div class="prn dk">
+   <div><span>09</span><b>Человек в контуре</b><p>Агент готовит, сотрудник подтверждает — пока точность не доказана цифрами</p></div>
+   <div><span>10</span><b>Не ломаем работающее</b><p>Встраиваемся в CRM, 1С, почту и мессенджеры — туда, где люди уже работают</p></div>
+   <div><span>11</span><b>Нет метрики — нет агента</b><p>Замер «до» на старте, замер «после» — на приёмке</p></div>
+   <div><span>12</span><b>Стандарты компании в основе</b><p>ИИ усиливает ваши правила работы, а не подменяет их чужими</p></div>
+  </div>
+ </div>
+</section>
+
 <!-- 05 Пространство -->
 <section id="prostranstvo">
  <div class="sec-head rv"><div><span class="eyebrow">05 — Пространство</span><h2>Пространство в центре Новосибирска</h2></div></div>
- <p class="lead2 rv">Работаем на Ленина, 4 — в бизнес-клубе KRONA. Здесь встречаемся с клиентами, проводим обучение, профильные ИИ-столы и Дни ИИ, здесь же работает исследовательский центр.</p>
+ <p class="lead2 rv">Работаем на Ленина, 4 — в бизнес-клубе KRONA. Здесь встречаемся с клиентами, проводим обучение, встречи ИИ-стола и Дни ИИ, здесь же работает исследовательский центр.</p>
  <div class="photos rv">
-  <div class="fig"><div class="img">Фото конференц-зала</div><b>Конференц-зал</b><span>Дни ИИ, профильные ИИ-столы, офлайн-занятия</span></div>
+  <div class="fig"><div class="img">Фото конференц-зала</div><b>Конференц-зал</b><span>Дни ИИ, встречи ИИ-стола, офлайн-занятия</span></div>
   <div class="fig"><div class="img">Фото переговорной</div><b>Переговорные</b><span>AI-аудит и стратегические сессии с руководителями</span></div>
   <div class="fig"><div class="img">Фото офиса, команда за работой</div><b>Офис команды</b><span>Здесь работает исследовательский центр</span></div>
  </div>
  <div class="krona rv" id="krona">
-  <div class="kr-l"><span class="eyebrow" style="color:#a8a8a8">Бизнес-клуб KRONA</span><h3>Решения проверяем в работающем бизнесе, прежде чем предложить их вам</h3><p>Профильный ИИ-стол проходит на базе бизнес-клуба KRONA, Тет-а-тет AI — его председатель. Решение, прошедшее тест в исследовательском центре, идёт в пилот в компании клуба — и только после оценки результата попадает к клиентам.</p><div class="ls"><a class="btn btn-w" href="#">Профильный ИИ-стол →</a><a class="btn btn-o" href="#issledovaniya">Цикл исследований ↑</a></div></div>
+  <div class="kr-l"><span class="eyebrow" style="color:#a8a8a8">Бизнес-клуб KRONA</span><h3>Решения проверяем в работающем бизнесе, прежде чем предложить их вам</h3><p>ИИ-стол «Бизнес и AI-технологии» проходит на базе бизнес-клуба KRONA, Тет-а-тет AI — его председатель. Решение, прошедшее тест в исследовательском центре, идёт в пилот в компании клуба — и только после оценки результата попадает к клиентам.</p><div class="ls"><a class="btn btn-w" href="#stol">ИИ-стол →</a><a class="btn btn-o" href="#issledovaniya">Цикл исследований ↑</a></div></div>
   <div class="kr-r"><span class="eyebrow" style="margin:0">Адрес</span><div class="addr">Новосибирск, ул.&nbsp;Ленина,&nbsp;4</div><span style="color:var(--grey)">Бизнес-клуб KRONA</span><div class="ls"><a class="btn btn-r" href="#vopros">Договориться о встрече</a><a class="lk" href="#">Как добраться</a></div></div>
  </div>
  <div class="days rv">
-  <div><span class="eyebrow">Дни ИИ <span class="ph">[год]</span> · в бизнес-клубе KRONA</span><div class="big2">4 дня</div><p class="days-t">Доклады, воркшопы, разборы бизнеса участников</p></div>
-  <div><div class="nums"><div><b>4 дня</b><span>программы</span></div><div><b>150+</b><span>предпринимателей и топ-менеджеров</span></div><div><b>15+</b><span>экспертов</span></div></div><div class="ls"><a class="lk" href="#">Записи выступлений</a><a class="lk" href="#">Презентации</a></div></div>
+  <div><span class="eyebrow">Дни ИИ · в бизнес-клубе KRONA</span><div class="big2">4 дня</div><p class="days-t">Доклады, воркшопы, разборы бизнеса участников</p></div>
+  <div><div class="nums"><div><b>150+</b><span>предпринимателей и топ-менеджеров</span></div><div><b>15+</b><span>экспертов-практиков</span></div><div><b>Март 2027</b><span>ближайшие Дни ИИ</span></div></div><div class="ls"><a class="btn btn-k" href="#dni">Дни ИИ →</a><a class="btn btn-r" href="#dni-forma">Участвовать</a></div></div>
  </div>
 </section>
 
@@ -587,27 +698,28 @@ button{font-size:inherit}
  <div class="hist rv" id="otkuda">
   <div>
    <h3>Наш опыт</h3>
-   <p>10 лет подряд делаем для бизнеса маркетинг, разработку и автоматизацию.</p>
+   <p class="hist-lead">Мы не просто специалисты по ИИ. Мы 10 лет делаем для бизнеса маркетинг, SEO, разработку и автоматизацию и умеем применять в этих областях современные технологии.</p>
    <p>Поэтому знаем процессы продаж, маркетинга и учета, к которым подключаем ИИ. Честно говорим, где хватит обычной автоматизации.</p>
-   <div class="figs"><div><b>10 лет</b>подряд в digital</div><div><b class="ph">[N]</b>проектов</div><div><b class="ph">[N]</b>клиентов</div></div>
+   <div class="figs"><div><b>10 лет</b>подряд в digital</div><div><b>400+</b>проектов</div><div><b>18</b>проектов с ИИ</div></div>
   </div>
-  <ol class="tl">
-   <li><b class="ph">[год]</b><div>Маркетинг<span class="ph">[Что делали и для кого]</span></div></li>
-   <li><b class="ph">[год]</b><div>Разработка<span class="ph">[Сайты, сервисы, интеграции — уточнить]</span></div></li>
-   <li><b class="ph">[год]</b><div>Автоматизация<span class="ph">[CRM, 1С, процессы — уточнить]</span></div></li>
-   <li><b>[год]</b><div>Тет-а-тет AI<span>Исследовательский центр прикладного ИИ и профильный ИИ-стол в бизнес-клубе KRONA</span></div></li>
+  <ol class="tl comp">
+   <li><b>Маркетинг</b><div>Стратегия продвижения и контекстная реклама<span>Теперь и с ИИ: видеоконвейер — десятки коротких роликов без съёмок</span></div></li>
+   <li><b>SEO</b><div>Один из сильнейших SEO-отделов в нашей компании: выводим сайты в топ и сохраняем позиции при редизайне<span>Теперь и с ИИ: SEO/GEO-конвейер — около 60 запросов в топ-10 за 4 месяца, тексты под поиск и ответы нейросетей</span></div></li>
+   <li><b>Разработка</b><div>Сайты на 1С-Битрикс, веб-порталы, мобильные приложения, собственная ERP для строительных компаний<span>Теперь и с ИИ: MVP из 20 модулей с ИИ-агентом, приложение «Стройхронометраж» в RuStore</span></div></li>
+   <li><b>Автоматизация</b><div>CRM и CMS, интеграции с 1С и Битрикс24, автоматизация бизнес-процессов<span>Теперь и с ИИ: помощник продаж в Битрикс24, умный поиск по номенклатуре из 1С на локальной модели</span></div></li>
+   <li><b>Тет-а-тет AI</b><div>Исследовательский центр прикладного ИИ<span>Проверяем новые инструменты на задачах, которые знаем изнутри, и ведём ИИ-стол в бизнес-клубе KRONA</span></div></li>
   </ol>
  </div>
  <h3 class="h3 rv">Команда Тет-а-тет AI</h3>
  <div class="team rv">
-  <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Основатель]</span></div>
-  <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Исследовательский центр]</span></div>
+  <div><div class="pimg">Фото</div><b>Сергей Сергунин</b><span>Основатель Тет-а-тет AI</span></div>
+  <div><div class="pimg">Фото</div><b>Антон Новгородцев</b><span>Руководитель Тет-а-тет AI</span></div>
   <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Исследовательский центр]</span></div>
   <div><div class="pimg">Фото</div><b class="ph">[Имя Фамилия]</b><span class="ph">[Ведущий направления]</span></div>
  </div>
- <h3 class="h3 rv">Спикеры и наставники</h3>
+ <div class="sec-head rv" style="margin-bottom:24px"><h3 class="h3" style="margin:0">Спикеры Дней ИИ</h3><a class="lk" href="#dni">Дни ИИ →</a></div>
  <div class="spk" id="spk"></div>
- <div class="center" id="spMore"><button class="btn btn-k" id="spBtn">Показать ещё 8</button></div>
+ <div class="center" id="spMore"><button class="btn btn-k" id="spBtn">Показать ещё</button></div>
 </section>
 
 <!-- Блог -->
@@ -628,8 +740,8 @@ button{font-size:inherit}
    <details open><summary>С чего начать, если в компании никто не разбирается в ИИ?</summary><div class="more">С консультации: разберём ваш вопрос и скажем, нужен ли AI-аудит.<br><a href="#">AI-аудит</a></div></details>
    <details><summary>Чем вы отличаетесь от ИТ-интегратора и от онлайн-школы?</summary><div class="more">За плечами 10 лет в маркетинге, разработке и автоматизации — мы понимаем процессы, к которым подключаем ИИ. У всех направлений одна база знаний исследовательского центра, а решения перед передачей клиентам проходят пилот в компании бизнес-клуба KRONA.<br><a href="#issledovaniya">Исследовательский центр</a></div></details>
    <details><summary>Безопасно ли передавать вам данные компании?</summary><div class="more">Да. Модели можно развернуть на серверах вашей компании или в российском облаке, чтобы данные не выходили за ваш контур — так проще соблюдать 152-ФЗ о персональных данных. <span class="ph">[NDA подписываем до первой встречи — подтвердить]</span><br><a href="#">Безопасность данных</a></div></details>
-   <details><summary>Сколько это стоит?</summary><div class="more">Цены не публикуем: стоимость зависит от направления и объёма работы. <span class="ph">[Условия для курсов]. Участие в профильном ИИ-столе — 5&nbsp;000&nbsp;₽</span><br><a href="#">Стоимость</a></div></details>
-   <details><summary>Работаете ли вы с другими городами?</summary><div class="more">Да, по всей России: консультации и обучение проходят онлайн. Офлайн-встречи, профильные ИИ-столы и Дни ИИ — в нашем пространстве в Новосибирске, на Ленина, 4. <span class="ph">[Что ещё проходит только офлайн]</span><br><a href="#">Контакты</a></div></details>
+   <details><summary>Сколько это стоит?</summary><div class="more">Цены не публикуем: стоимость зависит от направления и объёма работы. Первая ступень курса для предпринимателей — 37&nbsp;500&nbsp;₽ для резидентов бизнес-клуба KRONA и 60&nbsp;000&nbsp;₽ для остальных. Сезон ИИ-стола — 15&nbsp;000&nbsp;₽, резидентам KRONA бесплатно.<br><a href="#">Стоимость</a></div></details>
+   <details><summary>Работаете ли вы с другими городами?</summary><div class="more">Да, по всей России: консультации и встречи Клуба ИИ Практики проходят онлайн. Курс для предпринимателей, ИИ-стол и Дни ИИ — офлайн, в нашем пространстве в Новосибирске, на Ленина, 4.<br><a href="#">Контакты</a></div></details>
   </div>
  </div>
 </section>
@@ -675,12 +787,11 @@ button{font-size:inherit}
    <h1>Клуб <em>ИИ</em> Практики</h1>
    <p class="lead">Сообщество собственников, маркетологов, экспертов и разработчиков, которые внедряют ИИ в реальные процессы и делятся результатами.</p>
    <div class="start"><a class="btn btn-r" href="#klub-tarify">Присоединиться →</a><a class="btn btn-o" href="#">Вход для участников</a></div>
-   <div class="k-meta">990 ₽ в месяц или 9&nbsp;900 ₽ в год. Оплата разовая.</div>
   </div>
   <div class="proof">
    <div class="fact"><b>9</b>опубликованных материалов</div>
    <div class="fact"><b class="ph">[N]</b>ближайших встреч в расписании</div>
-   <div class="fact"><b>990 ₽</b>доступ в клуб на один месяц</div>
+   <div class="fact"><b>Закрытый</b>Telegram-чат участников</div>
   </div>
  </div>
  <div class="schema">
@@ -776,7 +887,7 @@ button{font-size:inherit}
   <div class="pimg">Фото: Антон Новгородцев</div>
   <div class="fd">
    <ul>
-    <li>Основатель NOVA Media — консалтинг и внедрение ИИ для бизнеса</li>
+    <li>Руководитель Тет-а-тет AI — исследования, консалтинг и внедрение ИИ для бизнеса</li>
     <li>Более 10 лет в маркетинге и digital, более 250 проектов</li>
     <li>Работал с проектами Сбера, МегаФона, LADA, Додо Пиццы и Papa John’s</li>
     <li>Эксперт Terricon Valley: более 100 консультаций для стартапов</li>
@@ -792,7 +903,7 @@ button{font-size:inherit}
 <section id="klub-tarify">
  <div class="cta rv">
   <div>
-   <span class="eyebrow" style="color:#a8a8a8">07 — Стоимость участия</span>
+   <span class="eyebrow" style="color:#a8a8a8">07 — Участие</span>
    <h2>Присоединяйтесь к Клубу ИИ Практики</h2>
    <p class="k-lede">Доступ к опубликованным материалам, запланированным встречам и закрытому Telegram-чату.</p>
    <div class="lbl">Что входит</div>
@@ -804,16 +915,12 @@ button{font-size:inherit}
    </ul>
   </div>
   <form id="kf">
-   <div class="lbl" style="margin:0">Разовая оплата без автосписаний</div>
-   <div class="tar" id="kTar">
-    <button type="button" aria-pressed="true"><small>На 1 месяц</small><b>990 ₽</b></button>
-    <button type="button" aria-pressed="false"><small>На 1 год</small><b>9&nbsp;900 ₽</b></button>
-   </div>
+   <div class="lbl" style="margin:0">Условия участия пришлём после заявки <span class="ph">[стоимость — уточнить]</span></div>
    <input type="email" required placeholder="Ваш e-mail" autocomplete="email">
    <button class="btn btn-r" type="submit">Оставить заявку →</button>
    <a class="btn btn-o" href="#">Уже участвую — войти</a>
    <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
-   <div class="thanks"><b>Заявка отправлена</b>Спасибо. Антон свяжется с вами и пришлёт способ оплаты. (Это макет: данные никуда не уходят.)</div>
+   <div class="thanks"><b>Заявка отправлена</b>Спасибо. Антон свяжется с вами и расскажет об условиях участия. (Это макет: данные никуда не уходят.)</div>
   </form>
  </div>
 </section>
@@ -823,8 +930,8 @@ button{font-size:inherit}
  <div class="two">
   <div class="side-dark rv"><span class="eyebrow" style="color:#a8a8a8;margin:0">08 — FAQ</span><h2>Ответы на вопросы</h2><p>Не нашли свой — оставьте заявку, Антон ответит.</p><a class="btn btn-w" href="#klub-tarify">Оставить заявку</a></div>
   <div class="rows rv">
-   <details open><summary>Сколько стоит участие?</summary><div class="more">990 ₽ за месяц или 9&nbsp;900 ₽ за год. Оплата разовая, без автоматических списаний и сохранения карты.</div></details>
-   <details><summary>Как подать заявку?</summary><div class="more">Выберите тариф и оставьте e-mail. Антон получит заявку в Telegram и на почту, после чего свяжется с вами и пришлёт способ оплаты.</div></details>
+   <details open><summary>Сколько стоит участие?</summary><div class="more">Условия участия пришлём после заявки. <span class="ph">[стоимость и формат оплаты — уточнить]</span></div></details>
+   <details><summary>Как подать заявку?</summary><div class="more">Оставьте e-mail. Антон получит заявку в Telegram и на почту, после чего свяжется с вами и расскажет об условиях участия.</div></details>
    <details><summary>Какие темы уже есть в клубе?</summary><div class="more">Личные ИИ-ассистенты на OpenClaw, память агентов, контент-конвейеры, второй мозг предпринимателя, AI-поиск, визуал, видео и рои AI-агентов.</div></details>
    <details><summary>Где проходят встречи?</summary><div class="more">Встречи проходят онлайн. Актуальные дата, время и тема автоматически выводятся на этой странице из расписания клуба.</div></details>
    <details><summary>Кому подойдёт клуб по практическому применению ИИ?</summary><div class="more">Клуб рассчитан на предпринимателей, руководителей, маркетологов, экспертов и разработчиков, которые хотят применять искусственный интеллект в реальной работе: автоматизировать рутину, создавать контент, анализировать данные и собирать ИИ-ассистентов.</div></details>
@@ -848,172 +955,105 @@ button{font-size:inherit}
 <div class="hero"><div class="hero-in">
  <div class="hero-l">
   <div>
-   <div class="sup">NOVA Media × ТЕТ-А-ТЕТ · Обучение для предпринимателей</div>
+   <div class="sup">Тет-а-тет AI × бизнес-клуб KRONA · Обучение для собственников и руководителей</div>
    <h1>ИИ-система <em>предпринимателя</em></h1>
-   <p class="lead">Как расти без раздувания ФОТ: ИИ-сотрудники в каждой функции бизнеса. Для собственников и первых лиц компаний, где вместе с оборотом растут рутина и штат.</p>
-   <div class="start"><a class="btn btn-r" href="#kurs-zayavka">Оставить заявку →</a><a class="btn btn-o" href="#kurs-programma">Программа курса ↓</a></div>
-   <div class="k-meta"><span>Старт: <span class="ph">[дата старта]</span></span><span>Стоимость: <span class="ph">[условия участия]</span></span></div>
+   <p class="lead">Практическое обучение в две ступени: от освоения ИИ-инструментов до ИИ-сотрудников, которые работают в процессах вашей компании. Офлайн, на задачах собственного бизнеса, с сопровождением кураторов.</p>
+   <div class="start"><a class="btn btn-r" href="#kurs-zayavka">Записаться →</a><a class="btn btn-o" href="#kurs-programma">Программа ↓</a></div>
+   <div class="k-meta"><span>Старт — 17 ноября</span><span>Офлайн в Доме KRONA, Ленина, 4</span></div>
   </div>
   <div class="proof">
-   <div class="fact"><b>12 занятий</b>по 2,5–3 часа</div>
-   <div class="fact"><b>4 недели</b>офлайн в Новосибирске + онлайн</div>
-   <div class="fact"><b>70%</b>практики на занятиях</div>
+   <div class="fact"><b>2 ступени</b>«Старт» и «Внедрение»</div>
+   <div class="fact"><b>8 встреч</b>за 4 недели на первой ступени</div>
+   <div class="fact"><b>Офлайн</b>в Новосибирске, на Ленина, 4</div>
   </div>
  </div>
  <div class="schema">
-  <div class="top"><span>Как устроен курс</span><span>12 занятий</span></div>
+  <div class="top"><span>Как устроено обучение</span><span>10 недель</span></div>
   <div class="stair">
-   <div class="zc z1"><small>Занятия 1–3</small><span>Рабочее место, личный штаб собственника и диагностика: где ИИ даст деньги</span></div>
-   <div class="zc z2"><small>Занятия 4–11</small><span>Восемь функций бизнеса: готовые рецепты, которые вы применяете к своей компании прямо на занятии</span></div>
-   <div class="zc z3"><small>Занятие 12</small><span>Demo Day: защита своих ИИ-сотрудников цифрами «было / стало»</span></div>
+   <div class="zc z1"><small>Ступень 1 · «Старт» · 4 недели</small><span>Узнать и попробовать: личная ИИ-система, первые решения и карта ИИ-возможностей</span></div>
+   <div class="zc z2"><small>Ступень 2 · «Внедрение» · 6 недель</small><span>Поставить цель и закрыть её: ИИ-сотрудники с интеграцией в CRM, 1С и мессенджеры</span></div>
+   <div class="zc z3"><small>Финал</small><span>Demo Day: защита результата цифрами «было / стало»</span></div>
   </div>
-  <p class="k-note">На каждом занятии вы делаете шаг к своим ИИ-сотрудникам: от выбора процессов до защиты на Demo Day.</p>
-  <a class="lk" style="align-self:flex-start;color:#fff;border-color:#555" href="#kurs-programma">Все занятия ↓</a>
+  <a class="lk" style="align-self:flex-start;color:#fff;border-color:#555" href="#kurs-stupeni">Сравнить ступени ↓</a>
  </div>
 </div></div>
 
-<!-- 02 Для кого -->
-<section id="kurs-dlya-kogo">
- <div class="sec-head rv"><div><span class="eyebrow">01 — Для кого</span><h2>Учатся в паре: собственник и сотрудник, который собирает решения вместе с куратором</h2></div></div>
- <div class="pair rv">
-  <div class="pc p1"><span class="n">Собственник или первое лицо</span><h3>Строит личную ИИ-систему и план внедрения</h3><p>Компания, где вместе с оборотом растут рутина и штат. Получает карту ИИ-возможностей с расчётом эффекта и регламент ИИ с бюджетом.</p></div>
-  <i class="pl" aria-hidden="true">+</i>
-  <div class="pc p2"><span class="n">Сотрудник</span><h3>Собирает ИИ-сотрудников вместе с куратором</h3><p>На каждом занятии делает шаг к своим ИИ-сотрудникам: от выбора процессов до защиты на Demo Day.</p></div>
+<!-- 02 Две ступени -->
+<section id="kurs-stupeni">
+ <div class="sec-head rv"><div><span class="eyebrow">01 — Две ступени</span><h2>Первая ступень даёт понятия и первые решения, вторая доводит внедрение до результата</h2></div></div>
+ <div class="cmp rv" role="table" aria-label="Сравнение ступеней">
+  <div class="cmp-h" role="row"><span role="columnheader"></span><b role="columnheader">Ступень 1 · «Старт»</b><b role="columnheader">Ступень 2 · «Внедрение»</b></div>
+  <div role="row"><span role="rowheader">Формула</span><p role="cell">Узнать и попробовать</p><p role="cell">Поставить цель и закрыть её</p></div>
+  <div role="row"><span role="rowheader">Для кого</span><p role="cell">Собственники и руководители, которые начинают работать с ИИ или пользуются им хаотично</p><p role="cell">Выпускники первой ступени и те, кто прошёл входную диагностику</p></div>
+  <div role="row"><span role="rowheader">Длительность</span><p role="cell">4 недели, 8 офлайн-встреч по 2,5 часа</p><p role="cell">6 недель практического мастермайнда</p></div>
+  <div role="row"><span role="rowheader">Формат</span><p role="cell">Встречи в Доме KRONA, задания на своём бизнесе, чат с кураторами</p><p role="cell">Каждую неделю: встреча мастермайнда, лаборатория сборки и трекинг цели. Финал — Demo Day</p></div>
+  <div role="row"><span role="rowheader">Глубина</span><p role="cell">Готовые сервисы, без интеграций и кода</p><p role="cell">Интеграции с CRM, 1С и мессенджерами, ИИ-агенты, регламенты</p></div>
+  <div role="row"><span role="rowheader">Группа</span><p role="cell"><span class="ph">[размер группы — уточнить]</span></p><p role="cell">8–12 компаний, учатся парой: собственник и сотрудник</p></div>
+  <div role="row"><span role="rowheader">Результат</span><p role="cell">Личная ИИ-система, 1–2 работающих решения, карта ИИ-возможностей и цель внедрения</p><p role="cell">Цель закрыта: ИИ-сотрудники работают в процессах компании</p></div>
+  <div role="row" class="cmp-price"><span role="rowheader">Стоимость</span><p role="cell"><b>37&nbsp;500&nbsp;₽</b> для резидентов KRONA<br><b>60&nbsp;000&nbsp;₽</b> для нерезидентов</p><p role="cell"><span class="ph">[стоимость — уточнить]</span></p></div>
  </div>
 </section>
 
-<!-- 03 Что получите -->
-<section id="kurs-rezultat">
- <div class="sec-head rv"><div><span class="eyebrow">02 — Результат</span><h2>Что вы получите после курса</h2></div></div>
- <div class="k-res rv">
-  <div class="rs"><span class="n">01</span><h3>Личная ИИ-система собственника</h3><p>Каждую неделю экономит до 30% рабочих часов</p></div>
-  <div class="rs"><span class="n">02</span><h3>Карта ИИ-возможностей компании</h3><p>По восьми функциям, с расчётом эффекта</p></div>
-  <div class="rs"><span class="n">03</span><h3>Несколько ИИ-сотрудников</h3><p>Работают в процессах вашей компании</p></div>
-  <div class="rs"><span class="n">04</span><h3>Регламент ИИ и план внедрения на 90 дней</h3><p>С бюджетом</p></div>
- </div>
- <div class="edge rv"><b>Как устроен курс</b><span>Занятия 4–11 посвящены функциям бизнеса — каждое даёт готовые рецепты, которые вы применяете к своей компании прямо на занятии. Параллельно на каждом занятии вы делаете шаг к своим ИИ-сотрудникам: от выбора процессов до защиты на Demo Day.</span></div>
-</section>
-
-<!-- 04 Программа -->
+<!-- 03 Программа ступени 1 -->
 <section id="kurs-programma">
- <div class="sec-head rv"><div><span class="eyebrow">03 — Программа</span><h2>12 занятий за 4 недели: от личной ИИ-системы до защиты на Demo Day</h2></div></div>
- <div class="chips rv" id="kFmt">
-  <button class="chip" data-f="all" aria-pressed="true">Все занятия · 12</button>
-  <button class="chip" data-f="off" aria-pressed="false">Офлайн в Новосибирске · 5</button>
-  <button class="chip" data-f="on" aria-pressed="false">Онлайн · 7</button>
- </div>
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Ступень 1 · «Старт»</span><h2>8 встреч: от рабочего места до карты ИИ-возможностей компании</h2></div></div>
  <div class="les-list">
-  <article class="les off rv" data-fmt="off" id="kurs-z1">
-   <div class="les-n"><b>01</b><span class="fmt">Офлайн · 3 ч</span></div>
-   <div class="les-h"><h3>Старт: ИИ-система собственника</h3><p class="pain">«Пробовал ChatGPT — выходит вода, и непонятно, чему доверять»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>выбирать модель под задачу (ChatGPT, Claude, GigaChat, YandexGPT и другие)</li><li>оплачивать в рублях и через юрлицо</li><li>ставить задачу и проверять ответ</li><li>понимать, какие данные можно отдавать ИИ</li></ul></div>
-    <div class="gt"><span>Получите</span><p>Настроенное рабочее место, контекст-пакет компании и пять ежедневных рецептов на своих документах</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z2">
-   <div class="les-n"><b>02</b><span class="fmt">Онлайн · 2,5 ч</span></div>
+  <article class="les off rv"><div class="les-n"><b>01</b><span class="fmt">Офлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Понятия и рабочее место</h3><p class="pain">«Все говорят про ИИ, а я путаюсь в словах и сервисах»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>отличать модель, ассистента, агента, автоматизацию и базу знаний</li><li>выбирать модель под задачу: ChatGPT, Claude, Gemini, GigaChat, YandexGPT, открытые модели</li><li>оплачивать в рублях и через юрлицо</li><li>понимать, какие данные можно отдавать ИИ</li></ul></div><div class="gt"><span>Получите</span><p>Настроенное рабочее место, словарь понятий и правила работы с данными</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>02</b><span class="fmt">Офлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Как ставить задачу ИИ</h3><p class="pain">«Пробовал ChatGPT — выходит вода, и непонятно, чему доверять»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>ставить задачу по формуле</li><li>проверять ответы и ловить ошибки</li><li>один раз описать компанию, чтобы ИИ работал в вашем контексте</li></ul></div><div class="gt"><span>Получите</span><p>Контекст-пакет компании и пять ежедневных рецептов на своих документах: голосовое → письмо, договор → риски, подготовка к встрече, сложное письмо, таблица → выводы</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>03</b><span class="fmt">Офлайн · 2,5 ч</span></div>
    <div class="les-h"><h3>Личный штаб собственника</h3><p class="pain">«Всё держу в голове, теряю договорённости»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>отличать чат, ассистента и агента</li><li>получать утренний брифинг из почты, календаря и CRM</li><li>превращать встречи в задачи</li><li>давать агенту полномочия</li><li>Демонстрация персонального агента 24/7</li></ul></div>
-    <div class="gt"><span>Получите</span><p>Ассистента, который каждый день готовит вам брифинг</p></div>
-   </div>
-  </article>
-  <article class="les off rv" data-fmt="off" id="kurs-z3">
-   <div class="les-n"><b>03</b><span class="fmt">Офлайн · 3 ч</span></div>
-   <div class="les-h"><h3>Диагностика: где ИИ даст деньги</h3><p class="pain">«Непонятно, с чего начать и что окупится»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>находить утечки времени и денег в восьми функциях компании</li><li>выбирать между ИИ, регламентом и наймом</li><li>считать экономику внедрения</li><li>«Горячий стул» по процессам участников</li></ul></div>
-    <div class="gt"><span>Получите</span><p>Карту ИИ-возможностей компании и список процессов для ИИ-сотрудников с расчётом эффекта</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z4">
-   <div class="les-n"><b>04</b><span class="fmt">Онлайн · 2,5 ч</span></div>
-   <div class="les-h"><h3>Продажи: от заявки до сделки</h3><p class="pain">«Заявки теряются, КП уходит через неделю, звонки никто не слушает»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>находить и квалифицировать клиентов</li><li>готовить досье к встрече и КП из голосового сообщения</li><li>разбирать звонки</li><li>возвращать «спящую» базу</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Как устроен агент, техническое задание</p></div>
-    <div class="gt"><span>Получите</span><p>КП на реальную сделку, разбор своих звонков и ТЗ на своих ИИ-сотрудников</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z5">
-   <div class="les-n"><b>05</b><span class="fmt">Онлайн · 2,5 ч</span></div>
-   <div class="les-h"><h3>Клиентский сервис и удержание</h3><p class="pain">«Клиенты пишут в пять мессенджеров и уходят, не дождавшись ответа»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>собирать Telegram, Max, Авито и почту в одно окно</li><li>отвечать по базе знаний</li><li>контролировать качество общения</li><li>замечать клиентов на грани ухода</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Российский стек — n8n, CRM, мессенджеры, российские и локальные модели</p></div>
-    <div class="gt"><span>Получите</span><p>Черновик бота-ответчика по своей базе знаний и схему своих решений</p></div>
-   </div>
-  </article>
-  <article class="les off rv" data-fmt="off" id="kurs-z6">
-   <div class="les-n"><b>06</b><span class="fmt">Офлайн · 3 ч</span></div>
-   <div class="les-h"><h3>Документы и заявки + лаборатория сборки</h3><p class="pain">«Менеджеры полдня переносят данные из письма в CRM, счёт и договор»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>превращать заявку в карточку CRM, КП и счёт</li><li>готовить первичку по данным CRM и 1С</li><li>проверять договоры на риски</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Собираете их на шаблонах без программиста</p></div>
-    <div class="gt"><span>Получите</span><p>Рабочие прототипы ИИ-сотрудников на данных компании</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z7">
-   <div class="les-n"><b>07</b><span class="fmt">Онлайн · 2,5 ч</span></div>
-   <div class="les-h"><h3>Финансы и управленческий учёт</h3><p class="pain">«Цифры собираются к концу месяца, когда решать уже поздно»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>разносить выписки по ДДС</li><li>считать план-факт и себестоимость</li><li>вести платёжный календарь и прогноз</li><li>ловить ошибки ИИ в расчётах</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Тестирование на реальных данных и разбор ошибок</p></div>
-    <div class="gt"><span>Получите</span><p>ДДС из своих выписок, план-факт по проекту и проверенные прототипы</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z8">
-   <div class="les-n"><b>08</b><span class="fmt">Онлайн · 2,5 ч</span></div>
-   <div class="les-h"><h3>Персонал и управление командой</h3><p class="pain">«Найм долгий, новички вникают месяцами, поручения теряются»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>разбирать отклики и интервью</li><li>запускать бота адаптации</li><li>делать регламенты из голосовых</li><li>контролировать поручения после совещаний</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Внедрение в команде — ИИ-чемпион, страх «заменят», обучение сотрудников</p></div>
-    <div class="gt"><span>Получите</span><p>Бота адаптации или контроль поручений и план подключения команды</p></div>
-   </div>
-  </article>
-  <article class="les off rv" data-fmt="off" id="kurs-z9">
-   <div class="les-n"><b>09</b><span class="fmt">Офлайн · 3 ч</span></div>
-   <div class="les-h"><h3>Производство, стройка, закупки и логистика</h3><p class="pain">«Сметы и графики вручную, снабжение в таблицах, объекты контролируем по звонкам»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>готовить сметы и спецификации из ТЗ</li><li>собирать калькуляторы</li><li>вести графики работ и закупок</li><li>сравнивать КП поставщиков</li><li>превращать фотоотчёты с объекта в статус работ</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Масштаб — новые процессы, контроль работы агентов, стоимость владения</p></div>
-    <div class="gt"><span>Получите</span><p>Калькулятор или документный сценарий для своего производства</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z10">
-   <div class="les-n"><b>10</b><span class="fmt">Онлайн · 2,5 ч</span></div>
-   <div class="les-h"><h3>Маркетинг, контент и маркетплейсы</h3><p class="pain">«Контент делается урывками, реклама сливает бюджет, ИИ-поиск о нас не знает»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>запускать контент-конвейер</li><li>делать видео без продакшена</li><li>собирать отчёт по рекламе</li><li>вести карточки и отзывы на маркетплейсах</li><li>попадать в ответы ChatGPT и Алисы</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>Право и безопасность — 152-ФЗ, закон об ИИ, маркировка контента</p></div>
-    <div class="gt"><span>Получите</span><p>Контент-план на месяц, аудит видимости в ИИ-поиске и регламент ИИ в компании</p></div>
-   </div>
-  </article>
-  <article class="les on rv" data-fmt="on" id="kurs-z11">
-   <div class="les-n"><b>11</b><span class="fmt">Онлайн · 2,5 ч</span></div>
-   <div class="les-h"><h3>Управление по данным и стратегия</h3><p class="pain">«Решения принимаю на ощущениях, отчёты собираю сам»</p></div>
-   <div class="les-b">
-    <div><span>Научитесь</span><ul><li>получать еженедельную сводку собственника из CRM, 1С и таблиц</li><li>исследовать рынок</li><li>проверять решения «советом директоров» из нескольких моделей</li></ul></div>
-    <div><span>Шаг к ИИ-сотрудникам</span><p>План внедрения на 90 дней</p></div>
-    <div class="gt"><span>Получите</span><p>Сводку собственника и дорожную карту внедрения с бюджетом</p></div>
-   </div>
-  </article>
-  <article class="les off dark rv" data-fmt="off" id="kurs-z12">
-   <div class="les-n"><b>12</b><span class="fmt">Офлайн · 3 ч</span></div>
-   <div class="les-h"><h3>Demo Day</h3></div>
-   <div class="les-b">
-    <div><span>На занятии</span><ul><li>Защищаете своих ИИ-сотрудников цифрами «было / стало» перед экспертной комиссией и гостями из бизнес-клубов</li></ul></div>
-    <div class="gt"><span>Получите</span><p>Защищённые результаты и план на 90 дней. После выпуска — созвоны на 30-й и 60-й день и 3 месяца в <a href="#klub">Клубе ИИ Практики</a></p></div>
-   </div>
-  </article>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>настраивать личного ассистента</li><li>превращать встречи в задачи и вести «второй мозг»</li><li>исследовать рынок и проверять решения «советом директоров» из нескольких моделей</li><li>демонстрация персонального агента 24/7 — его собирают на второй ступени</li></ul></div><div class="gt"><span>Получите</span><p>Личного ассистента в ChatGPT или Claude с вашим контекстом и регулярными сценариями</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>04</b><span class="fmt">Офлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Продажи и клиентский сервис</h3><p class="pain">«Заявки теряются, КП уходит через неделю, клиенты ждут ответа»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>готовить досье к встрече и КП из голосового сообщения</li><li>разбирать звонки и переписки</li><li>отвечать клиентам по базе знаний</li><li>работать с отзывами</li></ul></div><div class="gt"><span>Получите</span><p>КП на реальную сделку, разбор своих звонков и ассистента-ответчика по вашим частым вопросам</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>05</b><span class="fmt">Офлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Документы, финансы и учёт</h3><p class="pain">«Данные копируем из окна в окно, цифры собираются к концу месяца»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>превращать заявку в КП и счёт по шаблону</li><li>проверять договоры на риски</li><li>разносить выписки по ДДС и считать план-факт</li><li>ловить ошибки ИИ в цифрах</li></ul></div><div class="gt"><span>Получите</span><p>ДДС из своих выписок и шаблон «заявка → документы»</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>06</b><span class="fmt">Офлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Маркетинг, контент и маркетплейсы</h3><p class="pain">«Контент делается урывками, ИИ-поиск о нас не знает»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>делать контент-план и посты из интервью эксперта</li><li>видео и визуал без продакшена</li><li>отчёт по рекламе, карточки и ответы на отзывы на маркетплейсах</li><li>проверять, что ChatGPT и Алиса отвечают о компании</li></ul></div><div class="gt"><span>Получите</span><p>Контент-план на месяц и аудит видимости компании в ИИ-поиске</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>07</b><span class="fmt">Офлайн · 2,5 ч</span></div>
+   <div class="les-h"><h3>Персонал, производство и снабжение</h3><p class="pain">«Найм долгий, регламентов нет, сметы и графики вручную»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>писать вакансии и разбирать отклики</li><li>делать регламенты из голосовых и запускать ассистента для новичков</li><li>готовить сметы и спецификации из ТЗ</li><li>сравнивать КП поставщиков</li></ul></div><div class="gt"><span>Получите</span><p>Регламент из своего голосового и шаблон для своего производства или снабжения</p></div></div></article>
+  <article class="les off dark rv"><div class="les-n"><b>08</b><span class="fmt">Офлайн · 3 ч</span></div>
+   <div class="les-h"><h3>Карта ИИ-возможностей и итоговая встреча</h3><p class="pain">«Попробовал многое — что внедрять первым?»</p></div>
+   <div class="les-b"><div><span>Научитесь</span><ul><li>находить утечки времени и денег в восьми функциях компании</li><li>выбирать процессы по формуле: частота × время × стандартизация × данные − риск</li><li>решать, где нужен ИИ, а где регламент или найм, и прикидывать эффект</li><li>участники показывают, что у них уже работает</li></ul></div><div class="gt"><span>Получите</span><p>Карту ИИ-возможностей компании и карточку цели — с ней приходят на вторую ступень</p></div></div></article>
+ </div>
+ <div class="edge rv"><b>Итог ступени 1</b><span>Личная ИИ-система, 1–2 простых решения в работе команды, карта ИИ-возможностей и понятная цель внедрения.</span></div>
+</section>
 
+<!-- 04 Ступень 2 -->
+<section id="kurs-vnedrenie">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Ступень 2 · «Внедрение»</span><h2>6 недель мастермайнда: каждый участник закрывает свою цель</h2></div></div>
+ <p class="lead2 rv">Компания учится парой: собственник принимает решения на встречах мастермайнда, сотрудник собирает решения в лабораториях вместе с кураторами и разработчиками. Каждую неделю — встреча мастермайнда (2,5–3 часа), лаборатория сборки (2 часа) и трекинг цели (30 минут).</p>
+ <div class="pair rv">
+  <div class="pc p1"><span class="n">Вход</span><h3>Личная диагностика 60 минут до старта</h3><p>Уточняем цель, проверяем данные и доступы, замеряем «как сейчас». Итог — карточка цели: процесс, метрика «было», целевое значение, срок, ответственный.</p></div>
+  <i class="pl" aria-hidden="true">→</i>
+  <div class="pc p2"><span class="n">Цель на 6 недель</span><h3>1–3 ИИ-сотрудника в одном-двух процессах</h3><p>Например, КП уходит в день встречи, а не через неделю. Или заявка превращается в карточку CRM и счёт без ручного копирования. Если цель больше, часть закрываем на курсе, остальное идёт в план внедрения.</p></div>
+ </div>
+ <div class="les-list" style="margin-top:12px">
+  <article class="les off rv"><div class="les-n"><b>1</b><span class="fmt">Неделя</span></div><div class="les-h"><h3>Цель и экономика</h3></div>
+   <div class="les-b"><div><span>На неделе</span><ul><li>«Горячий стул» по целям участников</li><li>Экономика внедрения: эффект, стоимость, окупаемость, условия остановки</li><li>Как устроен ИИ-сотрудник: триггер, данные, память, одобрение человеком, владелец</li></ul></div><div class="gt"><span>Контрольная точка</span><p>Цель с метрикой утверждена, ТЗ на ИИ-сотрудников готово</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>2</b><span class="fmt">Неделя</span></div><div class="les-h"><h3>Архитектура и доступы</h3></div>
+   <div class="les-b"><div><span>На неделе</span><ul><li>Российский стек: n8n, CRM, 1С, мессенджеры, российские и локальные модели</li><li>Что делаете сами, а что отдаёте подрядчику; безопасность данных</li><li>Подключение к вашим системам, подготовка базы знаний и данных</li></ul></div><div class="gt"><span>Контрольная точка</span><p>Схема решения, доступы и данные готовы</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>3</b><span class="fmt">Неделя</span></div><div class="les-h"><h3>Сборка</h3></div>
+   <div class="les-b"><div><span>На неделе</span><ul><li>Лаборатория 4 часа: собираете ИИ-сотрудников на шаблонах вместе с кураторами и разработчиками</li><li>Разбор блокеров на мастермайнде</li></ul></div><div class="gt"><span>Контрольная точка</span><p>Прототипы работают на данных компании</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>4</b><span class="fmt">Неделя</span></div><div class="les-h"><h3>Тест и тихий запуск</h3></div>
+   <div class="les-b"><div><span>На неделе</span><ul><li>Тест на реальных данных, разбор ошибок, метрики качества</li><li>Точка одобрения человеком и журнал действий</li><li>Первые замеры и корректировка целей</li></ul></div><div class="gt"><span>Контрольная точка</span><p>ИИ-сотрудники работают в фоне под контролем сотрудника</p></div></div></article>
+  <article class="les off rv"><div class="les-n"><b>5</b><span class="fmt">Неделя</span></div><div class="les-h"><h3>Команда, правила, масштаб</h3></div>
+   <div class="les-b"><div><span>На неделе</span><ul><li>Внедрение в команде: ИИ-чемпион, страх «заменят», обучение сотрудников</li><li>Регламент ИИ: 152-ФЗ, закон об ИИ, доступы, ответственность</li><li>Следующий процесс, мониторинг работы агентов, стоимость владения</li></ul></div><div class="gt"><span>Контрольная точка</span><p>Команда работает с ИИ-сотрудниками, регламент утверждён</p></div></div></article>
+  <article class="les off dark rv"><div class="les-n"><b>6</b><span class="fmt">Неделя</span></div><div class="les-h"><h3>Demo Day</h3></div>
+   <div class="les-b"><div><span>На неделе</span><ul><li>Защищаете цель цифрами «было / стало» перед экспертной комиссией. В зале — гости из бизнес-клубов и выпускники первой ступени</li></ul></div><div class="gt"><span>Получите</span><p>Закрытую цель, работающих ИИ-сотрудников, регламент ИИ и план внедрения на 90 дней. После выпуска — созвоны на 30-й и 60-й день и <a href="#klub">Клуб ИИ Практики</a></p></div></div></article>
  </div>
 </section>
 
 <!-- 05 Отраслевые сценарии -->
 <section id="kurs-otrasli">
- <div class="sec-head rv"><div><span class="eyebrow">04 — Отрасли</span><h2>Отраслевые сценарии</h2></div></div>
+ <div class="sec-head rv"><div><span class="eyebrow">04 — Отрасли</span><h2>Отраслевые сценарии: на первой ступени — рецепты, на второй — цели</h2></div></div>
  <div class="ind rv">
   <div><b>Стройка</b><span>Сметы и ведомости, графики работ, фотоотчёты с объекта, тендеры</span></div>
   <div><b>Производство</b><span>Заявка → КП и счёт, себестоимость, контроль качества по фото</span></div>
@@ -1024,12 +1064,12 @@ button{font-size:inherit}
  </div>
 </section>
 
-<!-- 06 Ведущие -->
+<!-- 06 Кураторы -->
 <section id="kurs-vedushchie">
- <div class="sec-head rv"><div><span class="eyebrow">05 — Ведущие</span><h2>Курс ведут практики NOVA Media и Тет-а-тет AI</h2></div></div>
+ <div class="sec-head rv"><div><span class="eyebrow">05 — Кураторы</span><h2>Кураторы программы</h2></div></div>
  <div class="k-lead rv">
-  <div><div class="pimg">Фото</div><b>Антон Новгородцев</b><span>NOVA Media</span></div>
-  <div><div class="pimg">Фото</div><b>Сергей Сергунин</b><span>Тет-а-тет AI</span></div>
+  <div><div class="pimg">Фото</div><b>Сергей Сергунин</b><span>Основатель Тет-а-тет AI, член президиума бизнес-клуба KRONA</span></div>
+  <div><div class="pimg">Фото</div><b>Антон Новгородцев</b><span>Руководитель Тет-а-тет AI</span></div>
   <div><div class="pimg">Фото</div><b>Приглашённые практики</b><span class="ph">[имена и компании — уточнить]</span></div>
  </div>
 </section>
@@ -1040,24 +1080,327 @@ button{font-size:inherit}
   <div>
    <span class="eyebrow" style="color:#a8a8a8">06 — Заявка</span>
    <h2>Записаться на курс</h2>
-   <div class="lbl">Условия</div>
+   <div class="lbl">Ступень 1 · «Старт»</div>
    <ul>
-    <li><b>Формат.</b> 12 занятий за 4 недели: офлайн в Новосибирске, на Ленина, 4, и онлайн</li>
-    <li><b>Учатся в паре.</b> Собственник и сотрудник — укажите обоих в заявке</li>
-    <li><b>Старт.</b> <span class="ph">[дата старта]</span></li>
-    <li><b>Стоимость.</b> <span class="ph">[условия участия]</span></li>
+    <li><b>Старт.</b> 17 ноября</li>
+    <li><b>Формат.</b> 8 офлайн-встреч по 2,5 часа за 4 недели в Доме KRONA, Ленина, 4</li>
+    <li><b>Стоимость.</b> 37&nbsp;500&nbsp;₽ для резидентов KRONA, 60&nbsp;000&nbsp;₽ для нерезидентов</li>
+    <li><b>Ступень 2.</b> Стартует через 2–3 недели после первой, вход через диагностику</li>
    </ul>
   </div>
   <form id="kzf">
+   <div class="lbl" style="margin:0">Статус участия</div>
+   <div class="wh" data-g><button type="button" class="chip" aria-pressed="false">Резидент KRONA</button><button type="button" class="chip" aria-pressed="true">Не резидент</button></div>
    <input required placeholder="Как к вам обращаться" autocomplete="name">
    <input required placeholder="+7 … или @username">
    <input placeholder="Компания и ваша роль">
-   <textarea placeholder="Кто будет учиться вместе с вами: сотрудник и его должность"></textarea>
-   <button class="btn btn-r" type="submit">Оставить заявку →</button>
-   <div class="tg">или <a href="#">написать в Telegram</a></div>
+   <button class="btn btn-r" type="submit">Записаться →</button>
+   <div class="tg">или <a href="https://t.me/liza_gil" target="_blank" rel="noopener">написать в Telegram</a></div>
    <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
    <div class="thanks"><b>Заявка отправлена</b>Спасибо. Мы свяжемся с вами <span class="ph">[срок ответа]</span>. (Это макет: данные никуда не уходят.)</div>
   </form>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="dni" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#prostranstvo">Пространство</a><i>/</i><span>Дни ИИ</span></nav>
+
+<!-- Первый экран -->
+<div class="hero"><div class="hero-in">
+ <div class="hero-l">
+  <div>
+   <div class="sup">Бизнес-клуб KRONA × Тет-а-тет AI · Новосибирск, Ленина, 4</div>
+   <h1>Дни <em>ИИ</em></h1>
+   <p class="lead">Четыре дня докладов, воркшопов и разборов бизнеса участников. Предприниматели и топ-менеджеры не слушают теорию, а работают с ИИ-инструментами на задачах своих компаний.</p>
+   <div class="start"><a class="btn btn-r" href="#dni-forma">Участвовать в Днях ИИ →</a><a class="btn btn-o" href="#dni-programma">Как устроены 4 дня ↓</a></div>
+   <div class="k-meta"><span>Ближайшие Дни ИИ — март 2027</span><span>Даты: <span class="ph">[уточнить]</span></span></div>
+  </div>
+  <div class="proof">
+   <div class="fact"><b>150+</b>предпринимателей и топ-менеджеров на прошлых Днях ИИ</div>
+   <div class="fact"><b>15+</b>экспертов-практиков</div>
+   <div class="fact"><b>4 дня</b>программы</div>
+  </div>
+ </div>
+ <div class="schema dni-shot">
+  <div class="top"><span>Как это было</span><span>Дни ИИ в KRONA</span></div>
+  <div class="shot"><img src="https://ai.tetatet.pro/assets/ai_days_photo.jpg" alt="Участники Дней ИИ в конференц-зале бизнес-клуба KRONA" loading="lazy" onerror="this.parentNode.textContent='Фото с Дней ИИ'"></div>
+  <p class="k-note">Доклады, воркшопы и talk-сессии в конференц-зале на Ленина, 4</p>
+ </div>
+</div></div>
+
+<!-- 01 Что такое -->
+<section id="dni-chto">
+ <div class="sec-head rv"><div><span class="eyebrow">01 — Что такое Дни ИИ</span><h2>Интенсив, после которого ИИ начинает работать в вашей компании</h2></div></div>
+ <p class="lead2 rv">Дни ИИ проводят бизнес-клуб KRONA и Тет-а-тет AI. Мы собираем практиков, которые уже внедрили ИИ в своём бизнесе, и предпринимателей, которые хотят сделать то же самое. Здесь не продают курсы со сцены: показывают, что сработало, а что нет.</p>
+ <div class="k-res c3 rv">
+  <div class="rs"><span class="n">01</span><h3>Попробуете инструменты</h3><p>На воркшопах собираете промты, прототипы и ИИ-ассистентов своими руками</p></div>
+  <div class="rs"><span class="n">02</span><h3>Разберёте реальные кейсы</h3><p>Спикеры рассказывают о внедрениях в своих компаниях — с цифрами и ошибками</p></div>
+  <div class="rs"><span class="n">03</span><h3>Найдёте точки для ИИ у себя</h3><p>Разбираем бизнес участников и находим процессы, которые выгодно отдать ИИ</p></div>
+ </div>
+</section>
+
+<!-- 02 Программа -->
+<section id="dni-programma">
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Программа</span><h2>Четыре дня — четыре формата</h2></div></div>
+ <div class="ind c2 rv">
+  <div><small class="day">День 1</small><b>Доклады и конференция</b><span>Открытие, ключевые тренды и подходы к внедрению. ИИ в маркетинге, промышленности, брендинге, AI-агенты, личный бренд</span></div>
+  <div><small class="day">День 2</small><b>Практические воркшопы</b><span>Промты, сборка ИИ-прототипа за 2–3 часа, ИИ-ассистенты и ИИ-менеджеры для бизнеса, связка нейросетей и ботов</span></div>
+  <div><small class="day">День 3</small><b>Talk-сессии и дискуссии</b><span>Нейросети и личная эффективность, ИИ в стартапах, разбор бизнес-кейсов и обмен опытом между предпринимателями</span></div>
+  <div><small class="day">День 4</small><b>Стратегия и будущее</b><span>ИИ-контент для заявок и продаж, цифровые двойники, управление бизнесом с ИИ и адаптация к новым технологиям</span></div>
+ </div>
+ <p class="note rv">Программа прошлых Дней ИИ. Темы марта 2027 — <span class="ph">[уточнить]</span></p>
+</section>
+
+<!-- 03 Фото -->
+<section id="dni-foto">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Фото</span><h2>Как проходили Дни ИИ</h2></div></div>
+ <div class="gal rv">
+  <div><img src="https://ai.tetatet.pro/assets/gallery/238.jpg" alt="Дни ИИ: доклад" loading="lazy" onerror="this.parentNode.textContent='Фото'"></div>
+  <div><img src="https://ai.tetatet.pro/assets/gallery/257.jpg" alt="Дни ИИ: участники" loading="lazy" onerror="this.parentNode.textContent='Фото'"></div>
+  <div><img src="https://ai.tetatet.pro/assets/gallery/katri54DSC09807.jpg" alt="Дни ИИ: воркшоп" loading="lazy" onerror="this.parentNode.textContent='Фото'"></div>
+  <div><img src="https://ai.tetatet.pro/assets/gallery/katri54DSC09851.jpg" alt="Дни ИИ: обсуждение" loading="lazy" onerror="this.parentNode.textContent='Фото'"></div>
+  <div><img src="https://ai.tetatet.pro/assets/gallery/IMG_3772.jpg" alt="Дни ИИ: зал" loading="lazy" onerror="this.parentNode.textContent='Фото'"></div>
+  <div><img src="https://ai.tetatet.pro/assets/gallery/IMG_3914.jpg" alt="Дни ИИ: нетворкинг" loading="lazy" onerror="this.parentNode.textContent='Фото'"></div>
+ </div>
+</section>
+
+<!-- 04 Спикеры -->
+<section id="dni-spikery">
+ <div class="sec-head rv"><div><span class="eyebrow">04 — Спикеры</span><h2>Практики, которые внедряют ИИ в бизнес</h2></div></div>
+ <p class="lead2 rv">Выступали на прошлых Днях ИИ. Спикеры марта 2027 — <span class="ph">[уточнить]</span></p>
+ <div class="spk" id="dniSpk"></div>
+ <div class="center" id="dniMore"><button class="btn btn-k" id="dniBtn">Показать ещё</button></div>
+</section>
+
+<!-- 05 Для кого -->
+<section id="dni-dlya-kogo">
+ <div class="sec-head rv"><div><span class="eyebrow">05 — Для кого</span><h2>Кому стоит прийти</h2></div></div>
+ <div class="ind rv">
+  <div><b>Собственникам</b><span>Понять, где ИИ даст деньги в вашей компании, и не тратить бюджет на хаотичные эксперименты</span></div>
+  <div><b>Руководителям</b><span>Увидеть, как другие компании встраивают ИИ в процессы и работу команды</span></div>
+  <div><b>Маркетологам</b><span>Освоить ИИ для контента, аналитики и привлечения клиентов</span></div>
+ </div>
+</section>
+
+<!-- 06 Заявка -->
+<section id="dni-forma" style="margin-bottom:24px">
+ <div class="cta rv">
+  <div>
+   <span class="eyebrow" style="color:#a8a8a8">06 — Участие</span>
+   <h2>Участвовать в Днях ИИ</h2>
+   <div class="lbl">Ближайшие Дни ИИ</div>
+   <ul>
+    <li><b>Когда.</b> Март 2027 <span class="ph">[точные даты]</span></li>
+    <li><b>Где.</b> Бизнес-клуб KRONA, Новосибирск, Ленина, 4</li>
+    <li><b>Формат.</b> Офлайн, 4 дня</li>
+    <li><b>Участие.</b> <span class="ph">[стоимость и условия для резидентов KRONA — уточнить]</span></li>
+   </ul>
+  </div>
+  <form id="dnf">
+   <div class="lbl" style="margin:0">Я хочу</div>
+   <div class="wh" data-g><button type="button" class="chip" aria-pressed="true">Участвовать</button><button type="button" class="chip" aria-pressed="false">Выступить</button><button type="button" class="chip" aria-pressed="false">Стать партнёром</button></div>
+   <input required placeholder="Как к вам обращаться" autocomplete="name">
+   <input required placeholder="+7 … или @username">
+   <input placeholder="Компания и ваша роль">
+   <button class="btn btn-r" type="submit">Участвовать в Днях ИИ →</button>
+   <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
+   <div class="thanks"><b>Заявка отправлена</b>Спасибо. Пришлём программу и даты, как только они будут утверждены. (Это макет: данные никуда не уходят.)</div>
+  </form>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="stol" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><span>ИИ-стол</span></nav>
+
+<!-- Первый экран -->
+<div class="hero"><div class="hero-in">
+ <div class="hero-l">
+  <div>
+   <div class="sup">Отраслевой стол бизнес-клуба KRONA · модератор — Сергей Сергунин</div>
+   <h1>Бизнес и <em>AI</em>-технологии</h1>
+   <p class="lead">Сколько возможностей теряет ваш бизнес без ИИ? Вопрос уже не в том, используете ли вы ИИ, а в том, насколько эффективно. Эксперты KRONA в нейросетях показывают, как ИИ помогает расти прибыли, автоматизировать работу и развивать бизнес.</p>
+   <div class="start"><a class="btn btn-r" href="#stol-zayavka">Участвовать →</a><a class="btn btn-o" href="#stol-programma">Программа сезона ↓</a></div>
+   <div class="k-meta"><span>Сезон: ноябрь 2026 — январь 2027</span><span>Дом KRONA, Ленина, 4</span></div>
+  </div>
+  <div class="proof">
+   <div class="fact"><b>3 месяца</b>встреча каждый месяц</div>
+   <div class="fact"><b>6 экспертов</b>с реальными кейсами</div>
+   <div class="fact"><b>Бесплатно</b>для резидентов бизнес-клуба KRONA</div>
+  </div>
+ </div>
+ <div class="schema">
+  <div class="top"><span>Что даёт ИИ-стол</span></div>
+  <div class="stair">
+   <div class="zc z1"><small>Темы</small><span>Реальные инструменты для бизнеса: от корпоративного ChatGPT до цифрового финансового директора</span></div>
+   <div class="zc z2"><small>Люди</small><span>Предприниматели и руководители за одним столом, разговор на равных</span></div>
+   <div class="zc z3"><small>Сообщество</small><span>Близость к бизнес-комьюнити KRONA за 5 000 ₽ в месяц</span></div>
+  </div>
+ </div>
+</div></div>
+
+<!-- 01 Формат -->
+<section id="stol-format">
+ <div class="sec-head rv"><div><span class="eyebrow">01 — Формат</span><h2>Не просто круглый стол</h2></div></div>
+ <p class="lead2 rv">За спикерами Кроны — десятки реальных кейсов, сотни часов практики и внедрения ИИ в разные сферы бизнеса. На встрече они делятся опытом, а затем стол обсуждает темы и задачи участников.</p>
+ <div class="k-res c3 rv">
+  <div class="rs"><span class="n">01</span><h3>Два спикера по 45 минут</h3><p>Практики рассказывают, как применяют ИИ в своём бизнесе</p></div>
+  <div class="rs"><span class="n">02</span><h3>Перерыв для общения</h3><p>Неформальное знакомство с предпринимателями за столом</p></div>
+  <div class="rs"><span class="n">03</span><h3>Открытое обсуждение</h3><p>Обмен опытом, вопросы спикерам и разбор кейсов участников</p></div>
+ </div>
+</section>
+
+<!-- 02 Программа -->
+<section id="stol-programma">
+ <div class="sec-head rv"><div><span class="eyebrow">02 — Программа сезона</span><h2>Три встречи, шесть экспертов</h2></div></div>
+ <div class="les-list">
+  <article class="les rv"><div class="les-n"><b>5</b><span class="fmt">Ноября</span></div>
+   <div class="les-h"><h3>Первая встреча</h3><p class="pain">Корпоративный ИИ и агенты</p></div>
+   <div class="les-b">
+    <div class="talk"><b>Антон Новгородцев</b><h4>«Свой корпоративный ChatGPT: как создать ИИ-платформу для бизнеса»</h4><p>Собственный ИИ компании, корпоративная память, ИИ-помощники для сотрудников, защита данных и интеграция с CRM</p></div>
+    <div class="talk"><b>Александр Галахов</b><h4>«ИИ-агент — что за зверь?»</h4><p>Что такое ИИ-агенты, чем они отличаются от ChatGPT, Claude и DeepSeek и как их использовать в бизнесе</p></div>
+   </div></article>
+  <article class="les rv"><div class="les-n"><b>Дек</b><span class="fmt"><span class="ph">[дата]</span></span></div>
+   <div class="les-h"><h3>ИИ в действии</h3><p class="pain">Продукты и контент без команды</p></div>
+   <div class="les-b">
+    <div class="talk"><b>Юрий Мандрик</b><h4>«Вайб-кодинг: создание сайтов и программ с помощью ИИ»</h4><p>Личный опыт разработки цифровых продуктов с помощью искусственного интеллекта</p></div>
+    <div class="talk"><b>Сергей Дроздов</b><h4>«YouTube-канал за 2 часа: всё делает ИИ»</h4><p>Монтаж, субтитры, Shorts, кросспостинг и аналитика — как запустить канал без команды</p></div>
+   </div></article>
+  <article class="les dark rv"><div class="les-n"><b>Янв</b><span class="fmt"><span class="ph">[дата]</span></span></div>
+   <div class="les-h"><h3>ИИ для роста прибыли</h3><p class="pain">Клиенты и финансы</p></div>
+   <div class="les-b">
+    <div class="talk"><b>Рустамбек Султонбеков</b><h4>«ИИ, который приносит деньги, а не экономит время»</h4><p>Как находить горячих клиентов в сотнях чатов и создавать дополнительный источник трафика</p></div>
+    <div class="talk"><b>Андрей Ведерников</b><h4>«ИИ в финансах: цифровой финансовый директор для малого и среднего бизнеса»</h4><p>Доходы и расходы, прогноз кассовых разрывов, дебиторка, лишние затраты и финансовое планирование</p></div>
+   </div></article>
+ </div>
+</section>
+
+<!-- 03 Ценность -->
+<section id="stol-cennost">
+ <div class="sec-head rv"><div><span class="eyebrow">03 — Зачем приходить</span><h2>Ценность не только в темах, но и в людях за столом</h2></div></div>
+ <div class="krona rv" style="margin-top:0">
+  <div class="kr-l">
+   <span class="eyebrow" style="color:#a8a8a8">Бизнес-сообщество</span>
+   <h3>Общение с предпринимателями и близость к бизнес-комьюнити за 5 000 ₽ в месяц</h3>
+   <p>За столом собираются собственники и руководители компаний Новосибирска. Вы узнаёте, как они применяют ИИ, делитесь своим опытом и заводите знакомства, полезные и за пределами ИИ.</p>
+   <div class="ls"><a class="btn btn-w" href="#stol-zayavka">Участвовать →</a><a class="btn btn-o" href="#krona">О бизнес-клубе KRONA</a></div>
+  </div>
+  <div class="kr-r">
+   <span class="eyebrow" style="margin:0">Участие в сезоне</span>
+   <div class="addr">15 000 ₽</div>
+   <span style="color:var(--grey)">за три месяца для нерезидентов — 5 000 ₽ в месяц. Для резидентов бизнес-клуба KRONA — бесплатно</span>
+   <ul class="st-list">
+    <li>Три встречи сезона в Доме KRONA</li>
+    <li>Шесть выступлений экспертов</li>
+    <li>Общение и разбор кейсов с участниками стола</li>
+   </ul>
+  </div>
+ </div>
+ <div class="team rv" style="margin:12px 0 0;grid-template-columns:1fr 3fr">
+  <div><div class="pimg">Фото</div></div>
+  <div class="fd" style="padding:32px"><span class="eyebrow" style="margin:0">Модератор стола</span><h3>Сергей Сергунин</h3><p>Основатель Тет-а-тет AI, член президиума бизнес-клуба KRONA. Ведёт обсуждение и следит, чтобы разговор оставался про задачи бизнеса.</p></div>
+ </div>
+</section>
+
+<!-- 04 Заявка -->
+<section id="stol-zayavka">
+ <div class="cta rv">
+  <div>
+   <span class="eyebrow" style="color:#a8a8a8">04 — Заявка</span>
+   <h2>Участвовать в ИИ-столе</h2>
+   <div class="lbl">Условия</div>
+   <ul>
+    <li><b>Нерезидентам.</b> 15&nbsp;000&nbsp;₽ за сезон из трёх встреч</li>
+    <li><b>Резидентам KRONA.</b> Участие бесплатное</li>
+    <li><b>Где.</b> Дом KRONA, Новосибирск, Ленина, 4</li>
+   </ul>
+  </div>
+  <form id="stf">
+   <div class="lbl" style="margin:0">Статус участия</div>
+   <div class="wh" data-g><button type="button" class="chip" aria-pressed="false">Резидент KRONA</button><button type="button" class="chip" aria-pressed="true">Не резидент</button></div>
+   <input required placeholder="Как к вам обращаться" autocomplete="name">
+   <input required placeholder="+7 … или @username">
+   <input placeholder="Компания и ваша роль">
+   <button class="btn btn-r" type="submit">Оставить заявку →</button>
+   <div class="tg">или <a href="https://t.me/liza_gil" target="_blank" rel="noopener">написать в Telegram</a></div>
+   <div class="pol">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
+   <div class="thanks"><b>Заявка отправлена</b>Спасибо. Пришлём дату и тему ближайшей встречи. (Это макет: данные никуда не уходят.)</div>
+  </form>
+ </div>
+</section>
+
+<!-- 05 FAQ -->
+<section id="stol-faq" style="margin-bottom:24px">
+ <div class="two">
+  <div class="side-dark rv"><span class="eyebrow" style="color:#a8a8a8;margin:0">05 — Вопросы</span><h2>Вопросы об ИИ-столе</h2><p>Не нашли свой — оставьте заявку, мы ответим.</p><a class="btn btn-w" href="#stol-zayavka">Оставить заявку</a></div>
+  <div class="rows rv">
+   <details open><summary>Кто участвует в ИИ-столе?</summary><div class="more">Собственники и руководители компаний: и те, кто уже применяет ИИ, и те, кто только присматривается.</div></details>
+   <details><summary>Как часто проходят встречи?</summary><div class="more">Раз в месяц. Сезон — три встречи с ноября по январь, на каждой выступают два эксперта.</div></details>
+   <details><summary>Нужно ли разбираться в ИИ?</summary><div class="more">Нет. Спикеры говорят о задачах бизнеса, а инструменты показывают на примерах.</div></details>
+   <details><summary>Я резидент бизнес-клуба KRONA. Нужно ли платить?</summary><div class="more">Нет, для резидентов клуба участие бесплатное. Отметьте статус в заявке.</div></details>
+   <details><summary>Можно прийти на одну встречу?</summary><div class="more"><span class="ph">[Разовое участие и его стоимость — уточнить]</span></div></details>
+   <details><summary>Чем ИИ-стол отличается от Клуба ИИ Практики?</summary><div class="more">Клуб ИИ Практики — онлайн-сообщество с материалами и закрытым чатом для тех, кто сам работает с нейросетями. ИИ-стол — офлайн-встречи предпринимателей о бизнесе и ИИ.<br><a href="#klub">Клуб ИИ Практики</a></div></details>
+  </div>
+ </div>
+</section>
+</main>
+
+<main class="wrap" id="kejsy" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#praktiki">О компании</a><i>/</i><span>Кейсы</span></nav>
+
+<section id="kejsy-spisok" style="margin-top:32px">
+ <div class="sec-head rv"><div><span class="eyebrow">Кейсы внедрения ИИ</span><h2>18 проектов: что было на входе и что получилось на выходе</h2></div></div>
+ <p class="lead2 rv">ИИ-разработка продуктов, корпоративный ИИ и базы знаний, агенты в продажах, контент и маркетинг. В каждом кейсе — где работает нейросеть, где код и где решение остаётся за человеком.</p>
+ <div class="chips rv" id="cFlt">
+  <button class="chip" data-c="all" aria-pressed="true">Все · 18</button>
+  <button class="chip" data-c="korp" aria-pressed="false">Корпоративный ИИ и знания</button>
+  <button class="chip" data-c="sales" aria-pressed="false">Агенты в продажах</button>
+  <button class="chip" data-c="cont" aria-pressed="false">Контент и маркетинг</button>
+  <button class="chip" data-c="prod" aria-pressed="false">Продукты и сервисы</button>
+ </div>
+ <div class="cases">
+  <article class="cs rv" data-c="korp"><span class="cn">01</span><h3>Умный поиск по номенклатуре из 1С</h3><small>Каталог и поиск · локальная модель Qwen</small><p><b>Задача.</b> Товар должен находиться по тому, как его называют на объекте, а не только по названию в учётной системе.</p><p><b>Как устроено.</b> Локальная модель придумывает каждой позиции 8–12 поисковых фраз и определяет бренд, а код чистит результат: убирает рекламные слова, дубли и бренды, которых нет в справочнике. Каталог не уходит во внешние сервисы.</p><p class="res">Каждая позиция автоматически получает поисковые фразы и проверенный бренд. Модель отвечает за смысл, код — за чистоту данных.</p><a class="cs-more" href="#kejs-01">Подробнее →</a></article>
+  <article class="cs rv" data-c="prod"><span class="cn">02</span><h3>MVP платформы «Инженеры России» с ИИ-агентом</h3><small>ИИ-разработка в Cursor · 20 модулей</small><p><b>Задача.</b> Быстро собрать рабочий MVP силами ИИ-агента, чтобы код соответствовал требованиям и был покрыт тестами.</p><p><b>Как сделали.</b> Сначала описали продукт в документации, и она стала для ИИ единственным источником требований. Каждую функцию делали целиком: база данных, API, интерфейс, тесты.</p><p class="res">Рабочий MVP из 20 модулей с ролями, модерацией и админкой. Правки заказчика ИИ отработал за 58 часов, результат подтвердили тесты.</p><a class="cs-more" href="#kejs-02">Подробнее →</a></article>
+  <article class="cs rv" data-c="prod"><span class="cn">03</span><h3>Персональная детская книга по анкете и фото</h3><small>Генеративный продукт · от анкеты до PDF</small><p><b>Задача.</b> Создавать книгу, где ребёнок и его близкие — главные герои.</p><p><b>Как устроено.</b> Одна модель пишет сюжет и проверяет, что текст безопасен и подходит по возрасту, другая делит историю на сцены, третьи рисуют иллюстрации по фото.</p><p class="res">Из анкеты и фотографий автоматически собирается PDF для печати с узнаваемыми героями.</p><a class="cs-more" href="#kejs-03">Подробнее →</a></article>
+  <article class="cs rv" data-c="prod"><span class="cn">04</span><h3>«Стройхронометраж»: от требований до RuStore</h3><small>Стройка · Android-приложение</small><p><b>Задача.</b> Автоматизировать работу специалиста, который замеряет процессы на стройке, чтобы компания меньше теряла на простоях.</p><p><b>Как сделали.</b> С помощью ИИ собрали требования из того, как заказчик работает на объекте, сделали прототип и довели его до рабочей версии.</p><p class="res">Специалист пользуется приложением каждый день. Его опубликовали в RuStore, появились первые покупки.</p><a class="cs-more" href="#kejs-04">Подробнее →</a></article>
+  <article class="cs rv" data-c="korp"><span class="cn">05</span><h3>Корпоративная память для команды разработки</h3><small>Demlabs (Cellframe) · около 20 сотрудников</small><p><b>Задача.</b> Сделать документацию, решения и историю задач контекстом для ИИ-агентов разработчиков.</p><p><b>Как сделали.</b> Спроектировали базу знаний: разделы, правила, владельцы, что можно отдавать модели. Агенты, в том числе на локальных моделях, обращаются к ней через MCP.</p><p class="res">Модели опираются на документацию, а не на догадки. По нашей оценке, продуктивность разработки выросла примерно втрое.</p><a class="cs-more" href="#kejs-05">Подробнее →</a></article>
+  <article class="cs rv" data-c="korp"><span class="cn">06</span><h3>Корпоративный ИИ-портал вместо личных подписок</h3><small>Маркетинговое агентство · вся команда</small><p><b>Было.</b> У каждого сотрудника свой аккаунт, свой ключ и своя история переписки.</p><p><b>Сделали.</b> Единый портал с несколькими моделями и веб-поиском, корпоративной базой знаний, ролями и доступами, готовыми подсказками и памяткой для новичков.</p><p class="res">Рабочие переписки не уходят в личные аккаунты. Доступы, журналы, стоимость запросов и приватность под контролем.</p><a class="cs-more" href="#kejs-06">Подробнее →</a></article>
+  <article class="cs rv" data-c="korp"><span class="cn">07</span><h3>ИИ-сотрудники и агентные команды</h3><small>Для предпринимателей и команд · Telegram, CRM</small><p><b>Задача.</b> Руководитель раздавал мелкие задачи подрядчикам вручную, и они копились в очереди.</p><p><b>Сделали.</b> Цифровых сотрудников с памятью проекта и журналом действий: бизнес-ассистента, разработчика сайтов, дизайнера, монтажёра. Они общаются через Telegram и сдают отчёты по расписанию.</p><p class="res">Очередь мелких задач исчезла, подрядчики остались на крупной работе. Агент не платит, не подписывает документы и не пишет клиентам от имени компании.</p><a class="cs-more" href="#kejs-07">Подробнее →</a></article>
+  <article class="cs rv" data-c="cont"><span class="cn">08</span><h3>Цифровая команда агентства из 12 ролей</h3><small>Мультиагентная система · контент и продажи</small><p><b>Что это.</b> Координатор и 11 агентов: HR, журналист, редактор, критик, тендеры, продажи, SEO, видео и другие. У каждой роли свои инструменты и человек, который утверждает результат.</p><p class="res">Публикации идут по цепочке «автор → редактор → утверждение владельцем». Ни одна роль не может опубликовать материал сама.</p><a class="cs-more" href="#kejs-08">Подробнее →</a></article>
+  <article class="cs rv" data-c="sales"><span class="cn">09</span><h3>ИИ-помощник отдела продаж в Битрикс24</h3><small>Продажи · Битрикс24</small><p><b>Что это.</b> Помощник, встроенный в Битрикс24: анализирует сделки, контролирует задачи, находит риски, советует следующий шаг и готовит коммерческие предложения.</p><a class="cs-more" href="#kejs-09">Подробнее →</a></article>
+  <article class="cs rv" data-c="sales"><span class="cn">10</span><h3>Тендерный и PR-скаутинг</h3><small>Поиск возможностей для бизнеса</small><p><b>Что это.</b> Агент сам ищет тендеры и проверяет, подходят ли они под профиль компании, следит за запросами журналистов на Pressfeed.</p><p class="res">Уведомления приходят только о подходящих возможностях.</p><a class="cs-more" href="#kejs-10">Подробнее →</a></article>
+  <article class="cs rv" data-c="sales"><span class="cn">11</span><h3>ИИ-скаут клиентов для налоговых юристов</h3><small>Лидогенерация · человек в контуре</small><p><b>Задача.</b> Находить компании, которым нужна помощь по налогам, и готовить менеджеру всё для первого касания.</p><p><b>Как устроено.</b> Скаут ищет в открытых данных — арбитраж, ФССП, ФНС — и в чатах предпринимателей. Модель оценивает готовность клиента от 0 до 100, карточки от 85 баллов попадают в «Самые горячие».</p><p class="res">Менеджер получает карточку клиента с причиной обращения и сценарием звонка. Система работает на сервере заказчика и сама клиентам не пишет.</p><a class="cs-more" href="#kejs-11">Подробнее →</a></article>
+  <article class="cs rv" data-c="sales"><span class="cn">12</span><h3>Досье для переговоров</h3><small>Прототип для клиента, работающего с инвестором</small><p><b>Что это.</b> Около 20 ИИ-агентов собирают сведения о компаниях и людях перед переговорами и перепроверяют друг друга по принципу суда присяжных.</p><a class="cs-more" href="#kejs-12">Подробнее →</a></article>
+  <article class="cs rv dk" data-c="cont"><span class="cn">13</span><h3>SEO/GEO-конвейер контента</h3><small>Интабия Платформа (B2B SaaS) · русский и английский</small><p><b>Было.</b> Статья выходила, когда у редактора находилось время.</p><p><b>Как устроено.</b> Контент-план по кластерам, бриф, черновик с контекстом бизнеса, фактчекинг и редактура, публикация по расписанию. Тексты пишутся под поиск и под ответы нейросетей. Фактуру ИИ не придумывает, а берёт из материалов клиента.</p><p class="res">За 4 месяца вместе с технической оптимизацией: 55 статей, 6 посадочных страниц, около 60 запросов в топ-10, трафик из поиска вырос с 20 до 420 визитов в месяц.</p><a class="cs-more" href="#kejs-13">Подробнее →</a></article>
+  <article class="cs rv" data-c="cont"><span class="cn">14</span><h3>Редакция NodeTimes на агентах</h3><small>Медиа · полный редакционный цикл</small><p><b>Что это.</b> 15+ агентов — исследователь, журналист, редактор, фактчекер, издатель — ведут цикл от исследования до публикации с контролем качества на каждом этапе.</p><a class="cs-more" href="#kejs-14">Подробнее →</a></article>
+  <article class="cs rv" data-c="cont"><span class="cn">15</span><h3>Видеоконвейер коротких роликов</h3><small>Видео 5–30 секунд</small><p><b>Было.</b> Каждый ролик требовал отдельной съёмки и монтажа.</p><p><b>Как устроено.</b> Из текстов и фото заказчика конвейер собирает вертикальный ролик: сценарий, визуал, озвучка клонированным голосом, субтитры, контроль качества.</p><p class="res">Несколько десятков роликов за несколько месяцев без съёмок. 15 секунд видео — около 20 ₽ на генерацию.</p><a class="cs-more" href="#kejs-15">Подробнее →</a></article>
+  <article class="cs rv" data-c="prod"><span class="cn">16</span><h3>EchoExpert: персональные ИИ-эксперты</h3><small>SaaS · Telegram, сайт, платежи</small><p><b>Что это.</b> Эксперт загружает свои материалы и получает ассистента, который отвечает по его логике и в его стиле.</p><p class="res">От идеи до запуска — около трёх недель разработки без традиционной команды.</p><a class="cs-more" href="#kejs-16">Подробнее →</a></article>
+  <article class="cs rv" data-c="prod"><span class="cn">17</span><h3>Buddy: ИИ-помощник программы «Осознанное счастье»</h3><small>Персональный ассистент в Telegram</small><p><b>Что это.</b> Помощник психолога и участников: цели, дневник текстом и голосом, чек-ины, ответы по материалам курса.</p><p class="res">Главное требование — приватность: дневник уходит в модель только с согласия человека.</p><a class="cs-more" href="#kejs-17">Подробнее →</a></article>
+  <article class="cs rv" data-c="prod"><span class="cn">18</span><h3>Платформа Клуба ИИ Практики</h3><small>Сообщество практиков ИИ</small><p><b>Что это.</b> Собственный движок: личные кабинеты, библиотека материалов и мероприятий, медиахранилище, подписки, Telegram-бот и ИИ-помощник.</p><p class="res"><a href="#klub">Клуб ИИ Практики →</a></p><a class="cs-more" href="#kejs-18">Подробнее →</a></article>
+ </div>
+</section>
+
+<section id="kejsy-cta" style="margin-bottom:24px">
+ <div class="cta rv">
+  <div><span class="eyebrow" style="color:#a8a8a8">Ваша задача</span><h2>Обсудить похожий проект</h2><p class="k-lede">Расскажите о процессе — скажем, какой из кейсов ближе и с чего начать.</p></div>
+  <div style="align-self:end"><a class="btn btn-r" style="width:100%" href="#vopros">Задать вопрос по ИИ →</a></div>
+ </div>
+</section>
+</main>
+<main class="wrap" id="kejs" hidden>
+
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="#top">Главная</a><i>/</i><a href="#kejsy">Кейсы</a><i>/</i><span id="kjCrumb"></span></nav>
+
+<div id="kjBody"></div>
+
+<section id="kejs-cta" style="margin-bottom:24px">
+ <div class="cta">
+  <div><span class="eyebrow" style="color:#a8a8a8">Ваша задача</span><h2>Нужно похожее решение?</h2><p class="k-lede">Расскажите о процессе — разберём, что в нём отдать ИИ, а что оставить людям, и с чего начать.</p></div>
+  <div style="align-self:end;display:grid;gap:8px"><a class="btn btn-r" style="width:100%" href="#vopros">Задать вопрос по ИИ →</a><a class="btn btn-o" style="width:100%" href="#kejsy">Все кейсы</a></div>
  </div>
 </section>
 </main>
@@ -1069,7 +1412,7 @@ button{font-size:inherit}
    <div><h4>Обучение</h4><a href="#klub">Для себя: работа с нейросетями</a><a href="#kurs">Руководителям и топ-менеджерам</a><a href="#">Сотрудникам компаний <small>скоро</small></a></div>
    <div><h4>Решения</h4><a href="#">ИИ-агенты</a><a href="#">Голосовые агенты</a><a href="#">ИИ-ассистенты</a><a href="#">Чат-боты</a><a href="#">База знаний</a><a href="#">Обработка документов</a><a href="#">Автоматизация процессов</a><a href="#">Корпоративный ИИ</a><a href="#">Интеграции с 1С и Битрикс24</a></div>
    <div><h4>Отделы и отрасли</h4><a href="#">Решения по отделам</a><a href="#">Решения по отраслям</a><a href="#resheniya-prodazhi">Продажи</a><a href="#">Маркетинг</a><a href="#resheniya-hr">HR</a><a href="#resheniya-buhgalteriya">Бухгалтерия и финансы</a><a href="#">Производство</a><a href="#">Медицина</a><a href="#">Строительство</a></div>
-   <div><h4>Компания</h4><a href="#">Исследовательский центр</a><a href="#">Команда</a><a href="#">Кейсы</a><a href="#krona">Профильный ИИ-стол</a><a href="#">Блог</a><a href="#">Безопасность данных</a><a href="#">Стоимость</a><a href="#">Контакты</a></div>
+   <div><h4>Компания</h4><a href="#">Исследовательский центр</a><a href="#">Команда</a><a href="#kejsy">Кейсы</a><a href="#stol">ИИ-стол «Бизнес и AI-технологии»</a><a href="#dni">Дни ИИ</a><a href="#">Блог</a><a href="#">Безопасность данных</a><a href="#">Стоимость</a><a href="#">Контакты</a></div>
   </div>
   <div class="fbot"><span>© Тет-а-тет AI · Новосибирск, ул. Ленина, 4</span><span><a href="#">Политика обработки персональных данных</a> · <a href="#">Telegram-канал</a></span></div>
  </div>
@@ -1079,16 +1422,15 @@ button{font-size:inherit}
 <script>
 document.documentElement.classList.add('js');
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-// [отдел, ИИ сам (2), ИИ готовит (2), человек (2)] — как в v5
+// [отдел, ИИ сам (2), ИИ готовит (2), человек (2), кейс] — по кейсам из «Кейсы внедрения ИИ · Тет-а-тет AI» (октябрь 2026)
 const D=[
- ['Продажи',['Расшифровка звонка и протокол','Заполнение карточки сделки в CRM'],['Черновик коммерческого предложения','Сводка по клиенту перед встречей'],['Переговоры о цене','Решение о скидке']],
- ['Юристы',['Сверка договора с чек-листом компании','Поиск похожих договоров в архиве'],['Черновик договора, который подписывает юрист','Список рисков по договору'],['Позиция в споре','Подпись договора']],
- ['HR',['Первичный отбор резюме по требованиям','Ответы новичкам по регламентам'],['Черновик текста вакансии','Вопросы для собеседования'],['Собеседование','Решение о найме']],
- ['Бухгалтерия',['Распознавание первичных документов','Сверка документов с 1С'],['Черновик отчёта для руководителя','Список расхождений для проверки'],['Решение по спорным операциям','Подпись отчётности']],
- ['Руководитель',['Расшифровка встречи и протокол','Сводка по исполнению поручений'],['Черновик письма партнёру','Сравнение предложений подрядчиков'],['Переговоры','Решения о стратегии и людях']]
+ ['Продажи',['Поиск компаний с подтверждённой потребностью в открытых данных','Скоринг готовности клиента от 0 до 100'],['Карточка клиента и сценарий первого звонка','Анализ сделки в Битрикс24, риски и черновик КП'],['Первое касание: звонит и пишет менеджер, без рассылок','Переговоры, цена и скидка'],'ИИ-скаут клиентов для налоговых юристов и ИИ-помощник отдела продаж в Битрикс24. Система работает на сервере заказчика и сама клиентам не пишет.','#kejs-11'],
+ ['Маркетинг и SEO',['Контент-план по кластерам, бриф и структура статьи','Публикация на сайте по календарю'],['Черновик статьи из фактуры и базы знаний компании','Короткий ролик: сценарий, озвучка, субтитры'],['Фактура: ИИ её не придумывает','Редактура и утверждение публикации'],'SEO/GEO-конвейер контента для B2B SaaS: за 4 месяца 55 статей, около 60 запросов в топ-10, трафик из поиска вырос с 20 до 420 визитов в месяц.','#kejs-13'],
+ ['Руководитель',['Мелкие задачи по ролям: ассистент, дизайнер, монтажёр','Отчёты о выполненной работе по расписанию'],['Досье на компанию и людей перед переговорами','Задачи для подрядчиков с контекстом проекта'],['Платежи, подписи и письма клиентам от имени компании','Решения о стратегии и людях'],'ИИ-сотрудники с памятью проекта: очередь мелких задач исчезла, подрядчики остались на крупной работе. Агент не платит, не подписывает документы и не пишет клиентам — это записано в его инструкции.','#kejs-07'],
+ ['Знания и разработка',['Ответы по внутренней документации и принятым решениям','Поисковые алиасы и бренд для номенклатуры из 1С'],['Код по документации проекта с тестами','Обработка данных на локальной модели без выхода наружу'],['Правила базы знаний: что можно отдавать модели','Роли и доступы к данным'],'Корпоративная память для команды разработки из 20 человек: агенты опираются на документацию, а не на догадки, продуктивность выросла примерно втрое.','#kejs-05']
 ];
-// ссылки на разделы «Решения → По отделам» для каждой вкладки (заменить href на реальные адреса страниц)
-const DL=[['Решения ИИ для отдела продаж','#resheniya-prodazhi'],['Решения ИИ для юристов','#resheniya-yuristy'],['Решения ИИ для HR','#resheniya-hr'],['Решения ИИ для бухгалтерии и финансов','#resheniya-buhgalteriya'],['Решения ИИ для руководителя','#resheniya-rukovoditelyu']];
+// ссылки на разделы «Решения» для каждой вкладки (заменить href на реальные адреса страниц)
+const DL=[['Решения ИИ для отдела продаж','#resheniya-prodazhi'],['Решения ИИ для маркетинга','#'],['Решения ИИ для руководителя','#resheniya-rukovoditelyu'],['База знаний и корпоративный ИИ','#']];
 const ZN=['ИИ делает сам','ИИ готовит, человек проверяет и решает','Делает человек'];
 // вкладки отделов + зоны
 const tabs=$('#dTabs'),zones=$('#zones');
@@ -1096,6 +1438,7 @@ function showDept(i){
   $$('.chip',tabs).forEach((c,j)=>c.setAttribute('aria-pressed',i===j));
   const dl=$('#dLink');if(dl){dl.textContent=DL[i][0]+' →';dl.href=DL[i][1]}
   zones.innerHTML=ZN.map((n,k)=>`<div class="zone"><span class="n">0${k+1}</span><h3>${n}</h3><ul>${D[i][k+1].map(t=>`<li>${t}</li>`).join('')}</ul></div>`).join('');
+  $('#dCase').innerHTML=`<b>Из внедрения</b><span>${D[i][4]}</span><a class="lk" href="${D[i][5]}">Подробнее о кейсе →</a>`;
 }
 D.forEach((d,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=d[0];b.onclick=()=>showDept(i);tabs.append(b)});
 showDept(0);
@@ -1116,11 +1459,32 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches)$$('.w',tg).forEach(w=
 else{const wio=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting||e.boundingClientRect.top<0)),{rootMargin:'0px 0px -35% 0px'});$$('.w',tg).forEach(w=>wio.observe(w))}
 // три входа «Для компании / руководителя / себя» ведут к блоку «Направления»
 $$('#aud button').forEach(b=>b.onclick=()=>$('#uslugi').scrollIntoView({behavior:'smooth'}));
-// спикеры: 8 карточек + ещё 8
-const spk=$('#spk');
-for(let i=0;i<16;i++){const m=i%4===3;const e=document.createElement('div');e.className='sp';if(i>7)e.hidden=true;
-  e.innerHTML=`<div class="pimg">Фото спикера</div><em class="${m?'mentor':''}">${m?'Наставник курса':'Спикер Дней ИИ'}</em><b class="ph">[Имя Фамилия]</b><span class="ph">[Должность, компания]</span>`;spk.append(e)}
-$('#spBtn').onclick=()=>{$$('.sp[hidden]',spk).forEach(e=>e.hidden=false);$('#spMore').remove()};
+// спикеры прошлых Дней ИИ (фото пока берутся с ai.tetatet.pro — перед запуском перенести на свой сервер)
+const SPK=[
+ ['Андрей Ведерников','Основатель компании «Тендерград»','Vedernikov_Andrey','ИИ в бизнесе: с чего начать'],
+ ['Дмитрий Федорченко','Владелец IT-компании TURAN','Fedorchenko_Dmitriy','Разбор задач с использованием ИИ'],
+ ['Угур Акчай','METISONE — облачные решения для автоматизации бизнеса','Akchay_Ugur','ИИ как конкурентное преимущество'],
+ ['Кирилл Ветохин','Совладелец IT-компании «Мангуст», GVS Wood','Vetokhin_Kirill','ИИ в промышленности'],
+ ['Светлана Келлерман','Ментор личных брендов, PR-стратег, коуч','Kellerman_Svetlana','Личный бренд и ИИ'],
+ ['Анастасия Скирдо','Основатель компании Marketing Orchestra','Skirdo_Anastasiya','ИИ в маркетинге и брендинге'],
+ ['Иван Лещинский','Основатель «Новонефтехим», INDEQ, РАИС','Leshchinskiy_Ivan','Разбор бизнес-кейсов'],
+ ['Александр Галахов','Совладелец агентства путешествий «1001 тур»','Galakhov_Aleksandr','AI-агенты в бизнесе'],
+ ['Сергей Дымовский','Основатель агентства Marketing Group','Dymovskiy_Sergey','Контент без производства'],
+ ['Андрей Храпов','Серийный предприниматель, эксперт по брендингу','Khrapov_Andrey',''],
+ ['Антон Новгородцев','Руководитель Тет-а-тет AI','Novgorodtsev_Anton',''],
+ ['Тимофей Макаров','Основатель performance-агентства What-Else','Makarov_Timofey',''],
+ ['Евгений Муренко','Основатель компании «Книгодар»','Murenko_Evgeniy',''],
+ ['Дмитрий Бондаренко','Собственник IT-компании аренды серверов','Bondarenko_Dmitriy',''],
+ ['Семён Глушков','Создатель digital-проектов','Glushkov_Semen',''],
+ ['Александр Трибунский','Основатель консалтинга SNTL','Tribunskiy_Aleksandr','']
+];
+function renderSpk(box,btn,more,withTopic){
+  SPK.forEach((s,i)=>{const e=document.createElement('div');e.className='sp';if(i>7)e.hidden=true;
+    e.innerHTML=`<div class="pimg ph-img"><img src="https://ai.tetatet.pro/assets/speakers/${s[2]}.png?v=2" alt="${s[0]}" loading="lazy" onerror="this.parentNode.classList.remove('ph-img');this.replaceWith('Фото спикера')"></div><em>Спикер Дней ИИ</em><b>${s[0]}</b><span>${s[1]}</span>${withTopic&&s[3]?`<span class="topic">${s[3]}</span>`:''}`;box.append(e)});
+  btn.onclick=()=>{$$('.sp[hidden]',box).forEach(e=>e.hidden=false);more.remove()};
+}
+renderSpk($('#spk'),$('#spBtn'),$('#spMore'),false);
+renderSpk($('#dniSpk'),$('#dniBtn'),$('#dniMore'),true);
 // форма
 const ph=['Например, где в отделе продаж ИИ окупится первым','Например, как руководителю проверять работу ИИ','Например, какую нейросеть выбрать для работы с текстами'];
 $$('#who .chip').forEach((c,i)=>c.onclick=()=>{$$('#who .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));$('#q').placeholder=ph[i]});
@@ -1129,11 +1493,51 @@ $('#f').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.08});
 $$('.rv').forEach(el=>io.observe(el));
 
-// страницы: главная, «Клуб ИИ Практики» (#klub…) и курс для предпринимателей (#kurs…)
-const PG={home:$('#top'),klub:$('#klub'),kurs:$('#kurs')};let cur=null;
-const TITLES={home:document.title,klub:'Клуб ИИ Практики — закрытое сообщество практиков ИИ | Тет-а-тет AI',kurs:'ИИ-система предпринимателя — обучение для собственников | Тет-а-тет AI'};
-const CTA={home:'#vopros',klub:'#klub-tarify',kurs:'#kurs-zayavka'};
-const pageOf=id=>/^klub($|-)/.test(id)?'klub':/^kurs($|-)/.test(id)?'kurs':'home';
+const KS=[{"n": "01", "c": "korp", "t": "Умный поиск по номенклатуре из 1С", "cl": "Каталог и поиск", "f": "Локальная модель Qwen3.5-9B на сервере компании", "s": "Локальная модель обогащает каталог из 1С поисковыми фразами и брендами, а код следит за чистотой данных.", "tags": ["1С", "локальная LLM", "Qwen", "умный поиск", "обогащение данных"], "task": "Сделать умный поиск по номенклатуре из 1С: товар должен находиться по тому, как его называют на объекте, а не только по точному наименованию в учётной системе.", "how": [["Каталог не уходит наружу", "Позиции номенклатуры подтягиваются из 1С и обрабатываются локальной моделью. Во внешние ИИ-сервисы каталог не попадает."], ["Поисковые фразы", "По названию, артикулу, бренду и виду номенклатуры модель предлагает 8–12 коротких фраз — например, «отвод», «колено», «40 мм». Ответ приходит в JSON, дальше работает код: отсекает рекламные слова вроде «купить» и «цена», убирает дубли и оставляет не больше 12 фраз."], ["Бренд по справочнику", "Бренд берётся из пути папок группы в 1С и сверяется со списком известных брендов. Если там его нет, вопрос уходит модели, но её ответ принимается только при совпадении со списком."], ["Фоновая обработка", "Синхронизация идёт по расписанию, запросы к модели выполняются по одному."]], "roles": [["Модель", ["Предлагает поисковые фразы по смыслу позиции", "Подсказывает бренд, если его нет в пути папок"]], ["Код", ["Отсекает рекламные слова и дубли", "Оставляет не больше 12 фраз", "Принимает бренд только из справочника"]]], "res": "Каждая позиция каталога автоматически получает поисковые фразы и бренд, сверенный со справочником. Модель отвечает за смысл, код — за чистоту данных: в каталог не попадают рекламный мусор, дубли и выдуманные бренды.", "m": [["8–12", "поисковых фраз на каждую позицию"], ["1С", "источник номенклатуры"], ["Локально", "каталог не уходит во внешние сервисы"]]}, {"n": "02", "c": "prod", "t": "MVP платформы «Инженеры России» с ИИ-агентом", "cl": "Платформа «Инженеры России»", "f": "ИИ-разработка в Cursor по принципу «документация → код»", "s": "Рабочий MVP из 20 модулей, собранный ИИ-агентом по документации и покрытый тестами.", "tags": ["ИИ-разработка", "Cursor", "pytest", "S3", "Coolify"], "task": "В короткий срок собрать рабочий MVP платформы силами ИИ-агента так, чтобы код соответствовал требованиям и был покрыт тестами.", "how": [["ТЗ как источник истины", "Продукт сначала описали в документации: границы проекта, роли, модель данных и API, экраны, дизайн-систему, журнал решений. ИИ получил эти документы как единственный источник требований."], ["Вертикальные срезы", "Каждую функцию делали целиком: база данных → API → интерфейс → тесты → документация. Порядок: авторизация, компании, задачи, эксперты, события, материалы, модерация."], ["Шаблонные промпты", "Отдельные промпты на постановку задачи, проверку соответствия ТЗ, написание тестов и проверку безопасности."], ["Итерации по правкам", "Список правок заказчика ИИ отработал за 58 часов. Результат подтверждали тесты на сервере и во фронтенде."]], "roles": [["ИИ-агент", ["Пишет код по документации", "Пишет тесты и проверяет соответствие ТЗ", "Отрабатывает правки заказчика"]], ["Команда", ["Описывает продукт в документации", "Задаёт порядок функций", "Принимает результат по тестам"]]], "res": "Рабочий MVP за короткий срок: 20 модулей, роли, модерация, админка, файлы в S3, автодеплой. Дальше продукт оперативно дорабатывали по правкам заказчика.", "m": [["20", "модулей в MVP"], ["58 ч", "на список правок заказчика"], ["7", "блоков функций — от авторизации до модерации"]]}, {"n": "03", "c": "prod", "t": "Персональная детская книга по анкете и фото", "cl": "Генеративный продукт", "f": "От анкеты до PDF для печати", "s": "Из анкеты и семейных фотографий автоматически собирается книга, где ребёнок и его близкие — главные герои.", "tags": ["генеративный ИИ", "Claude", "GPT", "генерация изображений", "Celery"], "task": "Создавать готовую книгу, в которой ребёнок и его близкие — главные герои.", "inp": "Имя и возраст ребёнка, черты характера, хобби, главная идея, жанр и стиль иллюстраций, фотографии ребёнка и близких.", "how": [["Сюжет и проверка", "Claude составляет план сюжета, пишет главы и метаданные книги. Он же проверяет результат: текст должен быть безопасным и подходить ребёнку по возрасту."], ["Сцены", "GPT разбивает историю на сцены для иллюстраций."], ["Иллюстрации", "Модели генерации изображений рисуют в выбранном стиле. Фото служат референсом, поэтому герои узнаваемы."], ["Оркестрация", "Задачи распределены по моделям и пулу ключей, генерация идёт асинхронно через очередь, от сбоев защищает автоматический предохранитель."]], "res": "Из анкеты и фотографий автоматически собирается PDF, готовый к печати: текст, иллюстрации с узнаваемыми героями, проверка на безопасность для ребёнка.", "m": [["3", "вида моделей: текст, сцены, иллюстрации"], ["PDF", "на выходе — готов к печати"]]}, {"n": "04", "c": "prod", "t": "«Стройхронометраж»: от требований до продукта в RuStore", "cl": "Строительство", "f": "Android-приложение · RuStore", "s": "Приложение для специалиста по замерам на стройке прошло путь от требований до первых продаж.", "tags": ["стройка", "хронометраж", "ИИ в сборе требований", "Android", "RuStore"], "task": "Автоматизировать работу специалиста, который проводит замеры и аудит процессов на стройке. Его цель — оптимизировать работы так, чтобы строительная компания экономила: меньше простоев, больше планирования.", "how": [["Требования с помощью ИИ", "Вместе с заказчиком исследовали, как он выполняет замеры на объекте, и с помощью ИИ собрали из этого требования к приложению."], ["Прототип → продакшен", "Сделали прототип Android-приложения и довели его до рабочей версии, которой специалист пользуется каждый день."], ["Что умеет приложение", "Кнопка на каждую операцию, группировка операций в циклы, комментарии по ходу замера и отчёт сразу после него — для SMS, для Excel и с графиками, с отправкой в мессенджер, на почту или по SMS."], ["Выход на рынок", "Приложение опубликовали в RuStore, и у него появились первые покупки."]], "res": "Полный цикл в одном проекте: требования → прототип → продакшен → коммерция. Инструмент, сделанный под одного специалиста, стал самостоятельным продуктом.", "m": [["4", "этапа: требования, прототип, продакшен, продажи"], ["Каждый день", "приложением пользуется специалист"], ["RuStore", "первые покупки"]]}, {"n": "05", "c": "korp", "t": "Корпоративная память для команды разработки", "cl": "Demlabs (продукт Cellframe)", "f": "Команда около 20 сотрудников", "s": "База знаний, через которую ИИ-агенты разработчиков опираются на документацию и решения команды, а не на догадки.", "tags": ["база знаний", "Obsidian", "MCP", "локальные модели"], "task": "Обеспечить автономную разработку продукта подготовленными и доступными данными: документация, решения и история задач должны работать как контекст для ИИ.", "how": [["Проект базы знаний", "Разделы, правила именования, владельцы и правила, что можно отдавать модели."], ["Контур данных", "Сбор → подготовка → обработка → передача данных."], ["Единое хранилище", "Хранилище в Obsidian объединило документацию, заметки по проектам, решения и историю задач. Граф связей показывает, где знания пересекаются и где их не хватает."], ["Доступ для агентов", "ИИ-агенты разработчиков, в том числе на локальных моделях, обращаются к базе через MCP."]], "roles": [["ИИ-агенты", ["Берут контекст из базы знаний", "Работают в том числе на локальных моделях"]], ["Команда", ["Владельцы разделов отвечают за базу", "Правила определяют, что можно отдавать модели"]]], "res": "Модели опираются на внутреннюю документацию и принятые решения, а не на догадки. По нашей оценке, продуктивность разработки выросла примерно втрое. Система в работе.", "m": [["×3", "рост продуктивности разработки, по нашей оценке"], ["~20", "сотрудников в команде"]]}, {"n": "06", "c": "korp", "t": "Корпоративный ИИ-портал вместо личных подписок", "cl": "Маркетинговое агентство", "f": "Вся команда", "s": "Единое окно к нескольким моделям и базе знаний вместо личных аккаунтов сотрудников.", "tags": ["корпоративный ИИ", "Open WebUI", "RAG", "роли и доступы"], "before": "У каждого сотрудника свой аккаунт, свой ключ и своя история переписки.", "how": [["Единый вход", "Портал на Open WebUI даёт доступ к нескольким моделям и веб-поиску."], ["База знаний", "Корпоративная RAG-база знаний: модели отвечают по документам компании."], ["Роли и доступы", "Доступ к моделям и данным разграничен по ролям."], ["Подсказки и памятка", "Готовые подсказки и памятка для новых сотрудников о возможностях и ограничениях."]], "res": "Сотрудники не получают ключи и не переносят переписку в личные аккаунты. Доступы, журналы, стоимость запросов и приватность под контролем.", "m": [["1", "окно для всей команды"], ["0", "рабочих переписок в личных аккаунтах"]]}, {"n": "07", "c": "korp", "t": "ИИ-сотрудники и агентные команды", "cl": "Для предпринимателей и команд", "f": "Telegram · CRM · изолированные контуры", "s": "Цифровые сотрудники с памятью проекта забирают мелкие задачи, которые копились в очереди.", "tags": ["ИИ-агенты", "Hermes / OpenClaw", "Docker", "Telegram", "CRM"], "task": "Убрать необходимость заново объяснять задачу в каждом чате. Руководитель раздавал мелкие задачи подрядчикам вручную, и они копились в очереди.", "how": [["Роли", "Разработчик сайтов, бизнес-ассистент, монтажёр, дизайнер, а также маркетологи, рекрутеры и переводчики."], ["Память и журнал", "У каждого — память проекта, журнал действий и доступ к инструментам."], ["Изоляция", "Каждый работает в отдельном изолированном контуре."], ["Каналы и отчёты", "Общается через Telegram, подключён к CRM, работает по расписанию и сдаёт автоматические отчёты."]], "roles": [["ИИ-сотрудник", ["Берёт мелкие задачи своей роли", "Ведёт журнал действий", "Сдаёт отчёты по расписанию"]], ["Человек", ["Платит", "Подписывает документы", "Пишет клиентам от имени компании"]]], "res": "Мелкие задачи уходят ролям, очередь отложенных задач исчезает, подрядчики остаются на крупной работе. Агент не платит, не подписывает документы и не пишет клиентам от имени компании — это правило прописано в инструкции.", "m": [["7+", "ролей ИИ-сотрудников"], ["0", "мелких задач в очереди"]]}, {"n": "08", "c": "cont", "t": "Цифровая команда агентства из 12 ролей", "cl": "Маркетинговое агентство", "f": "Мультиагентная система", "s": "Координатор и 11 агентов работают как команда агентства, но публикацию утверждает человек.", "tags": ["мультиагентная система", "контент", "продажи", "журнал действий"], "what": "Координатор и 11 специализированных агентов: HR, публикация, журналист, главный редактор, сценарист, критик, тендеры, продажи и CRM, SEO, техподдержка сайтов, видео.", "how": [["Роли с ограниченными правами", "У каждой роли своя инструкция, свои инструменты и человек, который утверждает результат."], ["Конвейер публикаций", "Автор → редактор → утверждение владельцем → публикация."]], "roles": [["Агенты", ["Пишут, редактируют и критикуют материалы", "Ведут тендеры, продажи, SEO и видео"]], ["Человек", ["Утверждает результат каждой роли", "Даёт финальное разрешение на публикацию"]]], "res": "Ни одна роль не может опубликовать материал сама: каждая публикация проходит утверждение владельцем.", "m": [["12", "ролей: координатор и 11 агентов"]]}, {"n": "09", "c": "sales", "t": "ИИ-помощник отдела продаж в Битрикс24", "cl": "Отдел продаж", "f": "Встроен в Битрикс24", "s": "Помощник внутри CRM анализирует сделки, находит риски и готовит коммерческие предложения.", "tags": ["продажи", "Битрикс24", "анализ сделок", "генерация КП"], "what": "ИИ-помощник отдела продаж, встроенный в Битрикс24.", "how": [["Анализ сделок", "Анализирует сделки и контролирует задачи менеджеров."], ["Риски", "Выявляет риски по сделкам."], ["Следующий шаг", "Рекомендует менеджеру следующие действия."], ["КП", "Готовит коммерческие предложения."]], "res": "", "m": []}, {"n": "10", "c": "sales", "t": "Тендерный и PR-скаутинг", "cl": "Поиск возможностей для бизнеса", "f": "Мониторинг и уведомления", "s": "Агент ищет тендеры и запросы журналистов и присылает только подходящие.", "tags": ["тендеры", "PR", "мониторинг", "уведомления"], "how": [["Тендеры", "Агент сам ищет тендеры и квалифицирует их под профиль компании."], ["PR", "Следит за запросами журналистов на Pressfeed."], ["Уведомления", "Присылает уведомления только о релевантных возможностях."]], "res": "Уведомления приходят только о подходящих тендерах и запросах журналистов.", "m": []}, {"n": "11", "c": "sales", "t": "ИИ-скаут клиентов для налоговых юристов", "cl": "Юридические услуги по налогам", "f": "Лидогенерация · человек в контуре", "s": "Скаут находит компании с подтверждённой потребностью и готовит менеджеру всё для первого касания.", "tags": ["лидогенерация", "открытые данные", "скоринг LLM", "канбан", "человек в контуре"], "task": "Находить компании и предпринимателей, которым нужна юридическая помощь по налогам, и готовить менеджеру всё для первого касания.", "how": [["Открытые данные — основа", "Иски налоговых органов в арбитраже, взыскания ФССП, данные ФНС о задолженности и налоговой нагрузке, ЕГРЮЛ и ЕГРИП. Потребность подтверждена документально."], ["Горячие сигналы", "Telegram-чаты предпринимателей и бухгалтеров («пришло требование, что делать»), форумы вроде Клерк.ру, комментарии под экспертным контентом о налогах; во вторую очередь — ВКонтакте и TenChat."], ["Карточка клиента", "Контакт, соцсети, сфера деятельности и оборот, триггерное событие, краткий анализ ситуации и готовый сценарий звонка или текст сообщения под канал."], ["Скоринг и канбан", "Модель оценивает готовность клиента от 0 до 100, канбан-доска сама раскладывает карточки по стадиям, всё от 85 баллов попадает в «Самые горячие»."], ["Обратная связь", "Менеджер отмечает «целевой / не целевой» с причиной или просит дообогатить карточку."]], "roles": [["ИИ-скаут", ["Ищет компании в открытых данных и чатах", "Собирает карточку и сценарий звонка", "Оценивает готовность от 0 до 100"]], ["Человек", ["Звонит и пишет клиенту сам", "Отмечает «целевой / не целевой»", "Работает без массовых рассылок"]]], "res": "Менеджер получает готовую карточку с причиной обращения и сценарием первого касания. Система работает на сервере заказчика в РФ и сама клиентам не пишет: звонит и пишет человек — по конкретной ситуации компании.", "m": [["0–100", "скоринг готовности клиента"], ["85+", "баллов — стадия «Самые горячие»"], ["РФ", "система на сервере заказчика"]]}, {"n": "12", "c": "sales", "t": "Досье для переговоров", "cl": "Клиент, работающий с инвестором", "f": "Прототип", "s": "Около 20 агентов готовят проверенную информацию о компаниях и людях перед переговорами.", "tags": ["переговоры", "мультиагентная система", "проверка фактов"], "how": [["Сбор сведений", "Агенты собирают информацию о компаниях и людях перед переговорами."], ["Перекрёстная проверка", "Около 20 ИИ-агентов перепроверяют друг друга по принципу суда присяжных."]], "res": "Перед переговорами — проверенная информация о компаниях и людях. Статус проекта — прототип.", "m": [["~20", "ИИ-агентов перепроверяют друг друга"]]}, {"n": "13", "c": "cont", "t": "SEO/GEO-конвейер контента", "cl": "Интабия Платформа (B2B SaaS)", "f": "Русский и английский языки", "s": "Конвейер публикует статьи по календарю и выводит сайт в поиск и в ответы нейросетей.", "tags": ["SEO", "GEO / AEO", "WordPress", "контент-конвейер"], "before": "Статья выходила, когда у редактора находилось время.", "how": [["Контент-план", "План строится по кластерам поисковых запросов."], ["Бриф и черновик", "Структура и черновик с контекстом бизнеса. ИИ не придумывает фактуру, а собирает её из текстов, выступлений, фотографий и базы знаний клиента."], ["Фактчекинг и редактура", "Каждый материал проходит проверку фактов и редактуру."], ["Иллюстрации и публикация", "Иллюстрации и публикация в WordPress по расписанию."], ["Три вида поиска", "Тексты оптимизируются под классический поиск, ответы нейросетей (GEO) и быстрые ответы (AEO)."]], "res": "Вместо публикаций «когда найдётся время» — календарь. В проекте Интабия Платформы вместе с технической оптимизацией сайта за 4 месяца: 55 статей, 6 посадочных страниц, 18+ публикаций на Дзене, около 60 запросов в топ-10 и рост трафика из поиска с 20 до 420 визитов в месяц.", "m": [["55", "статей за 4 месяца"], ["~60", "запросов в топ-10"], ["20 → 420", "визитов из поиска в месяц"]]}, {"n": "14", "c": "cont", "t": "AI Newsroom: редакция NodeTimes на агентах", "cl": "NodeTimes", "f": "Медиа · полный редакционный цикл", "s": "Редакция из 15+ агентов ведёт материал от исследования до публикации.", "tags": ["медиа", "мультиагентная система", "фактчекинг"], "how": [["Редакция из агентов", "Исследователь, журналист, редактор, фактчекер, издатель — всего больше 15 агентов."], ["Полный цикл", "Исследование → материал → редактура → фактчекинг → публикация."], ["Контроль качества", "Проверки на разных этапах производства."]], "res": "Полный редакционный цикл ведут агенты, качество контролируется на каждом этапе.", "m": [["15+", "агентов в редакции"]]}, {"n": "15", "c": "cont", "t": "ИИ-видеоконвейер коротких роликов", "cl": "Видео 5–30 секунд", "f": "Вертикальные ролики без съёмок", "s": "Конвейер собирает короткие ролики из текстов и фото заказчика — без съёмок и монтажёра.", "tags": ["видео", "клонирование голоса", "локальный рендер"], "before": "Каждый ролик требовал отдельной съёмки и монтажа.", "how": [["Исходники", "Тексты, идеи и фотографии заказчика."], ["Конвейер", "Сценарий → раскадровка и визуал → озвучка → субтитры → инфографика → контроль качества."], ["Голос и персонаж", "Персонаж-маскот, клонирование голоса, удаление слов-паразитов."], ["Локальный рендер", "Финальная сборка ролика идёт на своём оборудовании."]], "res": "Несколько десятков роликов за несколько месяцев без съёмок. Генерация 15 секунд видео — около 20 ₽ в токенах; сценарий, субтитры и сборка считаются отдельно.", "m": [["~20 ₽", "за 15 секунд генерации"], ["Десятки", "роликов без съёмок"], ["5–30 с", "длина ролика"]]}, {"n": "16", "c": "prod", "t": "EchoExpert: платформа персональных ИИ-экспертов", "cl": "SaaS", "f": "Telegram · сайт · платежи", "s": "Эксперт загружает свои материалы и получает ассистента, который отвечает в его стиле.", "tags": ["SaaS", "RAG", "Telegram", "платежи"], "what": "Платформа, на которой эксперт получает ИИ-ассистента, отвечающего по его логике и в его стиле.", "how": [["База эксперта", "Эксперт загружает свои материалы."], ["Ассистент", "Отвечает по логике и в стиле эксперта."], ["Каналы", "Telegram-бот, виджеты для сайта, личные кабинеты, адаптивный интерфейс."], ["Монетизация", "Приём платежей."]], "res": "От идеи до запуска — около трёх недель чистой разработки, без традиционной команды разработчиков.", "m": [["~3 недели", "от идеи до запуска"]]}, {"n": "17", "c": "prod", "t": "Buddy: ИИ-помощник программы «Осознанное счастье»", "cl": "Программа «Осознанное счастье»", "f": "Персональный ассистент в Telegram", "s": "Помощник психолога и участников программы, у которого главное требование — приватность.", "tags": ["Telegram-бот", "голос", "приватность"], "what": "Помощник для психолога и участников программы: цели, дневник текстом и голосом, ежедневные чек-ины, напоминания, ответы по материалам курса.", "how": [["Личный контекст", "Помощник хранит индивидуальный контекст каждого участника."], ["Ответы по курсу", "Ответы строятся на учебных материалах, без чужих историй."], ["Приватность по умолчанию", "Дневник не уходит в модель — ИИ-анализ записей включается только с согласия человека."]], "roles": [["ИИ", ["Ведёт чек-ины и напоминания", "Отвечает по материалам курса"]], ["Человек", ["Решает, включать ли ИИ-анализ дневника", "Психолог ведёт программу"]]], "res": "Помощник работает у психолога и группы программы.", "m": []}, {"n": "18", "c": "prod", "t": "Платформа Клуба ИИ Практики", "cl": "Сообщество практиков ИИ", "f": "Веб-платформа · Telegram-бот", "s": "Собственная платформа закрытого сообщества: материалы, мероприятия, подписки и ИИ-помощник.", "tags": ["сообщество", "веб-платформа", "медиахранилище", "подписки", "Telegram-бот"], "what": "Закрытое сообщество предпринимателей, экспертов, маркетологов и разработчиков, которые внедряют ИИ в свою работу. Внутри — библиотека практических материалов, онлайн-встречи и закрытый чат.", "how": [["Собственный движок", "Личные кабинеты, публикация материалов и мероприятий."], ["Медиа и подписки", "Медиахранилище, сервис подписок и уведомлений."], ["Telegram и ИИ", "Telegram-бот и ИИ-помощник для участников."]], "res": "Живое сообщество практиков: участники приносят свои задачи и делятся результатами внедрений.", "m": [], "link": ["#klub", "Клуб ИИ Практики →"]}];
+// детальные страницы кейсов (#kejs-01 … #kejs-18): данные из «Кейсы внедрения ИИ · Тет-а-тет AI», октябрь 2026
+const CAT={korp:'Корпоративный ИИ и знания',sales:'Агенты в продажах',cont:'Контент и маркетинг',prod:'Продукты и сервисы'};
+function renderCase(id){
+  const n=(id.split('-')[1]||'01').padStart(2,'0');
+  const i=Math.max(0,KS.findIndex(k=>k.n===n)),c=KS[i];
+  const ph='<span class="ph">[уточнить]</span>';
+  const intro=[c.before&&['Было',c.before],c.task&&['Задача',c.task],c.inp&&['На входе',c.inp],c.what&&['Что это',c.what]].filter(Boolean);
+  const rel=KS.filter(k=>k.c===c.c&&k.n!==c.n).slice(0,3);
+  const prev=KS[(i+KS.length-1)%KS.length],next=KS[(i+1)%KS.length];
+  $('#kjCrumb').textContent=c.t;
+  document.title=c.t+' — кейс внедрения ИИ | Тет-а-тет AI';
+  $('#kjBody').innerHTML=`
+<div class="hero"><div class="hero-in">
+ <div class="hero-l"><div>
+  <div class="sup">Кейс ${c.n} · ${CAT[c.c]}</div>
+  <h1>${c.t}</h1>
+  <p class="lead">${c.s}</p>
+  <div class="k-tags kj-tags">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+ </div>
+ ${c.m.length?`<div class="proof">${c.m.map(x=>`<div class="fact"><b>${x[0]}</b>${x[1]}</div>`).join('')}</div>`:''}
+ </div>
+ <div class="schema">
+  <div class="top"><span>О проекте</span><span>${c.n} / ${KS.length}</span></div>
+  <dl class="kj-meta"><div><dt>Заказчик</dt><dd>${c.cl}</dd></div><div><dt>Формат</dt><dd>${c.f}</dd></div><div><dt>Направление</dt><dd>${CAT[c.c]}</dd></div><div><dt>Технологии</dt><dd>${c.tags.join(', ')}</dd></div></dl>
+ </div>
+</div></div>
+<section class="kj-sec"><div class="sec-head"><div><span class="eyebrow">01 — ${intro[0]?intro[0][0]:'Задача'}</span><h2>С чего начинали</h2></div></div>
+ <div class="kj-intro">${(intro.length?intro:[['Задача',ph]]).map(x=>`<div><span>${x[0]}</span><p>${x[1]}</p></div>`).join('')}</div></section>
+<section class="kj-sec"><div class="sec-head"><div><span class="eyebrow">02 — Как устроено</span><h2>Что сделали</h2></div></div>
+ <ol class="kj-steps">${c.how.map((h,k)=>`<li><span>${String(k+1).padStart(2,'0')}</span><b>${h[0]}</b><p>${h[1]}</p></li>`).join('')}</ol></section>
+${c.roles?`<section class="kj-sec"><div class="sec-head"><div><span class="eyebrow">03 — Разделение работы</span><h2>Что делает ИИ, а что остаётся за ${c.roles[1][0]==='Код'?'кодом':'человеком'}</h2></div></div>
+ <div class="zones kj-roles" style="grid-template-columns:repeat(${c.roles.length},1fr)">${c.roles.map((r,k)=>`<div class="zone"><span class="n">0${k+1}</span><h3>${r[0]}</h3><ul>${r[1].map(t=>`<li>${t}</li>`).join('')}</ul></div>`).join('')}</div></section>`:''}
+<section class="kj-sec"><div class="kj-res"><span class="eyebrow" style="color:#a8a8a8">${c.roles?'04':'03'} — Результат</span><p>${c.res||'Результаты в цифрах — '+ph}</p>
+ ${c.m.length?`<div class="stats">${c.m.map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join('')}</div>`:''}
+ ${c.link?`<a class="btn btn-w" href="${c.link[0]}">${c.link[1]}</a>`:''}</div></section>
+${rel.length?`<section class="kj-sec"><div class="sec-head"><div><span class="eyebrow">Ещё в направлении «${CAT[c.c]}»</span><h2>Похожие кейсы</h2></div><a class="lk" href="#kejsy">Все кейсы →</a></div>
+ <div class="cases">${rel.map(k=>`<a class="cs" href="#kejs-${k.n}"><span class="cn">${k.n}</span><h3>${k.t}</h3><small>${k.cl}</small><p>${k.s}</p><span class="cs-more">Подробнее →</span></a>`).join('')}</div></section>`:''}
+<nav class="kj-nav" aria-label="Другие кейсы"><a href="#kejs-${prev.n}"><small>← Предыдущий</small>${prev.t}</a><a href="#kejs-${next.n}"><small>Следующий →</small>${next.t}</a></nav>`;
+}
+// страницы: главная, «Клуб ИИ Практики» (#klub…), курс для предпринимателей (#kurs…), Дни ИИ (#dni…) и ИИ-стол (#stol…)
+const PG={home:$('#top'),klub:$('#klub'),kurs:$('#kurs'),dni:$('#dni'),stol:$('#stol'),kejsy:$('#kejsy'),kejs:$('#kejs')};let cur=null;
+const TITLES={home:document.title,klub:'Клуб ИИ Практики — закрытое сообщество практиков ИИ | Тет-а-тет AI',kurs:'ИИ-система предпринимателя — обучение для собственников | Тет-а-тет AI',dni:'Дни ИИ в бизнес-клубе KRONA — 4 дня практики внедрения ИИ | Тет-а-тет AI',stol:'ИИ-стол «Бизнес и AI-технологии» в бизнес-клубе KRONA | Тет-а-тет AI',kejsy:'Кейсы внедрения ИИ: 18 проектов | Тет-а-тет AI',kejs:'Кейс | Тет-а-тет AI'};
+const CTA={home:'#vopros',klub:'#klub-tarify',kurs:'#kurs-zayavka',dni:'#dni-forma',stol:'#stol-zayavka',kejsy:'#vopros',kejs:'#vopros'};
+const pageOf=id=>{for(const k of ['klub','kurs','dni','stol','kejsy','kejs'])if(new RegExp('^'+k+'($|-)').test(id))return k;return 'home'};
 function route(){
   const id=decodeURIComponent(location.hash.slice(1));
   const pg=pageOf(id);
@@ -1142,7 +1546,8 @@ function route(){
   document.body.dataset.page=pg;document.title=TITLES[pg];
   $('.sticky').href=CTA[pg];
   $('#hdr').classList.remove('nav-open');$('.burger').setAttribute('aria-expanded','false');
-  const t=id&&id!=='klub'&&id!=='kurs'&&id!=='top'?document.getElementById(id):null;
+  if(pg==='kejs'){renderCase(id);scrollTo({top:0,behavior:'instant'});return}
+  const t=id&&!(id in PG)&&id!=='top'?document.getElementById(id):null;
   if(t)t.scrollIntoView({behavior:changed?'instant':'smooth'});
   else if(changed)scrollTo({top:0,behavior:'instant'});
 }
@@ -1150,11 +1555,13 @@ addEventListener('hashchange',route);route();
 // ссылки-заглушки «#» не должны уводить со страницы
 document.addEventListener('click',e=>{if(e.target.closest('a[href="#"]'))e.preventDefault()});
 // тариф и форма заявки клуба
-$$('#kTar button').forEach(b=>b.onclick=()=>$$('#kTar button').forEach(x=>x.setAttribute('aria-pressed',x===b)));
 $('#kf').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
-// курс: заявка и фильтр программы
+// курс: заявка
 $('#kzf').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
-$$('#kFmt .chip').forEach(c=>c.onclick=()=>{$$('#kFmt .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));$$('.les').forEach(l=>l.hidden=c.dataset.f!=='all'&&l.dataset.fmt!==c.dataset.f)});
+// Дни ИИ и ИИ-стол: формы и переключатели
+$$('#cFlt .chip').forEach(c=>c.onclick=()=>{$$('#cFlt .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));$$('.cs').forEach(k=>k.hidden=c.dataset.c!=='all'&&k.dataset.c!==c.dataset.c)});
+$$('#dnf,#stf').forEach(f=>f.onsubmit=e=>{e.preventDefault();f.classList.add('sent')});
+$$('.wh[data-g]').forEach(g=>$$('.chip',g).forEach(c=>c.onclick=()=>$$('.chip',g).forEach(x=>x.setAttribute('aria-pressed',x===c))));
 </script>
 </body>
 </html>
